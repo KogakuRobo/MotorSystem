@@ -1,0 +1,16 @@
+-Itpldir
+-tDefaultBuild\rti_MotorSystem7.rti
+-q
+C:\Users\NEC-PCuser\Documents\WarkSpace\MotorSystem7\DefaultBuild\dbsct.obj
+C:\Users\NEC-PCuser\Documents\WarkSpace\MotorSystem7\DefaultBuild\intprg.obj
+C:\Users\NEC-PCuser\Documents\WarkSpace\MotorSystem7\DefaultBuild\resetprg.obj
+C:\Users\NEC-PCuser\Documents\WarkSpace\MotorSystem7\DefaultBuild\sbrk.obj
+C:\Users\NEC-PCuser\Documents\WarkSpace\MotorSystem7\DefaultBuild\vecttbl.obj
+C:\Users\NEC-PCuser\Documents\WarkSpace\MotorSystem7\DefaultBuild\lowlvl_E1.obj
+C:\Users\NEC-PCuser\Documents\WarkSpace\MotorSystem7\DefaultBuild\lowsrc.obj
+C:\Users\NEC-PCuser\Documents\WarkSpace\MotorSystem7\DefaultBuild\MotorSystem_Init.obj
+C:\Users\NEC-PCuser\Documents\WarkSpace\MotorSystem7\DefaultBuild\MotorSystem_Peripheral.obj
+C:\Users\NEC-PCuser\Documents\WarkSpace\MotorSystem7\DefaultBuild\MotorSystem7.obj
+C:\Users\NEC-PCuser\Documents\WarkSpace\MotorSystem7\DefaultBuild\MotorSystem_Motor.obj
+C:\Users\NEC-PCuser\Documents\WarkSpace\MotorSystem7\DefaultBuild\MotorSystem_System.obj
+-eC:\Users\NEC-PCuser\Documents\WarkSpace\MotorSystem7\DefaultBuild\MotorSystem7.lib
