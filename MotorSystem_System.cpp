@@ -21,21 +21,21 @@ void MotorSystem::SetMode(MotorSystem_Mode m)
 		GPT_ClockStop();
 		
 		MTU_ClockStop();
-		AllControlStop();
+		//AllControlStop();
 		Current_PID.SumReset();
 		Velocity_PID.SumReset();
 		SetDuty(0);
 	}
 	else if(IS_PAUSE(m)){
 		this->WDT_Stop();
-		AllControlStop();
+		//AllControlStop();
 		Current_PID.SumReset();
 		Velocity_PID.SumReset();
 		SetDuty(0);
 	}
 	else if(IS_ACTION(m)){
 		this->WDT_Start();
-		AllControlStart();
+		//AllControlStart();
 	}
 	
 	this->mode = m;
@@ -104,15 +104,15 @@ void MotorSystem::SetVoltage(float v)
 
 void MotorSystem::SetVelocity(float vel)
 {
-	if((vel < 4.0) && (vel > -4.0)){
-		SetMode(STOP);
-		AllControlStop();
-		Current_PID.SumReset();
-		Velocity_PID.SumReset();
-		SetDuty(0);
-		return;
-	}
-	else if((this->mode == STOP) || (this->mode == INITIALIZE)){
+	//if((vel < 4.0) && (vel > -4.0)){
+	//	SetMode(STOP);
+	//	AllControlStop();
+	//	Current_PID.SumReset();
+	//	Velocity_PID.SumReset();
+	//	SetDuty(0);
+	//	return;
+	//}
+	if((this->mode == STOP) || (this->mode == INITIALIZE)){
 		this->V_ref = vel;
 		SetMode(VELOCITY);
 	}

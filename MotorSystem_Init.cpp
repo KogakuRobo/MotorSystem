@@ -17,6 +17,18 @@ Velocity_PID	(2.2,		0.02,		0.0,		0.0002 )
 	this->mode = STOP;	//MotorSystemのモード
 	this->e_mode = NON_ERROR;	//エラー識別子
 	this->is_mode = END;		//イニシャライズのサブモード
+		
+//	定数設定
+	this->rpc = 3.1415 / 2.0 / 500 ;	//エンコーダ初期設定
+	this->Kt = MAXON_RE40_24V_Kt;		//トルク定数設定
+	this->Vcc = 24;				//電源電圧設定
+	
+	T_ref = 0;				
+	V_ref = 0;
+	Vo_ref = 0;
+	C_ref = 0;
+	current_offset = 0;
+	velocity = 0;
 	
 //	ハードウェア初期化
 	OSC_Init();			//クロック設定
@@ -26,19 +38,9 @@ Velocity_PID	(2.2,		0.02,		0.0,		0.0002 )
 	GPT_Init();			//汎用PWMタイマ設定
 	MTU_Init();			//MTU機能設定
 	ADC_Init();			//ADC設定
-	
-//	定数設定
-	this->rpc = 3.1415 / 2.0 / 500 ;	//エンコーダ初期設定
-	this->Kt = MAXON_RE40_24V_Kt;		//トルク定数設定
-	this->Vcc = 24;				//電源電圧設定
 
 //	初期化処理
 	SetDuty(0);				//出力　0
-	T_ref = 0;				
-	V_ref = 0;
-	Vo_ref = 0;
-	C_ref = 0;
-	current_offset = 0;
 	
 //CAN通信初期化
 	can_bus.SetMode(CANM_OPERATION);
@@ -69,14 +71,17 @@ Velocity_PID	(2.2,		0.02,		0.0,		0.0002 )
 
 void OSC_Init(void)
 {
-					//EXTAL = 12.5MHz
-	SYSTEM.SCKCR.BIT.ICK = 0;	//ICK = EXTAL * 8 = 100MHz
-	SYSTEM.SCKCR.BIT.PCK = 1;	//PCK = EXTAL * 4 =  50MHz
+	//EXTAL = 12.5MHz
+	
+	//システムクロック設定
+	//クロック設定を確実にするために確認書き込みをおこなう。
+	while(!(SYSTEM.SCKCR.BIT.ICK == 0))SYSTEM.SCKCR.BIT.ICK = 0;	//ICK = EXTAL * 8 = 100MHz
+	while(!(SYSTEM.SCKCR.BIT.PCK == 1))SYSTEM.SCKCR.BIT.PCK = 1;	//PCK = EXTAL * 4 =  50MHz
 }
 
 void WDT_Init(void)
 {
-	WDT.WRITE.WINB = 0x5A5F;	//WDT設定
+	WDT.WRITE.WINB = 0x5A5F;	//WDT設定 WDT.RSTCSR = 5F,
 	/*
 	
 	
@@ -141,14 +146,14 @@ void MTU0_1_Init(void)
 	
 	MTU0.TIORH.BIT.IOB = 0xf;
 	
-	IPR(MTU0,TGIA0) = 13;
+	IPR(MTU0,TGIA0) = 15;
 	IEN(MTU0,TGIA0) = 1;
 	
-	IPR(MTU0,TGIC0) = 13;
+	IPR(MTU0,TGIC0) = 15;
 	IEN(MTU0,TGIC0) = 1;
 	
-	//MTU0.TIER.BIT.TGIEA = 1;
-	//MTU0.TIER.BIT.TGIEC = 1;
+	MTU0.TIER.BIT.TGIEA = 1;
+	MTU0.TIER.BIT.TGIEC = 1;
 	
 	MTU1.TMDR1.BYTE = 0x04;
 	MTU1.TCNT = 0;

@@ -68,6 +68,9 @@ void main(void)
 			break;
 			
 		case WAIT_MODE:
+			
+	//while(MTU0.TSR.BIT.TGFC)MTU0.TSR.BIT.TGFC=0;
+	//IR(MTU0,TGIC0) = 0;
 			//float in=0;
 			//printf("Duty ?");
 			//scanf("%f",&in);
@@ -110,9 +113,9 @@ void InitMotorSystem(MotorSystem *hw)
 	
 	
 	
-	hw->Velocity_PID.SetPGain(0.1);
+	hw->Velocity_PID.SetPGain(0.10);
 	hw->Velocity_PID.SetIGain(0.01);
-	hw->Velocity_PID.SetDGain(0);
+	hw->Velocity_PID.SetDGain(0.00002);
 	
 }
 

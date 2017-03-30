@@ -1,6 +1,6 @@
 ****MotorSystem_System.cpp
 v2 
-:1490349780
+:1490785545
 #1
 F "_builtin_max" - I!1 T!2 ?24-2 P!3 P!4 
 T "long" KBS I!2 0x4 
@@ -556,17 +556,17 @@ F "CurrentControlStart" - I!561 O!529 T!14 ?72-4 78-1 ACC1
 F "PositionControlStop" - I!562 O!529 T!14 ?73-4 ACC1 
 F "VelocityControlStop" - I!563 O!529 T!14 ?74-4 ACC1 
 F "CurrentControlStop" - I!564 O!529 T!14 ?75-4 ACC1 
-F "AllControlStart" - I!565 O!529 T!14 ?77-4 38-1 131-1 ACC1 
-F "AllControlStop" - I!566 O!529 T!14 ?78-4 24-1 31-1 109-1 ACC1 
+F "AllControlStart" - I!565 O!529 T!14 ?77-4 131-1 ACC1 
+F "AllControlStop" - I!566 O!529 T!14 ?78-4 ACC1 
 F "MotorSystem" - I!567 O!529 T!14 ?81-4 ACC1 
 F "GetMode" - I!568 O!529 T!123 #3-1 !4,6-1-1 ?83-4 ACC1 
-F "SetMode" - I!569 O!529 T!14 #13-1 !14,43-1-1 ?84-4 48-1 108-1 117-1 130-1 ACC1 P!623 
+F "SetMode" - I!569 O!529 T!14 #13-1 !14,43-1-1 ?84-4 48-1 117-1 130-1 ACC1 P!623 
 F "SetMode" - I!571 O!529 T!14 #45-1 !46,57-1-1 ?85-4 ACC1 P!625 
 F "Calibration" - I!573 O!529 T!169 #74-1 !75,93-1-1 ?87-4 ACC1 
 F "IsPause" - I!574 O!529 T!169 #59-1 !60,62-1-1 ?89-4 ACC1 
 F "IsAction" - I!575 O!529 T!169 #64-1 !65,67-1-1 ?90-4 ACC1 
 F "IsError" - I!576 O!529 T!169 #69-1 !70,72-1-1 ?91-4 16-1 ACC1 
-F "SetDuty" - I!577 O!529 T!14 ?93-4 27-1 34-1 52-1 102-1 112-1 ACC1 P!578 
+F "SetDuty" - I!577 O!529 T!14 ?93-4 27-1 34-1 52-1 102-1 ACC1 P!578 
 V "" - I!578 O!577 T!264 .4 0x4 
 F "SetVoltage" - I!579 O!529 T!14 #95-1 !96,103-1-1 ?94-4 ACC1 P!627 
 F "SetTorque" - I!581 O!529 T!14 #125-1 !126,137-1-1 ?95-4 ACC1 P!631 
@@ -587,11 +587,11 @@ F "PID" _ I!597 O!587 T!14 #22-9 !23,30-9-9 ?22-9 ACC1 P!632 P!633 P!634 P!635
 F "SetPGain" _ I!602 O!587 T!14 #32-9 !33,35-9-9 ?32-9 ACC1 P!636 
 F "SetIGain" _ I!604 O!587 T!14 #37-9 !38,40-9-9 ?37-9 ACC1 P!637 
 F "SetDGain" _ I!606 O!587 T!14 #42-9 !43,45-9-9 ?42-9 ACC1 P!638 
-F "SumReset" _ I!608 O!587 T!14 #47-9 !48,51-9-9 ?47-9 25-1 26-1 32-1 33-1 110-1 111-1 ACC1 
+F "SumReset" _ I!608 O!587 T!14 #47-9 !48,51-9-9 ?47-9 25-1 26-1 32-1 33-1 ACC1 
 F "Run" _ I!609 O!587 T!264 #53-9 !54,69-9-9 ?53-9 ACC1 P!639 P!640 
-V "Current_PID" - I!612 O!529 T!587 !107-4 25-1 32-1 110-1 .4 0x24 BO448 BIS288 ACC1 
+V "Current_PID" - I!612 O!529 T!587 !107-4 25-1 32-1 .4 0x24 BO448 BIS288 ACC1 
 F "i_VelocityControl" - I!613 O!529 T!14 ?109-4 ACC1 
-V "Velocity_PID" - I!614 O!529 T!587 !110-4 26-1 33-1 111-1 .4 0x24 BO736 BIS288 ACC1 
+V "Velocity_PID" - I!614 O!529 T!587 !110-4 26-1 33-1 .4 0x24 BO736 BIS288 ACC1 
 F "i_PositionControl" - I!615 O!529 T!14 ?112-4 ACC1 
 F "SendHandle" S I!616 O!529 T!130 ?115-4 ACC1 P!617 
 V "" - I!617 O!616 T!131 .4 0x20 
@@ -602,7 +602,7 @@ T "" KP I!621 T!529 0x4
 V "m" - I!623 O!569 T!123 !13-1 19-1 29-1 29-1 36-1 36-1 36-1 36-1 41-1 .4 0x4 
 V "m" - I!625 O!571 T!125 !45-1 47-1 49-1 .4 0x4 
 V "v" - I!627 O!579 T!264 !95-1 97-1 98-1 102-1 .4 0x4 
-V "vel" - I!629 O!583 T!264 !105-1 107-1 107-1 116-1 120-1 .4 0x4 
+V "vel" - I!629 O!583 T!264 !105-1 116-1 120-1 .4 0x4 
 V "t" - I!631 O!581 T!264 !125-1 129-1 134-1 .4 0x4 
 V "p" - I!632 O!597 T!264 !22-9 24-9 .4 0x4 
 V "i" - I!633 O!597 T!264 !22-9 25-9 .4 0x4 
@@ -617,49 +617,49 @@ V "error" - I!641 O!609 T!264 !55-9 #58-9 60-9 62-9 64-9 66-9 .4 0x4
 V "ret" - I!642 O!609 T!264 !56-9 #56-9 #67-9 68-9 .4 0x4 
 ****%CxSystemPath%\include\builtin.h
 v2 
-:1490349780
+:1490785545
 #2
 ****%CxSystemPath%\include\macro.h
 v2 
-:1490349780
+:1490785545
 #3
 ****MotorSystem.h
 v2 
-:1490349780
+:1490785545
 #4
 ****MotorSystem_Define.h
 v2 
-:1490349780
+:1490785545
 #5
 ****CAN.h
 v2 
-:1490349780
+:1490785545
 #6
 ****_rx62t_can_driver.hpp
 v2 
-:1490349780
+:1490785545
 #7
 ****_rx_can_bus.hpp
 v2 
-:1490349780
+:1490785545
 #8
 ****PID.hpp
 v2 
-:1490349780
+:1490785545
 #9
 ****%CxSystemPath%\include\stdio.h
 v2 
-:1490349780
+:1490785545
 #10
 ****%CxSystemPath%\include\sys\yvals.h
 v2 
-:1490349780
+:1490785545
 #11
 ****%CxSystemPath%\include\stdarg.h
 v2 
-:1490349780
+:1490785545
 #12
 ****%CxSystemPath%\include\errno.h
 v2 
-:1490349780
+:1490785545
 #13

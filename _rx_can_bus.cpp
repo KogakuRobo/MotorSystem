@@ -1,4 +1,5 @@
 #include"_rx_can_bus.hpp"
+#include"iodefine.h"
 #include<stddef.h>
 
 int _rx_CAN_bus::Send(CAN_MSG msg)
@@ -86,7 +87,9 @@ void _rx_CAN_bus::RXM(void)
 			if(p_STR_NEWDATA(i) == 1){
 				switch(this->HandleCall(i)){
 				case RX_RESET:
-					p_MCTL_registe_write(i,0x40);
+					while(CAN0.MCTL[i].BYTE != 0x40)
+						CAN0.MCTL[i].BYTE = 0x40;
+					
 					if(p_STR_NDST() == 1)continue;
 					else return;
 				}

@@ -161,6 +161,8 @@ float MotorSystem::VelocityCalculation(void)
 {
 	float _velocity;
 	
+	static IIR_Filter<float> fil(0.08);
+	
 	volatile static unsigned short befor_tgra = 0;
 	volatile unsigned short 	MTU0_TGRB = MTU0.TGRB,
 			MTU0_TGRD = MTU0.TGRD,
@@ -182,16 +184,23 @@ float MotorSystem::VelocityCalculation(void)
 		_velocity = 0.0;
 	}
 	else{
-		while(MTU0_TGRB <= MTU0_TGRD){
-			MTU0_TGRB = MTU0.TGRB;
-			MTU0_TGRD = MTU0.TGRD;
-		}
+		//while(MTU0_TGRB <= MTU0_TGRD){
+		//	MTU0_TGRB = MTU0.TGRB;
+		//	MTU0_TGRD = MTU0.TGRD;
+		//}
 		speed = this->rpc * 100000000 / (unsigned short)(MTU0_TGRB - MTU0_TGRD);
 		_velocity = ((TCFD == 1)?1.0:-1.0) * speed;
 	}
+	
 	befor_tgra = MTU1_TGRA;
+	
 	if(abs(this->velocity - _velocity) > 300)
-		return this->velocity;
+		_velocity = this->velocity;
+	
+	this->velocity = fil.Put(_velocity);
+	
+	return this->velocity;
+	/*
 	for(int i = 0;i < NUMBER_OF_MOVING_AVERAGE;i++){
 		sum_average += speed_buff[i];
 	}
@@ -203,7 +212,7 @@ float MotorSystem::VelocityCalculation(void)
 	}
 	speed_buff[NUMBER_OF_MOVING_AVERAGE-1] = _velocity;
 	
-	return this->velocity;
+	return this->velocity;*/
 }
 
 //位置制御割り込み（0.1ms周期　速度制御割り込みと2.5ms差）
@@ -221,7 +230,8 @@ void MTU0_TGIC0(void)
 {
 	g_hw->i_VelocityControl();
 	while(!MTU0.TSR.BIT.TGFC);
-	MTU0.TSR.BIT.TGFC=0;
+	while(MTU0.TSR.BIT.TGFC)MTU0.TSR.BIT.TGFC=0;
+	IR(MTU0,TGIC0) = 0;
 }
 
 //アンダーフロー割り込み

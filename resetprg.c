@@ -44,7 +44,7 @@ extern void _CLOSEALL(void);
 }
 #endif
 
-#define PSW_init  0x00010000	// PSW bit pattern
+#define PSW_init  0x01010000	// PSW bit pattern
 #define FPSW_init 0x00000000	// FPSW bit base pattern
 
 //extern void srand(_UINT);		// Remove the comment when you use rand()

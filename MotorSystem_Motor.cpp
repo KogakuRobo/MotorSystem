@@ -94,7 +94,12 @@ void MotorSystem::i_VelocityControl(void)
 	move_pid += this->V_ref * this->Kt / 1000.0;	
 	switch(this->mode){
 	case VELOCITY:
-		SetVoltage(move_pid);
+		if(V_ref == 0.0){
+			Velocity_PID.SumReset();
+			SetVoltage(0.0);
+		}
+		else
+			SetVoltage(move_pid);
 		//T_ref = move_pid;
 		break;
 	default:
