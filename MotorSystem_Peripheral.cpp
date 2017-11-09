@@ -66,6 +66,12 @@ void MotorSystem::CurrentCalibration(void)
 	static float v_data;		//電圧値
 	static float i_data;		//電流値
 	
+	static char flag = 0;
+	if(flag == 0){		//一発目の割り込みはAD変換されていなので無視
+		flag = 1;
+		return ;
+	}
+	
 	v_data = S12AD0.ADDR0A * 5.0 / (4096-1);
 	
 	i_data = (v_data - 2.50) / 0.1;			//ACS714の20A仕様
@@ -85,8 +91,8 @@ void MotorSystem::CurrentCalibration(void)
 		
 		this->current_offset = ave;
 		
-		this->CurrentControlStop();
 		is_mode = CURRENT_OFFSET_CALCULATION_END;
+		this->CurrentControlStop();
 	}
 }
 
@@ -254,7 +260,7 @@ void MTU1_TCIV1(void)
 #pragma interrupt MTU2_TGIA2(vect=VECT(MTU2,TGIA2))
 void MTU2_TGIA2(void)
 {
-	g_hw->i_TorqueControl();
+	//g_hw->i_TorqueControl();
 	while(!MTU2.TSR.BIT.TGFA);
 	MTU2.TSR.BIT.TGFA=0;
 }
@@ -262,4 +268,5 @@ void MTU2_TGIA2(void)
 #pragma interrupt S12AD0_S12ADI0(vect = VECT(S12AD0,S12ADI0))
 void S12AD0_S12ADI0(void)
 {
+	g_hw->i_TorqueControl();
 }

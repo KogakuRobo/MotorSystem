@@ -21,6 +21,7 @@
 
 #include	<machine.h>
 #include	<_h_c_lib.h>
+#include	"iodefine.h"
 //#include	<stddef.h>					// Remove the comment when you use errno
 //#include 	<stdlib.h>					// Remove the comment when you use rand()
 #include	"typedefine.h"		// Define Types
@@ -92,6 +93,8 @@ void PowerON_Reset_PC(void)
 	set_fpsw(FPSW_init | _ROUND | _DENOM);
 #endif
 
+	//SYSTEM.LVDKEYR.BYTE = 0x3C;
+	//SYSTEM.LVDCR.BYTE = 0x80;
 	_INITSCT();
 
 	_INIT_IOLIB();					// Use SIM I/O

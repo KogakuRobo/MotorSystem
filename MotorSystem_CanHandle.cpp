@@ -1,5 +1,6 @@
 #include"MotorSystem.h"
 #include<stddef.h>
+#include"iodefine.h"
 
 //コマンドコード　7bit
 //[6] - [5] 優先度(00b:通常、01b:予約、10b:デバッグ・調整、11b:監視
@@ -56,6 +57,7 @@ HandleReturn MotorSystem::SendHandle(CAN_MSG msg)
 HandleReturn MotorSystem::NormalCommandHandle(CAN_MSG msg)
 {
 	MotorSystem *This = (MotorSystem *)msg.attr;
+	PORT2.DR.BIT.B4 = 1;
 	
 	DATA_TRANSER trans;
 	
@@ -142,5 +144,6 @@ HandleReturn MotorSystem::NormalCommandHandle(CAN_MSG msg)
 		break;
 	}
 	This->WDT_Clear();
+	PORT2.DR.BIT.B4 = 0;
 	return RX_RESET;
 }

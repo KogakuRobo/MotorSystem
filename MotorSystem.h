@@ -20,9 +20,9 @@
 class MotorSystem{
 	
 private:
-	MotorSystem_Mode mode;
-	MotorSystem_ErrorMode e_mode;
-	MotorSystem_InitializeSubMode is_mode;
+	volatile MotorSystem_Mode mode;
+	volatile MotorSystem_ErrorMode e_mode;
+	volatile MotorSystem_InitializeSubMode is_mode;
 	
 	_rx62t_CAN_bus can_bus;
 	
@@ -79,6 +79,9 @@ public:	void WDT_Clear(void);
 
 public:
 	MotorSystem(void);	//MotorSystem_Init.cpp
+	
+	void Begin(void);
+	int CurrentSensor_Init(void);
 	
 	MotorSystem_Mode GetMode(void);
 	void SetMode(MotorSystem_Mode);

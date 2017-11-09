@@ -32,8 +32,8 @@ void MotorSystem::SetDuty(float duty)
 		this->GPT_ClockStop();
 	}
 	
-	GPT0.GTCCRA = duty * 10.0;
-	GPT0.GTCCRB = duty * 10.0;
+	GPT0.GTCCRA = GPT0.GTPR * duty / 100.0;
+	GPT0.GTCCRB = GPT0.GTPR * duty / 100.0;
 }
 
 void MotorSystem::i_TorqueControl(void)
@@ -46,27 +46,27 @@ void MotorSystem::i_TorqueControl(void)
 	
 	if(this->mode == INITIALIZE){
 		this->CurrentCalibration();
-		PORT2.DR.BIT.B2 =0;
+		PORT2.DR.BIT.B2 =1;
 		return;				//初期化処理中なので、電流をサンプリングして終了
 	}
 	
 	Current = this->GetCurrent();					//電流取得
-	this->current = Current;
+	this->current = 0.3 * this->current + 0.7 * Current;
 	
 	Current_ref = this->T_ref / this->Kt;				//目標電流算出
 	Current_ref = Limit<float>(Current_ref,17,-17);			//目標電流にリミット
 	
 	this->C_ref = Current_ref;
 	
-	move_pid = Current_PID.Run(Current,Current_ref);		//PID制御
+	move_pid = Current_PID.Run(this->current,Current_ref);		//PID制御
 	
 	switch(this->mode){
 	case TORQUE:
 		SetVoltage(move_pid);					//トルク制御の場合、誘導起電力変化は無視する。
 		break;
 	case VELOCITY:
-		//SetVoltage(move_pid);
-			//+ (V_ref) * MAXON_RE40_24V_Kt / 1000);	//速度制御の場合FFを行う。1000はmNm/AをV s/radに変換するため
+		SetVoltage(move_pid
+			+ (V_ref) * this->Kt / 1000);	//速度制御の場合FFを行う。1000はmNm/AをV s/radに変換するため
 		break;
 	case DUTY:
 		break;
@@ -86,21 +86,16 @@ void MotorSystem::i_VelocityControl(void)
 	vel = VelocityCalculation();
 	
 	if(this->mode == INITIALIZE){
-		PORT2.DR.BIT.B3 =0;
+		//PORT2.DR.BIT.B3 =1;
 		return;				//初期化処理中なので、電流をサンプリングして終了
 	}
 	
 	move_pid = Velocity_PID.Run(vel,V_ref);
-	move_pid += this->V_ref * this->Kt / 1000.0;	
+	//move_pid += this->V_ref * this->Kt / 1000.0;	
 	switch(this->mode){
 	case VELOCITY:
-		if(V_ref == 0.0){
-			Velocity_PID.SumReset();
-			SetVoltage(0.0);
-		}
-		else
-			SetVoltage(move_pid);
-		//T_ref = move_pid;
+		if((V_ref == 0.0) || ((this->velocity * V_ref) < 0) )Velocity_PID.SumReset();
+		T_ref = move_pid;
 		break;
 	default:
 		break;

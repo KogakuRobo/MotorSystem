@@ -14,9 +14,9 @@ MotorSystem::MotorSystem(void):
 Current_PID	(2.6,		0.8,		0.0,		0.00002),
 Velocity_PID	(2.2,		0.02,		0.0,		0.0002 )
 {
-	this->mode = STOP;	//MotorSystemのモード
+	this->mode = INITIALIZE;	//MotorSystemのモード
 	this->e_mode = NON_ERROR;	//エラー識別子
-	this->is_mode = END;		//イニシャライズのサブモード
+	this->is_mode = START;		//イニシャライズのサブモード
 		
 //	定数設定
 	this->rpc = 3.1415 / 2.0 / 500 ;	//エンコーダ初期設定
@@ -38,6 +38,10 @@ Velocity_PID	(2.2,		0.02,		0.0,		0.0002 )
 	GPT_Init();			//汎用PWMタイマ設定
 	MTU_Init();			//MTU機能設定
 	ADC_Init();			//ADC設定
+}
+
+void MotorSystem::Begin(void)
+{
 
 //	初期化処理
 	SetDuty(0);				//出力　0
@@ -55,7 +59,7 @@ Velocity_PID	(2.2,		0.02,		0.0,		0.0002 )
 	
 //CAN 受信設定
 	CAN_MSG msg;
-	msg.SID = (~PORT9.PORT.BYTE >> 1) & 0x0f;
+	msg.SID = (~PORT4.PORT.BYTE >> 4) & 0x0f;
 	msg.IDE = 0;
 	msg.RTR = 0;
 	msg.attr = (void *)this;
@@ -67,6 +71,21 @@ Velocity_PID	(2.2,		0.02,		0.0,		0.0002 )
 	
 //MTUクロックスタート（ただし、割り込みは生成しない。）
 	MTU_ClockStart();
+	
+	CurrentSensor_Init();
+	
+	mode = STOP;
+	
+	this->WDT_Clear();
+}
+
+int MotorSystem::CurrentSensor_Init(void){
+	is_mode = CURRENT_OFFSET_CALCULATION;
+	CurrentControlStart();
+	while(is_mode != CURRENT_OFFSET_CALCULATION_END);
+	
+	is_mode = END;
+	return 0;
 }
 
 void OSC_Init(void)
@@ -123,8 +142,8 @@ void GPT_Init(void)
 	PORT7.DDR.BIT.B1 = 1;
 	PORT7.DDR.BIT.B4 = 1;
 	
-	GPT0.GTPR = 1000;	//100kHz
-	//GPT0.GTPR = 2500;	//40kHz
+	//GPT0.GTPR = 1000;	//100kHz
+	GPT0.GTPR = 2500;	//40kHz
 	GPT0.GTCCRA = 0;
 	GPT0.GTCCRB = 0;	
 	
@@ -133,14 +152,14 @@ void GPT_Init(void)
 //エンコーダ入力・処理初期化
 void MTU0_1_Init(void)
 {
-	MTU0.TCR.BYTE = 0xa8;		//カウントアップ速度100MHz(100MHz)
-	//MTU0.TCR.BYTE = 0xa9;		//カウントアップ速度100MHz(100MHz)
+	//MTU0.TCR.BYTE = 0xa8;		//カウントアップ速度100MHz(100MHz)
+	MTU0.TCR.BYTE = 0xa9;		//カウントアップ速度100MHz(100MHz)
 	MTU0.TMDR1.BYTE = 0x20;		//BDバッファモード
 	MTU0.TCNT = 0;			//クリア
-	MTU0.TGRA = 10000 - 1;
-	MTU0.TGRC = 20000 - 1;		//0.2ms周期
-	//MTU0.TGRA = 12500 - 1;
-	//MTU0.TGRC = 25000 - 1;	//1ms周期
+	//MTU0.TGRA = 10000 - 1;
+	//MTU0.TGRC = 20000 - 1;		//0.2ms周期
+	MTU0.TGRA = 12500 - 1;
+	MTU0.TGRC = 25000 - 1;	//1ms周期
 	MTU0.TGRB = 0;
 	MTU0.TGRD = 0;
 	
@@ -179,8 +198,8 @@ void MTU2_Init(void)
 	MTU2.TCR.BYTE = 0x20;
 	MTU2.TMDR1.BIT.MD = 0;
 	
-	//MTU2.TGRA = 10000 - 1;	//735
-	MTU2.TGRA = 2000 - 1;		//Maxon		
+	MTU2.TGRA = 10000 - 1;	//735
+	//MTU2.TGRA = 2000 - 1;		//Maxon		
 	
 	MTU2.TIOR.BYTE = 0x00;
 	

@@ -1,9 +1,9 @@
 <CubeSuiteProject>
-  <ProductVersion>6.00.00.00</ProductVersion>
+  <ProductVersion>7.00.00.00</ProductVersion>
   <Class Guid="68f4a651-b9cd-473b-a595-b00447132ffa">
     <Instance Guid="00000000-0000-0000-0000-000000000000">
       <FormatVersion>2.0</FormatVersion>
-      <FileVersion>6.0</FileVersion>
+      <FileVersion>7.0</FileVersion>
       <ProjectGuid>b9f8ebf4-919a-44af-913d-52907f496741</ProjectGuid>
       <ProjectItemGuid>2f46677f-9bda-473f-a639-352b1eaca2a7</ProjectItemGuid>
       <FileCategoryGuid>9dbce07f-39fd-4db1-9772-e2915a251d50</FileCategoryGuid>
@@ -164,6 +164,20 @@
       <TreeImageGuid>03cad1e8-2eb3-4cde-a8a3-982423631122</TreeImageGuid>
       <ParentItem>9dbce07f-39fd-4db1-9772-e2915a251d50</ParentItem>
     </Instance>
+    <Instance Guid="9c1f1b17-d07c-496c-a7cc-de8d38d5de46">
+      <Name>ManualControl.hpp</Name>
+      <Type>File</Type>
+      <RelativePath>ManualControl.hpp</RelativePath>
+      <TreeImageGuid>03cad1e8-2eb3-4cde-a8a3-982423631122</TreeImageGuid>
+      <ParentItem>9dbce07f-39fd-4db1-9772-e2915a251d50</ParentItem>
+    </Instance>
+    <Instance Guid="9587d8a9-459a-4e1e-b098-e1554dd637ca">
+      <Name>ManualControl.cpp</Name>
+      <Type>File</Type>
+      <RelativePath>ManualControl.cpp</RelativePath>
+      <TreeImageGuid>f4d3ca11-259f-42f0-b8bd-beee0ecca48d</TreeImageGuid>
+      <ParentItem>9dbce07f-39fd-4db1-9772-e2915a251d50</ParentItem>
+    </Instance>
     <Instance Guid="838ba614-e757-4f8f-be0c-000b5bd185bc">
       <Name>MotorSystem7.cpp</Name>
       <Type>File</Type>
@@ -260,7 +274,7 @@
   </Class>
   <Class Guid="3a79707d-5977-45f7-ac11-19c35e333132">
     <Instance Guid="3a79707d-5977-45f7-ac11-19c35e333132">
-      <DataFormatVersion>1.3</DataFormatVersion>
+      <DataFormatVersion>1.4</DataFormatVersion>
       <BuildModeCount>1</BuildModeCount>
       <BuildMode0>RABlAGYAYQB1AGwAdABCAHUAaQBsAGQA</BuildMode0>
       <BatchBuildFlag0>False</BatchBuildFlag0>
@@ -289,15 +303,17 @@
       <SourceItemType10>CppSource</SourceItemType10>
       <SourceItemGuid11>39ad919b-d849-4fae-9d14-e64b2d1b4c88</SourceItemGuid11>
       <SourceItemType11>CppSource</SourceItemType11>
-      <SourceItemGuid12>838ba614-e757-4f8f-be0c-000b5bd185bc</SourceItemGuid12>
+      <SourceItemGuid12>9587d8a9-459a-4e1e-b098-e1554dd637ca</SourceItemGuid12>
       <SourceItemType12>CppSource</SourceItemType12>
-      <SourceItemGuid13>fe8364a8-b616-416a-8fb0-0bbf38ef0d21</SourceItemGuid13>
+      <SourceItemGuid13>838ba614-e757-4f8f-be0c-000b5bd185bc</SourceItemGuid13>
       <SourceItemType13>CppSource</SourceItemType13>
-      <SourceItemGuid14>2cab2b50-2c9a-4f5e-9072-fd561b980de8</SourceItemGuid14>
+      <SourceItemGuid14>fe8364a8-b616-416a-8fb0-0bbf38ef0d21</SourceItemGuid14>
       <SourceItemType14>CppSource</SourceItemType14>
-      <SourceItemGuid15>899dbee0-7e67-4817-bfcd-fc807a86752a</SourceItemGuid15>
+      <SourceItemGuid15>2cab2b50-2c9a-4f5e-9072-fd561b980de8</SourceItemGuid15>
       <SourceItemType15>CppSource</SourceItemType15>
-      <SourceItemCount>16</SourceItemCount>
+      <SourceItemGuid16>899dbee0-7e67-4817-bfcd-fc807a86752a</SourceItemGuid16>
+      <SourceItemType16>CppSource</SourceItemType16>
+      <SourceItemCount>17</SourceItemCount>
       <LastDeviceChangedCounter>0</LastDeviceChangedCounter>
     </Instance>
     <Instance Guid="9e208646-ccba-4100-a676-29b1efe6545f">
@@ -381,7 +397,7 @@
       <GeneralOptionPatch-DefaultValue>None</GeneralOptionPatch-DefaultValue>
       <GeneralOptionSaveAcc-DefaultValue>False</GeneralOptionSaveAcc-DefaultValue>
       <IsLockedByUser>False</IsLockedByUser>
-      <TimeTagModified--0>-8587234477372659688</TimeTagModified--0>
+      <TimeTagModified--0>-8587064682332510282</TimeTagModified--0>
       <BuildMode-0>DefaultBuild</BuildMode-0>
       <Memo-0 />
       <OutputMessageFormat-0>%TargetFiles%</OutputMessageFormat-0>
@@ -439,7 +455,7 @@
       <GeneralOptionBaseAddressRegister-0>None</GeneralOptionBaseAddressRegister-0>
       <GeneralOptionPatch-0>None</GeneralOptionPatch-0>
       <GeneralOptionSaveAcc-0>False</GeneralOptionSaveAcc-0>
-      <LastCompilerVersion-0>V2.05.00</LastCompilerVersion-0>
+      <LastCompilerVersion-0>V2.06.00</LastCompilerVersion-0>
     </Instance>
     <Instance Guid="95a63257-4aa7-40c0-a74a-7991543b099b">
       <COptionLangC-DefaultValue>C</COptionLangC-DefaultValue>
@@ -541,6 +557,7 @@
       <COptionFpu-DefaultValue>Fpu</COptionFpu-DefaultValue>
       <COptionAlias-DefaultValue>False</COptionAlias-DefaultValue>
       <COptionComment-DefaultValue>False</COptionComment-DefaultValue>
+      <COptionAlias2-DefaultValue>Auto</COptionAlias2-DefaultValue>
       <COptionCheck-DefaultValue>No</COptionCheck-DefaultValue>
       <COptionFloatOrder-DefaultValue>False</COptionFloatOrder-DefaultValue>
       <COptionIncode-DefaultValue>Sjis</COptionIncode-DefaultValue>
@@ -644,6 +661,7 @@ _PCK_=50
       <COptionFpu-0>Fpu</COptionFpu-0>
       <COptionAlias-0>False</COptionAlias-0>
       <COptionComment-0>False</COptionComment-0>
+      <COptionAlias2-0>Auto</COptionAlias2-0>
       <COptionCheck-0>No</COptionCheck-0>
       <COptionFloatOrder-0>False</COptionFloatOrder-0>
       <COptionIncode-0>Sjis</COptionIncode-0>
@@ -1099,7 +1117,7 @@ D_2=R_2
       <LbgOptionFpu-DefaultValue>Fpu</LbgOptionFpu-DefaultValue>
       <LbgOptionFloatOrder-DefaultValue>False</LbgOptionFloatOrder-DefaultValue>
       <IsLockedByUser>False</IsLockedByUser>
-      <TimeTagModified--0>-8587219558218310532</TimeTagModified--0>
+      <TimeTagModified--0>-8587064682332354022</TimeTagModified--0>
       <LbgOptionLanguage-0>C</LbgOptionLanguage-0>
       <LbgOptionLibraryMode-0>MakeOptionChanged</LbgOptionLibraryMode-0>
       <LbgOptionLogo-0>False</LbgOptionLogo-0>
@@ -1297,6 +1315,14 @@ D_2=R_2
       <ItemAddTime>636152877462572227</ItemAddTime>
       <ItemAddTimeCount>0</ItemAddTimeCount>
     </Instance>
+    <Instance Guid="9587d8a9-459a-4e1e-b098-e1554dd637ca">
+      <ItemAddTime>636455688468149082</ItemAddTime>
+      <ItemAddTimeCount>0</ItemAddTimeCount>
+    </Instance>
+    <Instance Guid="9c1f1b17-d07c-496c-a7cc-de8d38d5de46">
+      <ItemAddTime>636455688947372277</ItemAddTime>
+      <ItemAddTimeCount>0</ItemAddTimeCount>
+    </Instance>
     <Instance Guid="a7be515f-f007-45ed-9059-4e1500c0f74d">
       <TimeTagModified-SourceItem0--0>-8587277677091327835</TimeTagModified-SourceItem0--0>
       <SourceItem0-IsLockedByUser>False</SourceItem0-IsLockedByUser>
@@ -1350,22 +1376,26 @@ D_2=R_2
       <SourceItem11-IsLockedByUser>False</SourceItem11-IsLockedByUser>
       <SourceItem11-BuildingTarget-0>False</SourceItem11-BuildingTarget-0>
       <SourceItem11-IndividualCompileOption-0>False</SourceItem11-IndividualCompileOption-0>
-      <TimeTagModified-SourceItem12--0>-8587277029845840732</TimeTagModified-SourceItem12--0>
+      <TimeTagModified-SourceItem12--0>-8586916672386626726</TimeTagModified-SourceItem12--0>
       <SourceItem12-IsLockedByUser>False</SourceItem12-IsLockedByUser>
       <SourceItem12-BuildingTarget-0>True</SourceItem12-BuildingTarget-0>
       <SourceItem12-IndividualCompileOption-0>False</SourceItem12-IndividualCompileOption-0>
-      <TimeTagModified-SourceItem13--0>-8587233716090901871</TimeTagModified-SourceItem13--0>
+      <TimeTagModified-SourceItem13--0>-8587277029845840732</TimeTagModified-SourceItem13--0>
       <SourceItem13-IsLockedByUser>False</SourceItem13-IsLockedByUser>
       <SourceItem13-BuildingTarget-0>True</SourceItem13-BuildingTarget-0>
       <SourceItem13-IndividualCompileOption-0>False</SourceItem13-IndividualCompileOption-0>
-      <TimeTagModified-SourceItem14--0>-8587219559068924706</TimeTagModified-SourceItem14--0>
+      <TimeTagModified-SourceItem14--0>-8587233716090901871</TimeTagModified-SourceItem14--0>
       <SourceItem14-IsLockedByUser>False</SourceItem14-IsLockedByUser>
       <SourceItem14-BuildingTarget-0>True</SourceItem14-BuildingTarget-0>
       <SourceItem14-IndividualCompileOption-0>False</SourceItem14-IndividualCompileOption-0>
-      <TimeTagModified-SourceItem15--0>-8587219483392203581</TimeTagModified-SourceItem15--0>
+      <TimeTagModified-SourceItem15--0>-8587219559068924706</TimeTagModified-SourceItem15--0>
       <SourceItem15-IsLockedByUser>False</SourceItem15-IsLockedByUser>
       <SourceItem15-BuildingTarget-0>True</SourceItem15-BuildingTarget-0>
       <SourceItem15-IndividualCompileOption-0>False</SourceItem15-IndividualCompileOption-0>
+      <TimeTagModified-SourceItem16--0>-8587219483392203581</TimeTagModified-SourceItem16--0>
+      <SourceItem16-IsLockedByUser>False</SourceItem16-IsLockedByUser>
+      <SourceItem16-BuildingTarget-0>True</SourceItem16-BuildingTarget-0>
+      <SourceItem16-IndividualCompileOption-0>False</SourceItem16-IndividualCompileOption-0>
     </Instance>
   </Class>
   <Class Guid="44fa27c9-0aa0-4297-bd3b-2c5c5bdb8881">
@@ -2131,7 +2161,7 @@ D_2=R_2
       <DebuggerProperty-EssentialProperty-Clock-Operatingfrequency>1000000</DebuggerProperty-EssentialProperty-Clock-Operatingfrequency>
       <DebuggerProperty-EssentialProperty-Clock-AllowChangeClock>Yes</DebuggerProperty-EssentialProperty-Clock-AllowChangeClock>
       <DebuggerProperty-EssentialProperty-TargetConnect-TargetSupplyPower>No</DebuggerProperty-EssentialProperty-TargetConnect-TargetSupplyPower>
-      <DebuggerProperty-EssentialProperty-TargetConnect-TargetSuppliedVoltage>Use5_0V</DebuggerProperty-EssentialProperty-TargetConnect-TargetSuppliedVoltage>
+      <DebuggerProperty-EssentialProperty-TargetConnect-TargetSuppliedVoltage>Use3_3V</DebuggerProperty-EssentialProperty-TargetConnect-TargetSuppliedVoltage>
       <DebuggerProperty-EssentialProperty-TargetConnect-UserVCC>2147483647</DebuggerProperty-EssentialProperty-TargetConnect-UserVCC>
       <DebuggerProperty-EssentialProperty-TargetConnect-CommunicationMethod>Jtag</DebuggerProperty-EssentialProperty-TargetConnect-CommunicationMethod>
       <DebuggerProperty-EssentialProperty-TargetConnect-JtagClock>Jtag_16_500</DebuggerProperty-EssentialProperty-TargetConnect-JtagClock>
@@ -2453,7 +2483,7 @@ D_2=R_2
       <StartStopRealTimeSampling>Synchronized</StartStopRealTimeSampling>
       <AutoAdjustForValueAndTime>Always</AutoAdjustForValueAndTime>
       <AutoAdjustNumberOfPoints>20</AutoAdjustNumberOfPoints>
-      <TimePerGrid>218414573</TimePerGrid>
+      <TimePerGrid>219394803</TimePerGrid>
       <ChartType>LineChart</ChartType>
       <SpecifyForegroundColorAndBackgroundColor>False</SpecifyForegroundColorAndBackgroundColor>
       <CursorAColor>PaleGreen</CursorAColor>
@@ -2503,38 +2533,38 @@ D_2=R_2
       <ChannelVariableType14>Auto</ChannelVariableType14>
       <ChannelVariableType15>Auto</ChannelVariableType15>
       <ChannelVariableType16>Auto</ChannelVariableType16>
-      <ChannelValuePerGrid1>0.0044690000000001</ChannelValuePerGrid1>
-      <ChannelValuePerGrid2>1</ChannelValuePerGrid2>
-      <ChannelValuePerGrid3>41.17321</ChannelValuePerGrid3>
-      <ChannelValuePerGrid4>39.99945</ChannelValuePerGrid4>
+      <ChannelValuePerGrid1>0.448779782</ChannelValuePerGrid1>
+      <ChannelValuePerGrid2>0.4226406</ChannelValuePerGrid2>
+      <ChannelValuePerGrid3>50.50044</ChannelValuePerGrid3>
+      <ChannelValuePerGrid4>50</ChannelValuePerGrid4>
       <ChannelValuePerGrid5>1</ChannelValuePerGrid5>
       <ChannelValuePerGrid6>1</ChannelValuePerGrid6>
       <ChannelValuePerGrid7>1</ChannelValuePerGrid7>
-      <ChannelValuePerGrid8>0.6295837</ChannelValuePerGrid8>
-      <ChannelValuePerGrid9>0.04135248</ChannelValuePerGrid9>
-      <ChannelValuePerGrid10>0.3007994</ChannelValuePerGrid10>
+      <ChannelValuePerGrid8>3.2224549</ChannelValuePerGrid8>
+      <ChannelValuePerGrid9>0.8707093</ChannelValuePerGrid9>
+      <ChannelValuePerGrid10>1</ChannelValuePerGrid10>
       <ChannelValuePerGrid11>1</ChannelValuePerGrid11>
       <ChannelValuePerGrid12>1</ChannelValuePerGrid12>
       <ChannelValuePerGrid13>1</ChannelValuePerGrid13>
-      <ChannelValuePerGrid14>0.0109349999999999</ChannelValuePerGrid14>
-      <ChannelValuePerGrid15>70.41697773</ChannelValuePerGrid15>
-      <ChannelValuePerGrid16>1</ChannelValuePerGrid16>
-      <ChannelValueOffset1>13.148715</ChannelValueOffset1>
-      <ChannelValueOffset2>0</ChannelValueOffset2>
-      <ChannelValueOffset3>-0.80064999999999</ChannelValueOffset3>
-      <ChannelValueOffset4>0.00254999999999939</ChannelValueOffset4>
-      <ChannelValueOffset5>-0.1</ChannelValueOffset5>
+      <ChannelValuePerGrid14>3.537155</ChannelValuePerGrid14>
+      <ChannelValuePerGrid15>0.107624894</ChannelValuePerGrid15>
+      <ChannelValuePerGrid16>0.8834438</ChannelValuePerGrid16>
+      <ChannelValueOffset1>-2.23301809</ChannelValueOffset1>
+      <ChannelValueOffset2>-2.113203</ChannelValueOffset2>
+      <ChannelValueOffset3>-252.5022</ChannelValueOffset3>
+      <ChannelValueOffset4>-250</ChannelValueOffset4>
+      <ChannelValueOffset5>-0.35</ChannelValueOffset5>
       <ChannelValueOffset6>-0.01</ChannelValueOffset6>
-      <ChannelValueOffset7>-2E-05</ChannelValueOffset7>
-      <ChannelValueOffset8>0.1622465</ChannelValueOffset8>
-      <ChannelValueOffset9>-0.076922</ChannelValueOffset9>
-      <ChannelValueOffset10>-0.00381100000000001</ChannelValueOffset10>
-      <ChannelValueOffset11>-2.6</ChannelValueOffset11>
-      <ChannelValueOffset12>-0.8</ChannelValueOffset12>
-      <ChannelValueOffset13>0</ChannelValueOffset13>
-      <ChannelValueOffset14>-34.186995</ChannelValueOffset14>
-      <ChannelValueOffset15>-353.02081135</ChannelValueOffset15>
-      <ChannelValueOffset16>0</ChannelValueOffset16>
+      <ChannelValueOffset7>0</ChannelValueOffset7>
+      <ChannelValueOffset8>-13.4037055</ChannelValueOffset8>
+      <ChannelValueOffset9>-4.3535465</ChannelValueOffset9>
+      <ChannelValueOffset10>0</ChannelValueOffset10>
+      <ChannelValueOffset11>-16</ChannelValueOffset11>
+      <ChannelValueOffset12>-8</ChannelValueOffset12>
+      <ChannelValueOffset13>-0.0001</ChannelValueOffset13>
+      <ChannelValueOffset14>-1.724985</ChannelValueOffset14>
+      <ChannelValueOffset15>0.52109853</ChannelValueOffset15>
+      <ChannelValueOffset16>-0.296724</ChannelValueOffset16>
       <ChannelColor1>c0ff0a4f</ChannelColor1>
       <ChannelColor2>c05be416</ChannelColor2>
       <ChannelColor3>c0056dff</ChannelColor3>
