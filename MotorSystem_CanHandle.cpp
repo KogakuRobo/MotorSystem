@@ -143,7 +143,7 @@ HandleReturn MotorSystem::NormalCommandHandle(CAN_MSG msg)
 	default:
 		break;
 	}
-	This->WDT_Clear();
+	This->wdt.clear();
 	PORT2.DR.BIT.B4 = 0;
 	return RX_RESET;
 }

@@ -60,9 +60,9 @@ void main(void)
 		case INITIALIZE_MODE:
 			//printf("Initialize Start\n");
 			InitMotorSystem(&hw);
-			//hw.SetMode(TORQUE);
+			//hw.SetMode(DUTY);
 			mode = WAIT_MODE;
-			//CMT_Init();
+			CMT_Init();
 			//printf("Initialize End\n");
 			break;
 			
@@ -89,8 +89,13 @@ void InitMotorSystem(MotorSystem *hw){
 	
 	hw->rpc = 3.141592 / 2.0 / 500;
 	hw->Vcc = 12;
-	hw->Kt = RZ735VA_9517_Kt;
+	hw->Kt = RZ735VA_8519_Kt;
 	//hw->Kt = MAXON_RE40_24V_Kt;
+	
+	hw->static_friction = 0;
+	hw->dynamic_friction = 0;
+	hw->friction_velocity_threshold = 0;
+	
 	hw->SetDuty(0);
 	//6while(!hw->Calibration());
 	//‘«‰ñ‚èŽÀŒ±‹@—pPIDƒQƒCƒ“
@@ -105,12 +110,12 @@ void InitMotorSystem(MotorSystem *hw){
 	
 	//735
 	//*/
-	hw->Current_PID.SetPGain(16.0);
+	hw->Current_PID.SetPGain(14.0);
 	hw->Current_PID.SetIGain(8.0);
 	hw->Current_PID.SetDGain(50.0*0.000002);
-	hw->Velocity_PID.SetPGain(0.35);
-	hw->Velocity_PID.SetIGain(0.01);
-	hw->Velocity_PID.SetDGain(0.0*0.000002);
+	hw->Velocity_PID.SetPGain(0.20);
+	hw->Velocity_PID.SetIGain(0.30);
+	hw->Velocity_PID.SetDGain(1.0*0.00002);
 	//*/
 	
 	//540

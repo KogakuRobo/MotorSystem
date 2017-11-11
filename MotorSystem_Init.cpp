@@ -27,13 +27,19 @@ Velocity_PID	(2.2,		0.02,		0.0,		0.0002 )
 	V_ref = 0;
 	Vo_ref = 0;
 	C_ref = 0;
-	current_offset = 0;
+	
+	current = 0;
 	velocity = 0;
+	
+	current_offset = 0;
+	
+	static_friction = 0;
+	dynamic_friction = 0;
+	friction_velocity_threshold = 0;
 	
 //	ハードウェア初期化
 	OSC_Init();			//クロック設定
 	MSTP_Init();			//消費電流提言機能設定
-	WDT_Init();			//ウォッチドックタイマ設定
 	GPIO_Init();			//汎用入出力機能設定
 	GPT_Init();			//汎用PWMタイマ設定
 	MTU_Init();			//MTU機能設定
@@ -76,7 +82,7 @@ void MotorSystem::Begin(void)
 	
 	mode = STOP;
 	
-	this->WDT_Clear();
+	wdt.clear();
 }
 
 int MotorSystem::CurrentSensor_Init(void){
@@ -96,15 +102,6 @@ void OSC_Init(void)
 	//クロック設定を確実にするために確認書き込みをおこなう。
 	while(!(SYSTEM.SCKCR.BIT.ICK == 0))SYSTEM.SCKCR.BIT.ICK = 0;	//ICK = EXTAL * 8 = 100MHz
 	while(!(SYSTEM.SCKCR.BIT.PCK == 1))SYSTEM.SCKCR.BIT.PCK = 1;	//PCK = EXTAL * 4 =  50MHz
-}
-
-void WDT_Init(void)
-{
-	WDT.WRITE.WINB = 0x5A5F;	//WDT設定 WDT.RSTCSR = 5F,
-	/*
-	
-	
-	*/
 }
 
 void MSTP_Init(void)

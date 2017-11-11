@@ -1,6 +1,8 @@
 #include"MotorSystem.h"
 #include"iodefine.h"
 
+#include <math.h>
+
 void MotorSystem::SetDuty(float duty)
 {
 	const float Max = 95.0;
@@ -62,11 +64,12 @@ void MotorSystem::i_TorqueControl(void)
 	
 	switch(this->mode){
 	case TORQUE:
-		SetVoltage(move_pid);					//トルク制御の場合、誘導起電力変化は無視する。
-		break;
+		//SetVoltage(move_pid);					//トルク制御の場合、誘導起電力変化は無視する。(2017/11/12 トルク制御と速度制御では同じじゃないかな）
+		//break;
 	case VELOCITY:
 		SetVoltage(move_pid
-			+ (V_ref) * this->Kt / 1000);	//速度制御の場合FFを行う。1000はmNm/AをV s/radに変換するため
+			+ velocity * this->Kt / 1000);
+			//+ (V_ref) * this->Kt / 1000);	//速度制御の場合FFを行う。1000はmNm/AをV s/radに変換するため
 		break;
 	case DUTY:
 		break;
@@ -91,10 +94,15 @@ void MotorSystem::i_VelocityControl(void)
 	}
 	
 	move_pid = Velocity_PID.Run(vel,V_ref);
-	//move_pid += this->V_ref * this->Kt / 1000.0;	
 	switch(this->mode){
 	case VELOCITY:
-		if((V_ref == 0.0) || ((this->velocity * V_ref) < 0) )Velocity_PID.SumReset();
+		if((V_ref == 0.0) || ((this->velocity * V_ref) < 0) )Velocity_PID.SumReset();//目標値が0、もしくは符号が変化する場合
+		
+		if(abs(this->velocity) < this->friction_velocity_threshold)
+			move_pid += this->static_friction;
+		else
+			move_pid += this->dynamic_friction;
+		
 		T_ref = move_pid;
 		break;
 	default:

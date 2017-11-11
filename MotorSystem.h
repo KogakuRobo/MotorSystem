@@ -13,6 +13,7 @@
 #include"MotorSystem_Define.h"
 #include"CAN.h"
 #include"_rx62t_can_driver.hpp"
+#include"_rx62t_wdt.hpp"
 #include"PID.hpp"
 
 #include<stdio.h>
@@ -35,7 +36,13 @@ private:
 	float current;	//current現在値		[A]
 	float velocity;	//velocity現在値	[rad/s]
 	
-	float current_offset;
+	float current_offset;	//電流センサのオフセット誤差
+
+public:
+	float static_friction;			//静止摩擦力	[mNm]
+	float dynamic_friction;			//動摩擦力	[mNm]
+	float friction_velocity_threshold;	//摩擦力変化の速度閾値[rad/s]
+
 public:
 	float rpc;	//一カウント当たりの角度[rad / count]
 	float Kt;	//トルク定数[mNm / A]
@@ -47,11 +54,12 @@ public:
 //	ハードウェア制御インターフェースルーチンが使用するメンバ
 /***********************************************************************/
 private:
+	_rx62t_WDT wdt;
+public:
+	void WDT_Clear(void){wdt.clear();}
 
-	void WDT_Start(void);
-	void WDT_Stop(void);
-public:	void WDT_Clear(void);
-
+//public:
+private:
 	void GPT_ClockStart(void);	//MotorSystem_Peripheral.h
 	void GPT_ClockStop(void);	//MotorSystem_Peripheral.h
 	

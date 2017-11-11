@@ -3,21 +3,6 @@
 #include"math.h"
 #include"MovingFilter.hpp"
 
-void MotorSystem::WDT_Start(void)
-{
-	WDT.WRITE.WINA = 0xA5FF;
-}
-
-void MotorSystem::WDT_Stop(void)
-{
-	WDT.WRITE.WINA = 0xA598;
-}
-
-void MotorSystem::WDT_Clear(void)
-{
-	WDT.WRITE.WINA = 0x5A00;
-}
-
 void MotorSystem::GPT_ClockStart(void)
 {
 	if(this->mode == ERROR)
@@ -74,8 +59,7 @@ void MotorSystem::CurrentCalibration(void)
 	
 	v_data = S12AD0.ADDR0A * 5.0 / (4096-1);
 	
-	i_data = (v_data - 2.50) / 0.1;			//ACS714の20A仕様
-	
+	i_data = (v_data - 2.50) * 15.0;			//ACS714の30A仕様
 	i_buff[num++] = i_data;
 	
 	if(num == CURRENT_CALIBRATION_NUMBER){
@@ -105,7 +89,7 @@ float MotorSystem::GetCurrent(void)
 	
 	v_data = S12AD0.ADDR0A * 5.0 / (4096-1);
 	
-	i_data = (v_data - 2.50) / 0.1 - this->current_offset;			//ACS714の20A仕様 - オフセット
+	i_data = (v_data - 2.50) * 15.0 - this->current_offset;			//ACS714の30A仕様 - オフセット
 	if((i_data > 20) || (i_data < -20))
 		return 0;
 	return fil.Put(i_data);
@@ -200,7 +184,7 @@ float MotorSystem::VelocityCalculation(void)
 	
 	befor_tgra = MTU1_TGRA;
 	
-	if(abs(this->velocity - _velocity) > 300)
+	if(abs(this->velocity - _velocity) > 1000)
 		_velocity = this->velocity;
 	
 	this->velocity = fil.Put(_velocity);

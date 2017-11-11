@@ -17,7 +17,7 @@ void MotorSystem::SetMode(MotorSystem_Mode m)
 	
 	
 	if(IS_ERROR(m)){
-		this->WDT_Stop();
+		wdt.stop();
 		GPT_ClockStop();
 		
 		MTU_ClockStop();
@@ -27,14 +27,14 @@ void MotorSystem::SetMode(MotorSystem_Mode m)
 		SetDuty(0);
 	}
 	else if(IS_PAUSE(m)){
-		this->WDT_Stop();
+		wdt.stop();
 		//AllControlStop();
 		Current_PID.SumReset();
 		Velocity_PID.SumReset();
 		SetDuty(0);
 	}
 	else if(IS_ACTION(m)){
-		this->WDT_Start();
+		wdt.start();
 		//AllControlStart();
 	}
 	
