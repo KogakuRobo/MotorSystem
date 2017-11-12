@@ -55,7 +55,7 @@ void MotorSystem::i_TorqueControl(void)
 	Current = this->GetCurrent();					//電流取得
 	this->current = 0.3 * this->current + 0.7 * Current;
 	
-	Current_ref = this->T_ref / this->Kt;				//目標電流算出
+	Current_ref = TorqueToCurrent(this->T_ref);				//目標電流算出
 	Current_ref = Limit<float>(Current_ref,17,-17);			//目標電流にリミット
 	
 	this->C_ref = Current_ref;

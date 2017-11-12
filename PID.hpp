@@ -68,5 +68,35 @@ public:
 		return ret;
 	}
 };
+/*/
+template<typename type>
+class PID{
 
+private:
+	float K;	//ゲイン
+	float Ti;	//積分時間
+	float Td;	//微分時間
+	
+	float dt;	//微積分時間（タイムスライス）
+	
+	float sum;	//積和値
+	float befor;	//前回偏差
+	
+	float Proportion;	//比例分の値(ゲイン調整時に使用)
+	float Integration;	//積分分の値
+	float Differentiation;	//
+	
+	PID(float k,float i,float d,float t)
+	{
+		K = k;
+		Ti = i;
+		Td = d;
+		dt = t;
+		sum = 0;
+		befor = 0;
+	}
+	
+	void SetGain(float k){this->K = k;}
+};
+//*/
 #endif

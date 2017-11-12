@@ -111,6 +111,15 @@ public:
 		printf("%f,%f,%f\n",Vo_ref,current,velocity);
 	}
 	
+	float TorqueToCurrent(float t)
+	{
+		return t / this->Kt;
+	}
+	
+	float CurrentToTorque(float i)
+	{
+		return i * this->Kt;
+	}
 //トルクコントロールルーチン　電流フィードバック制御を行います。
 // T_ref -> (C_ref) -> V_ref
 //速度制御モードでは速度のフィードフォアード制御を行います（誘導起電力分の除去）。
