@@ -50,12 +50,12 @@ void ManualControl::MotorSystemBegin(void){
 	
 	//540
 	//*/
-	hw->Current_PID.SetPGain(7.5);
-	hw->Current_PID.SetIGain(1.5);
-	hw->Current_PID.SetDGain(0.1*0.000002);
-	hw->Velocity_PID.SetPGain(1.5);
-	hw->Velocity_PID.SetIGain(0.4);
-	hw->Velocity_PID.SetDGain(0.0*0.000002);
+	hw->Current_PID.SetK(14.0);
+	hw->Current_PID.SetTi(8.0);
+	hw->Current_PID.SetTd(50.0*0.000002);
+	hw->Velocity_PID.SetK(0.20);
+	hw->Velocity_PID.SetTi(0.30);
+	hw->Velocity_PID.SetTd(1.0*0.00002);
 	//*/
 	
 	//hw->Velocity_PID.SetPGain(0.10);

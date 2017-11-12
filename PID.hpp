@@ -1,6 +1,7 @@
 #ifndef _PID_HPP_
 #define _PID_HPP_
 
+/*/
 template <typename type>
 class PID{
 	
@@ -68,7 +69,9 @@ public:
 		return ret;
 	}
 };
-/*/
+//*/
+
+//*/
 template<typename type>
 class PID{
 
@@ -85,7 +88,7 @@ private:
 	float Proportion;	//比例分の値(ゲイン調整時に使用)
 	float Integration;	//積分分の値
 	float Differentiation;	//
-	
+public:
 	PID(float k,float i,float d,float t)
 	{
 		K = k;
@@ -96,7 +99,35 @@ private:
 		befor = 0;
 	}
 	
-	void SetGain(float k){this->K = k;}
+	void SetK(float k){this->K = k;}
+	
+	void SetTi(float ti){this->Ti = ti;}
+	
+	void SetTd(float td){this->Td = td;}
+	
+	void SumReset(void)
+	{
+		sum = 0;
+		befor = 0;
+	}
+	
+	float Run(type data,type ref)
+	{
+		float error;
+		float ret = 0;
+		
+		error = ref - data;
+		
+		sum += (error + befor) / 2 * dt;
+		
+		Proportion = K * error;
+		Integration = K * sum / Ti;
+		Differentiation = K * Td * (error - befor) / dt;
+		
+		befor = error;
+		ret = Proportion + Integration + Differentiation;
+		return ret;
+	}
 };
 //*/
 #endif

@@ -23,18 +23,18 @@ typedef enum{
 	SET_PPR		= 0x46,
 	SET_KT		= 0x47,
 	
-	SET_VGAIN_P	= 0x48,
+	SET_VGAIN_K	= 0x48,
 	GET_V_P		= 0x78,
-	SET_VGAIN_I	= 0x49,
+	SET_VGAIN_TI	= 0x49,
 	GET_V_I		= 0x79,
-	SET_VGAIN_D	= 0x4a,
+	SET_VGAIN_TD	= 0x4a,
 	GET_V_D		= 0x7a,
 	
-	SET_CGAIN_P	= 0x4c,
+	SET_CGAIN_K	= 0x4c,
 	GET_C_P		= 0x7c,
-	SET_CGAIN_I	= 0x4d,
+	SET_CGAIN_TI	= 0x4d,
 	GET_C_I		= 0x7d,
-	SET_CGAIN_D	= 0x4e,
+	SET_CGAIN_TD	= 0x4e,
 	GET_C_D		= 0x7e,
 	
 }MotorSystem_CMD;//ID‚ÌãˆÊ7bit•ª
@@ -113,23 +113,23 @@ HandleReturn MotorSystem::NormalCommandHandle(CAN_MSG msg)
 		msg.DLC = 4;
 		This->can_bus.Send(msg);
 		break;
-	case SET_VGAIN_P:
-		This->Velocity_PID.SetPGain(trans.FLOAT.f);
+	case SET_VGAIN_K:
+		This->Velocity_PID.SetK(trans.FLOAT.f);
 		break;
-	case SET_VGAIN_I:
-		This->Velocity_PID.SetIGain(trans.FLOAT.f);
+	case SET_VGAIN_TI:
+		This->Velocity_PID.SetTi(trans.FLOAT.f);
 		break;
-	case SET_VGAIN_D:
-		This->Velocity_PID.SetDGain(trans.FLOAT.f);
+	case SET_VGAIN_TD:
+		This->Velocity_PID.SetTd(trans.FLOAT.f);
 		break;
-	case SET_CGAIN_P:
-		This->Current_PID.SetPGain(trans.FLOAT.f);
+	case SET_CGAIN_K:
+		This->Current_PID.SetK(trans.FLOAT.f);
 		break;
-	case SET_CGAIN_I:
-		This->Current_PID.SetIGain(trans.FLOAT.f);
+	case SET_CGAIN_TI:
+		This->Current_PID.SetTi(trans.FLOAT.f);
 		break;
-	case SET_CGAIN_D:
-		This->Current_PID.SetDGain(trans.FLOAT.f);
+	case SET_CGAIN_TD:
+		This->Current_PID.SetTd(trans.FLOAT.f);
 		break;
 	case SET_VCC:
 		This->Vcc = trans.FLOAT.f;

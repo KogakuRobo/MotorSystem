@@ -110,12 +110,12 @@ void InitMotorSystem(MotorSystem *hw){
 	
 	//735
 	//*/
-	hw->Current_PID.SetPGain(14.0);
-	hw->Current_PID.SetIGain(8.0);
-	hw->Current_PID.SetDGain(50.0*0.000002);
-	hw->Velocity_PID.SetPGain(0.20);
-	hw->Velocity_PID.SetIGain(0.30);
-	hw->Velocity_PID.SetDGain(1.0*0.00002);
+	hw->Current_PID.SetK(14.0);
+	hw->Current_PID.SetTi(8.0);
+	hw->Current_PID.SetTd(50.0*0.000002);
+	hw->Velocity_PID.SetK(0.20);
+	hw->Velocity_PID.SetTi(0.30);
+	hw->Velocity_PID.SetTd(1.0*0.00002);
 	//*/
 	
 	//540

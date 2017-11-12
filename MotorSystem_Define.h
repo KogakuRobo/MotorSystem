@@ -1,6 +1,8 @@
 #ifndef _MotorSystem_Define_H_
 #define _MotorSystem_Define_H_
 
+#define EXTAL	12.5	//[MHz]
+
 typedef enum{
 	INITIALIZE,
 	DUTY,
