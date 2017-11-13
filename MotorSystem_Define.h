@@ -28,7 +28,7 @@ typedef enum{
 
 #define MAXON_RE40_24V_Kt	30.2		//mNm/A
 #define RZ735VA_9517_Kt		8.11		//mNm/A
-#define RZ735VA_8519_Kt		42.48		//mNm/A
+#define RZ735VA_8519_Kt		5.80		//mNm/A
 
 #define RPM(radps)	(radps * 60 / (2 * 3.141592))
 

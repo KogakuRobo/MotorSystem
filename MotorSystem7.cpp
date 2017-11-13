@@ -40,7 +40,7 @@ void Logout(void)
 	//PORT2.DR.BIT.B4 = 1;
 	g_hw->SetVelocity(g_speed);
 	//g_hw->SetDuty(g_speed);
-	//g_hw->SetTorque(g_speed);
+	//g_hw->SetTorque(g_hw->CurrentToTorque(g_speed));
 	g_hw->WDT_Clear();
 	//PORT2.DR.BIT.B4 = 0;
 }
@@ -110,12 +110,12 @@ void InitMotorSystem(MotorSystem *hw){
 	
 	//735
 	//*/
-	hw->Current_PID.SetK(14.0);
-	hw->Current_PID.SetTi(8.0);
-	hw->Current_PID.SetTd(50.0*0.000002);
-	hw->Velocity_PID.SetK(0.20);
-	hw->Velocity_PID.SetTi(0.30);
-	hw->Velocity_PID.SetTd(1.0*0.00002);
+	hw->Current_PID.SetK(4.0);
+	hw->Current_PID.SetTi(0.3);
+	hw->Current_PID.SetTd(0.0);
+	hw->Velocity_PID.SetK(0.4);
+	hw->Velocity_PID.SetTi(0.2);
+	hw->Velocity_PID.SetTd(0.0);
 	//*/
 	
 	//540

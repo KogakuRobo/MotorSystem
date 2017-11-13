@@ -53,7 +53,7 @@ void MotorSystem::i_TorqueControl(void)
 	}
 	
 	Current = this->GetCurrent();					//電流取得
-	this->current = 0.3 * this->current + 0.7 * Current;
+	this->current = Current;
 	
 	Current_ref = TorqueToCurrent(this->T_ref);				//目標電流算出
 	Current_ref = Limit<float>(Current_ref,17,-17);			//目標電流にリミット
@@ -98,11 +98,15 @@ void MotorSystem::i_VelocityControl(void)
 	case VELOCITY:
 		if((V_ref == 0.0) || ((this->velocity * V_ref) < 0) )Velocity_PID.SumReset();//目標値が0、もしくは符号が変化する場合
 		
-		if(abs(this->velocity) < this->friction_velocity_threshold)
-			move_pid += this->static_friction;
-		else
+		if(this->velocity > this->friction_velocity_threshold)
 			move_pid += this->dynamic_friction;
-		
+		else if(this->velocity < -1 *  this->friction_velocity_threshold)
+			move_pid -= this->dynamic_friction;
+		else if(this->V_ref > 0)
+			move_pid += this->static_friction;
+		else if(this->V_ref < 0)
+			move_pid -= this->static_friction;
+			
 		T_ref = move_pid;
 		break;
 	default:

@@ -33,9 +33,9 @@ Velocity_PID	(2.2,		0.02,		0.0,		0.0002 )
 	
 	current_offset = 0;
 	
-	static_friction = 0;
-	dynamic_friction = 0;
-	friction_velocity_threshold = 0;
+	static_friction = this->CurrentToTorque(2.5);
+	dynamic_friction = this->CurrentToTorque(2);
+	friction_velocity_threshold = 5;
 	
 //	ハードウェア初期化
 	OSC_Init();			//クロック設定

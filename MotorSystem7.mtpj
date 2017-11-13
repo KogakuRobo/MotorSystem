@@ -1,9 +1,9 @@
 <CubeSuiteProject>
-  <ProductVersion>7.00.00.00</ProductVersion>
+  <ProductVersion>8.00.00.00</ProductVersion>
   <Class Guid="68f4a651-b9cd-473b-a595-b00447132ffa">
     <Instance Guid="00000000-0000-0000-0000-000000000000">
       <FormatVersion>2.0</FormatVersion>
-      <FileVersion>7.0</FileVersion>
+      <FileVersion>8.0</FileVersion>
       <ProjectGuid>b9f8ebf4-919a-44af-913d-52907f496741</ProjectGuid>
       <ProjectItemGuid>2f46677f-9bda-473f-a639-352b1eaca2a7</ProjectItemGuid>
       <FileCategoryGuid>9dbce07f-39fd-4db1-9772-e2915a251d50</FileCategoryGuid>
@@ -211,6 +211,12 @@
       <ParentItem>9dbce07f-39fd-4db1-9772-e2915a251d50</ParentItem>
       <Property>7a3e2aff-9b79-4524-8a46-3c9237fa576a</Property>
     </Instance>
+    <Instance Guid="ec73ee90-c636-4eb7-b9ec-027fe7711396">
+      <Name>Control</Name>
+      <Type>Category</Type>
+      <ParentItem>9dbce07f-39fd-4db1-9772-e2915a251d50</ParentItem>
+      <Property>8aa086c8-19a4-4faf-b662-c95195e5b351</Property>
+    </Instance>
     <Instance Guid="fb0091de-46f8-4c9e-bac5-88b74c2ae38c">
       <Name>_rx62t_wdt.hpp</Name>
       <Type>File</Type>
@@ -272,6 +278,9 @@
       <MemoCount>0</MemoCount>
     </Instance>
     <Instance Guid="7a3e2aff-9b79-4524-8a46-3c9237fa576a">
+      <MemoCount>0</MemoCount>
+    </Instance>
+    <Instance Guid="8aa086c8-19a4-4faf-b662-c95195e5b351">
       <MemoCount>0</MemoCount>
     </Instance>
   </Class>
@@ -343,11 +352,11 @@
       <SourceItemType13>CppSource</SourceItemType13>
       <SourceItemGuid14>fe8364a8-b616-416a-8fb0-0bbf38ef0d21</SourceItemGuid14>
       <SourceItemType14>CppSource</SourceItemType14>
-      <SourceItemGuid15>2cab2b50-2c9a-4f5e-9072-fd561b980de8</SourceItemGuid15>
+      <SourceItemGuid15>2f3652f7-9b17-472a-9ea4-73556ff0ac08</SourceItemGuid15>
       <SourceItemType15>CppSource</SourceItemType15>
-      <SourceItemGuid16>899dbee0-7e67-4817-bfcd-fc807a86752a</SourceItemGuid16>
+      <SourceItemGuid16>2cab2b50-2c9a-4f5e-9072-fd561b980de8</SourceItemGuid16>
       <SourceItemType16>CppSource</SourceItemType16>
-      <SourceItemGuid17>2f3652f7-9b17-472a-9ea4-73556ff0ac08</SourceItemGuid17>
+      <SourceItemGuid17>899dbee0-7e67-4817-bfcd-fc807a86752a</SourceItemGuid17>
       <SourceItemType17>CppSource</SourceItemType17>
       <SourceItemCount>18</SourceItemCount>
       <LastDeviceChangedCounter>0</LastDeviceChangedCounter>
@@ -433,7 +442,7 @@
       <GeneralOptionPatch-DefaultValue>None</GeneralOptionPatch-DefaultValue>
       <GeneralOptionSaveAcc-DefaultValue>False</GeneralOptionSaveAcc-DefaultValue>
       <IsLockedByUser>False</IsLockedByUser>
-      <TimeTagModified--0>-8587064682332510282</TimeTagModified--0>
+      <TimeTagModified--0>-8586910759122297544</TimeTagModified--0>
       <BuildMode-0>DefaultBuild</BuildMode-0>
       <Memo-0 />
       <OutputMessageFormat-0>%TargetFiles%</OutputMessageFormat-0>
@@ -491,7 +500,7 @@
       <GeneralOptionBaseAddressRegister-0>None</GeneralOptionBaseAddressRegister-0>
       <GeneralOptionPatch-0>None</GeneralOptionPatch-0>
       <GeneralOptionSaveAcc-0>False</GeneralOptionSaveAcc-0>
-      <LastCompilerVersion-0>V2.06.00</LastCompilerVersion-0>
+      <LastCompilerVersion-0>V2.07.00</LastCompilerVersion-0>
     </Instance>
     <Instance Guid="95a63257-4aa7-40c0-a74a-7991543b099b">
       <COptionLangC-DefaultValue>C</COptionLangC-DefaultValue>
@@ -574,15 +583,16 @@
       <COptionIgnoreFilesMisra-DefaultValue />
       <COptionInstalign-DefaultValue>Noinstalign</COptionInstalign-DefaultValue>
       <COptionScope-DefaultValue>Auto</COptionScope-DefaultValue>
+      <COptionAvoidCrossBoundaryPrefetch-DefaultValue>False</COptionAvoidCrossBoundaryPrefetch-DefaultValue>
       <COptionChangeMessageWarning-DefaultValue>No</COptionChangeMessageWarning-DefaultValue>
       <COptionCheckLanguageExtension-DefaultValue>False</COptionCheckLanguageExtension-DefaultValue>
-      <COptionNouseDiv-DefaultValue>True</COptionNouseDiv-DefaultValue>
       <COptionSchedule-DefaultValue>Auto</COptionSchedule-DefaultValue>
       <COptionChangeMessageWarningNumber-DefaultValue />
       <COptionMap-DefaultValue>NoMap</COptionMap-DefaultValue>
-      <COptionOutcode-DefaultValue>Sjis</COptionOutcode-DefaultValue>
+      <COptionNouseDiv-DefaultValue>True</COptionNouseDiv-DefaultValue>
       <COptionChangeMessageWarningNumber2-DefaultValue />
       <COptionIntermodule-DefaultValue>None</COptionIntermodule-DefaultValue>
+      <COptionOutcode-DefaultValue>Sjis</COptionOutcode-DefaultValue>
       <COptionApproxdiv-DefaultValue>False</COptionApproxdiv-DefaultValue>
       <COptionChangeMessageError-DefaultValue>No</COptionChangeMessageError-DefaultValue>
       <COptionChangeMessageErrorNumber-DefaultValue />
@@ -680,14 +690,15 @@ _PCK_=50
       <COptionIgnoreFilesMisra-0 />
       <COptionInstalign-0>Noinstalign</COptionInstalign-0>
       <COptionScope-0>Auto</COptionScope-0>
+      <COptionAvoidCrossBoundaryPrefetch-0>False</COptionAvoidCrossBoundaryPrefetch-0>
       <COptionChangeMessageWarning-0>No</COptionChangeMessageWarning-0>
       <COptionCheckLanguageExtension-0>False</COptionCheckLanguageExtension-0>
-      <COptionNouseDiv-0>True</COptionNouseDiv-0>
       <COptionSchedule-0>Auto</COptionSchedule-0>
       <COptionChangeMessageWarningNumber-0 />
       <COptionMap-0>NoMap</COptionMap-0>
-      <COptionOutcode-0>Sjis</COptionOutcode-0>
+      <COptionNouseDiv-0>True</COptionNouseDiv-0>
       <COptionIntermodule-0>None</COptionIntermodule-0>
+      <COptionOutcode-0>Sjis</COptionOutcode-0>
       <COptionApproxdiv-0>False</COptionApproxdiv-0>
       <COptionChangeMessageError-0>No</COptionChangeMessageError-0>
       <COptionChangeMessageErrorNumber-0 />
@@ -812,6 +823,7 @@ D_2=R_2
       <LinkOptionEntryPoint-DefaultValue />
       <LinkOptionMsgUnused-DefaultValue>False</LinkOptionMsgUnused-DefaultValue>
       <LinkOptionMultiConvertFileName-DefaultValue />
+      <LinkOptionShowRelocationAttribute-DefaultValue>False</LinkOptionShowRelocationAttribute-DefaultValue>
       <LinkOptionSymbolForbid-DefaultValue />
       <LinkOptionChangeMessageError-DefaultValue>None</LinkOptionChangeMessageError-DefaultValue>
       <LinkOptionNoMessageErrorNumber-DefaultValue />
@@ -843,14 +855,15 @@ D_2=R_2
       <LinkOptionCommandLine-DefaultValue>-noprelink
 -output=%BuildModeName%\%ProjectName%.abs
 -list=%BuildModeName%\%ProjectName%.map
+-show=symbol,total_size
 -nooptimize
--start=B_1,R_1,B_2,R_2,B,R,SU,SI/04,PResetPRG/0FFFF0000,C_1,C_2,C,C$DSEC,C$BSEC,C$INIT,C$VTBL,C$VECT,D_1,D_2,D,P,PIntPRG,W_1,W_2,W,L/0FFFF0100,FIXEDVECT/0FFFFFFD0
+-start=B_1,R_1,B_2,R_2,B,R,SU,SI/00000004,PResetPRG/0FFFF0000,C_1,C_2,C,C$DSEC,C$BSEC,C$INIT,C$VTBL,C$VECT,D_1,D_2,D,P,PIntPRG,W_1,W_2,W,L/0FFFF0100,FIXEDVECT/0FFFFFFD0
 -rom=D=R,D_1=R_1,D_2=R_2
 -nologo
 -exit
 </LinkOptionCommandLine-DefaultValue>
       <IsLockedByUser>False</IsLockedByUser>
-      <TimeTagModified--0>-8587219422471624685</TimeTagModified--0>
+      <TimeTagModified--0>-8586910913286028327</TimeTagModified--0>
       <LinkOptionCpu-0>False</LinkOptionCpu-0>
       <LinkOptionForm-0>Absolute</LinkOptionForm-0>
       <LinkOptionFormConvert-0>Stype</LinkOptionFormConvert-0>
@@ -902,6 +915,7 @@ D_2=R_2
       <LinkOptionEntryPoint-0 />
       <LinkOptionMsgUnused-0>False</LinkOptionMsgUnused-0>
       <LinkOptionMultiConvertFileName-0 />
+      <LinkOptionShowRelocationAttribute-0>False</LinkOptionShowRelocationAttribute-0>
       <LinkOptionSymbolForbid-0 />
       <LinkOptionChangeMessageError-0>None</LinkOptionChangeMessageError-0>
       <LinkOptionNoMessageErrorNumber-0 />
@@ -933,8 +947,9 @@ D_2=R_2
       <LinkOptionCommandLine-0>-noprelink
 -output=%BuildModeName%\%ProjectName%.abs
 -list=%BuildModeName%\%ProjectName%.map
+-show=symbol,total_size
 -nooptimize
--start=B_1,R_1,B_2,R_2,B,R,SU,SI/04,PResetPRG/0FFFF0000,C_1,C_2,C,C$DSEC,C$BSEC,C$INIT,C$VTBL,C$VECT,D_1,D_2,D,P,PIntPRG,W_1,W_2,W,L/0FFFF0100,FIXEDVECT/0FFFFFFD0
+-start=B_1,R_1,B_2,R_2,B,R,SU,SI/00000004,PResetPRG/0FFFF0000,C_1,C_2,C,C$DSEC,C$BSEC,C$INIT,C$VTBL,C$VECT,D_1,D_2,D,P,PIntPRG,W_1,W_2,W,L/0FFFF0100,FIXEDVECT/0FFFFFFD0
 -rom=D=R,D_1=R_1,D_2=R_2
 -nologo
 -exit
@@ -975,6 +990,7 @@ D_2=R_2
       <HexOptionCrcType-DefaultValue>Ccitt</HexOptionCrcType-DefaultValue>
       <HexOptionCrcInitialValue-DefaultValue />
       <HexOptionCrcEndian-DefaultValue>None</HexOptionCrcEndian-DefaultValue>
+      <HexOptionEndRecord-DefaultValue>None</HexOptionEndRecord-DefaultValue>
       <LinkOptionS9-DefaultValue>False</LinkOptionS9-DefaultValue>
       <HexOptionCreateUnfilledArea-DefaultValue>False</HexOptionCreateUnfilledArea-DefaultValue>
       <IsLockedByUser>False</IsLockedByUser>
@@ -1013,6 +1029,7 @@ D_2=R_2
       <HexOptionCrcType-0>Ccitt</HexOptionCrcType-0>
       <HexOptionCrcInitialValue-0 />
       <HexOptionCrcEndian-0>None</HexOptionCrcEndian-0>
+      <HexOptionEndRecord-0>None</HexOptionEndRecord-0>
       <LinkOptionS9-0>False</LinkOptionS9-0>
       <HexOptionCreateUnfilledArea-0>False</HexOptionCreateUnfilledArea-0>
     </Instance>
@@ -1145,15 +1162,16 @@ D_2=R_2
       <LbgOptionApproxdiv-DefaultValue>False</LbgOptionApproxdiv-DefaultValue>
       <LbgOptionHeadInttypesH-DefaultValue>False</LbgOptionHeadInttypesH-DefaultValue>
       <LbgOptionInstalign-DefaultValue>Noinstalign</LbgOptionInstalign-DefaultValue>
+      <LbgOptionAvoidCrossBoundaryPrefetch-DefaultValue>False</LbgOptionAvoidCrossBoundaryPrefetch-DefaultValue>
       <LbgOptionEnableRegister-DefaultValue>False</LbgOptionEnableRegister-DefaultValue>
       <LbgOptionHeadWcharH-DefaultValue>False</LbgOptionHeadWcharH-DefaultValue>
-      <LbgOptionNouseDiv-DefaultValue>True</LbgOptionNouseDiv-DefaultValue>
       <LbgOptionHeadWctypeH-DefaultValue>False</LbgOptionHeadWctypeH-DefaultValue>
+      <LbgOptionNouseDiv-DefaultValue>True</LbgOptionNouseDiv-DefaultValue>
       <LbgOptionSimpleFloatConv-DefaultValue>False</LbgOptionSimpleFloatConv-DefaultValue>
       <LbgOptionFpu-DefaultValue>Fpu</LbgOptionFpu-DefaultValue>
       <LbgOptionFloatOrder-DefaultValue>False</LbgOptionFloatOrder-DefaultValue>
       <IsLockedByUser>False</IsLockedByUser>
-      <TimeTagModified--0>-8587064682332354022</TimeTagModified--0>
+      <TimeTagModified--0>-8586910759122141303</TimeTagModified--0>
       <LbgOptionLanguage-0>C</LbgOptionLanguage-0>
       <LbgOptionLibraryMode-0>MakeOptionChanged</LbgOptionLibraryMode-0>
       <LbgOptionLogo-0>False</LbgOptionLogo-0>
@@ -1215,10 +1233,11 @@ D_2=R_2
       <LbgOptionApproxdiv-0>False</LbgOptionApproxdiv-0>
       <LbgOptionHeadInttypesH-0>False</LbgOptionHeadInttypesH-0>
       <LbgOptionInstalign-0>Noinstalign</LbgOptionInstalign-0>
+      <LbgOptionAvoidCrossBoundaryPrefetch-0>False</LbgOptionAvoidCrossBoundaryPrefetch-0>
       <LbgOptionEnableRegister-0>False</LbgOptionEnableRegister-0>
       <LbgOptionHeadWcharH-0>False</LbgOptionHeadWcharH-0>
-      <LbgOptionNouseDiv-0>True</LbgOptionNouseDiv-0>
       <LbgOptionHeadWctypeH-0>False</LbgOptionHeadWctypeH-0>
+      <LbgOptionNouseDiv-0>True</LbgOptionNouseDiv-0>
       <LbgOptionSimpleFloatConv-0>False</LbgOptionSimpleFloatConv-0>
       <LbgOptionFpu-0>Fpu</LbgOptionFpu-0>
       <LbgOptionFloatOrder-0>False</LbgOptionFloatOrder-0>
@@ -1420,9 +1439,9 @@ D_2=R_2
       <SourceItem11-IsLockedByUser>False</SourceItem11-IsLockedByUser>
       <SourceItem11-BuildingTarget-0>False</SourceItem11-BuildingTarget-0>
       <SourceItem11-IndividualCompileOption-0>False</SourceItem11-IndividualCompileOption-0>
-      <TimeTagModified-SourceItem12--0>-8586916672386626726</TimeTagModified-SourceItem12--0>
+      <TimeTagModified-SourceItem12--0>-8586910913286028327</TimeTagModified-SourceItem12--0>
       <SourceItem12-IsLockedByUser>False</SourceItem12-IsLockedByUser>
-      <SourceItem12-BuildingTarget-0>True</SourceItem12-BuildingTarget-0>
+      <SourceItem12-BuildingTarget-0>False</SourceItem12-BuildingTarget-0>
       <SourceItem12-IndividualCompileOption-0>False</SourceItem12-IndividualCompileOption-0>
       <TimeTagModified-SourceItem13--0>-8587277029845840732</TimeTagModified-SourceItem13--0>
       <SourceItem13-IsLockedByUser>False</SourceItem13-IsLockedByUser>
@@ -1432,15 +1451,15 @@ D_2=R_2
       <SourceItem14-IsLockedByUser>False</SourceItem14-IsLockedByUser>
       <SourceItem14-BuildingTarget-0>True</SourceItem14-BuildingTarget-0>
       <SourceItem14-IndividualCompileOption-0>False</SourceItem14-IndividualCompileOption-0>
-      <TimeTagModified-SourceItem15--0>-8587219559068924706</TimeTagModified-SourceItem15--0>
+      <TimeTagModified-SourceItem15--0>-8586911695199728562</TimeTagModified-SourceItem15--0>
       <SourceItem15-IsLockedByUser>False</SourceItem15-IsLockedByUser>
       <SourceItem15-BuildingTarget-0>True</SourceItem15-BuildingTarget-0>
       <SourceItem15-IndividualCompileOption-0>False</SourceItem15-IndividualCompileOption-0>
-      <TimeTagModified-SourceItem16--0>-8587219483392203581</TimeTagModified-SourceItem16--0>
+      <TimeTagModified-SourceItem16--0>-8587219559068924706</TimeTagModified-SourceItem16--0>
       <SourceItem16-IsLockedByUser>False</SourceItem16-IsLockedByUser>
       <SourceItem16-BuildingTarget-0>True</SourceItem16-BuildingTarget-0>
       <SourceItem16-IndividualCompileOption-0>False</SourceItem16-IndividualCompileOption-0>
-      <TimeTagModified-SourceItem17--0>-8586911695199728562</TimeTagModified-SourceItem17--0>
+      <TimeTagModified-SourceItem17--0>-8587219483392203581</TimeTagModified-SourceItem17--0>
       <SourceItem17-IsLockedByUser>False</SourceItem17-IsLockedByUser>
       <SourceItem17-BuildingTarget-0>True</SourceItem17-BuildingTarget-0>
       <SourceItem17-IndividualCompileOption-0>False</SourceItem17-IndividualCompileOption-0>
@@ -2211,7 +2230,7 @@ D_2=R_2
       <DebuggerProperty-EssentialProperty-TargetConnect-TargetSupplyPower>No</DebuggerProperty-EssentialProperty-TargetConnect-TargetSupplyPower>
       <DebuggerProperty-EssentialProperty-TargetConnect-TargetSuppliedVoltage>Use3_3V</DebuggerProperty-EssentialProperty-TargetConnect-TargetSuppliedVoltage>
       <DebuggerProperty-EssentialProperty-TargetConnect-UserVCC>2147483647</DebuggerProperty-EssentialProperty-TargetConnect-UserVCC>
-      <DebuggerProperty-EssentialProperty-TargetConnect-CommunicationMethod>Jtag</DebuggerProperty-EssentialProperty-TargetConnect-CommunicationMethod>
+      <DebuggerProperty-EssentialProperty-TargetConnect-CommunicationMethodForE2Lite>Jtag</DebuggerProperty-EssentialProperty-TargetConnect-CommunicationMethodForE2Lite>
       <DebuggerProperty-EssentialProperty-TargetConnect-JtagClock>Jtag_06_000</DebuggerProperty-EssentialProperty-TargetConnect-JtagClock>
       <DebuggerProperty-EssentialProperty-TargetConnect-FineBaudRate>Fine_1500000</DebuggerProperty-EssentialProperty-TargetConnect-FineBaudRate>
       <DebuggerProperty-EssentialProperty-TargetConnect-BaudRate>115200</DebuggerProperty-EssentialProperty-TargetConnect-BaudRate>
@@ -2531,7 +2550,7 @@ D_2=R_2
       <StartStopRealTimeSampling>Synchronized</StartStopRealTimeSampling>
       <AutoAdjustForValueAndTime>Always</AutoAdjustForValueAndTime>
       <AutoAdjustNumberOfPoints>20</AutoAdjustNumberOfPoints>
-      <TimePerGrid>218798355</TimePerGrid>
+      <TimePerGrid>215723424</TimePerGrid>
       <ChartType>LineChart</ChartType>
       <SpecifyForegroundColorAndBackgroundColor>False</SpecifyForegroundColorAndBackgroundColor>
       <CursorAColor>PaleGreen</CursorAColor>
@@ -2581,38 +2600,38 @@ D_2=R_2
       <ChannelVariableType14>Auto</ChannelVariableType14>
       <ChannelVariableType15>Auto</ChannelVariableType15>
       <ChannelVariableType16>Auto</ChannelVariableType16>
-      <ChannelValuePerGrid1>0.285658421</ChannelValuePerGrid1>
-      <ChannelValuePerGrid2>0.1963655</ChannelValuePerGrid2>
-      <ChannelValuePerGrid3>0.00056835767</ChannelValuePerGrid3>
-      <ChannelValuePerGrid4>20</ChannelValuePerGrid4>
-      <ChannelValuePerGrid5>0.6138649</ChannelValuePerGrid5>
+      <ChannelValuePerGrid1>1.2570174</ChannelValuePerGrid1>
+      <ChannelValuePerGrid2>1.3515086</ChannelValuePerGrid2>
+      <ChannelValuePerGrid3>19.593874</ChannelValuePerGrid3>
+      <ChannelValuePerGrid4>1</ChannelValuePerGrid4>
+      <ChannelValuePerGrid5>0.2682231</ChannelValuePerGrid5>
       <ChannelValuePerGrid6>1</ChannelValuePerGrid6>
       <ChannelValuePerGrid7>1</ChannelValuePerGrid7>
-      <ChannelValuePerGrid8>0.4000079</ChannelValuePerGrid8>
-      <ChannelValuePerGrid9>7.947607</ChannelValuePerGrid9>
-      <ChannelValuePerGrid10>2.000036</ChannelValuePerGrid10>
+      <ChannelValuePerGrid8>7.842394</ChannelValuePerGrid8>
+      <ChannelValuePerGrid9>0.003928691</ChannelValuePerGrid9>
+      <ChannelValuePerGrid10>1</ChannelValuePerGrid10>
       <ChannelValuePerGrid11>1</ChannelValuePerGrid11>
       <ChannelValuePerGrid12>1</ChannelValuePerGrid12>
       <ChannelValuePerGrid13>1</ChannelValuePerGrid13>
-      <ChannelValuePerGrid14>0.83488728</ChannelValuePerGrid14>
-      <ChannelValuePerGrid15>0.547683420183</ChannelValuePerGrid15>
-      <ChannelValuePerGrid16>0.11318153</ChannelValuePerGrid16>
-      <ChannelValueOffset1>-1.361555895</ChannelValueOffset1>
-      <ChannelValueOffset2>-0.9818275</ChannelValueOffset2>
-      <ChannelValueOffset3>0.00220952965</ChannelValueOffset3>
-      <ChannelValueOffset4>-100</ChannelValueOffset4>
-      <ChannelValueOffset5>-1.0317775</ChannelValueOffset5>
+      <ChannelValuePerGrid14>0.5067865</ChannelValuePerGrid14>
+      <ChannelValuePerGrid15>0.03558554</ChannelValuePerGrid15>
+      <ChannelValuePerGrid16>1</ChannelValuePerGrid16>
+      <ChannelValueOffset1>-0.380805</ChannelValueOffset1>
+      <ChannelValueOffset2>-0.407403</ChannelValueOffset2>
+      <ChannelValueOffset3>6.30203</ChannelValueOffset3>
+      <ChannelValueOffset4>0</ChannelValueOffset4>
+      <ChannelValueOffset5>-0.0375854999999999</ChannelValueOffset5>
       <ChannelValueOffset6>-0.3</ChannelValueOffset6>
       <ChannelValueOffset7>-2E-05</ChannelValueOffset7>
-      <ChannelValueOffset8>-2.0000395</ChannelValueOffset8>
-      <ChannelValueOffset9>-39.738035</ChannelValueOffset9>
-      <ChannelValueOffset10>-10.00018</ChannelValueOffset10>
+      <ChannelValueOffset8>-2.41663</ChannelValueOffset8>
+      <ChannelValueOffset9>-0.001117295</ChannelValueOffset9>
+      <ChannelValueOffset10>0</ChannelValueOffset10>
       <ChannelValueOffset11>-14</ChannelValueOffset11>
       <ChannelValueOffset12>-8</ChannelValueOffset12>
       <ChannelValueOffset13>-0.0001</ChannelValueOffset13>
-      <ChannelValueOffset14>4.0998596</ChannelValueOffset14>
-      <ChannelValueOffset15>2.738370899085</ChannelValueOffset15>
-      <ChannelValueOffset16>0.09155725</ChannelValueOffset16>
+      <ChannelValueOffset14>0.6407685</ChannelValueOffset14>
+      <ChannelValueOffset15>0.0162233</ChannelValueOffset15>
+      <ChannelValueOffset16>0</ChannelValueOffset16>
       <ChannelColor1>c0ff0a4f</ChannelColor1>
       <ChannelColor2>c05be416</ChannelColor2>
       <ChannelColor3>c0056dff</ChannelColor3>

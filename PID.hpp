@@ -121,7 +121,10 @@ public:
 		sum += (error + befor) / 2 * dt;
 		
 		Proportion = K * error;
-		Integration = K * sum / Ti;
+		
+		if(Ti > 0.0)Integration = K * sum / Ti;
+		else Integration = 0;
+		
 		Differentiation = K * Td * (error - befor) / dt;
 		
 		befor = error;
