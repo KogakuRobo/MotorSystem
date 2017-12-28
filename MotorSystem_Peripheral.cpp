@@ -5,7 +5,7 @@
 
 void MotorSystem::GPT_ClockStart(void)
 {
-	if(this->mode == ERROR)
+	if(this->state.mode == ERROR)
 		return;
 	GPT.GTSTR.BIT.CST0 = 1;
 }
@@ -27,7 +27,7 @@ void MotorSystem::GPT_OBE(unsigned char uc)
 
 void MotorSystem::MTU_ClockStart(void)
 {
-	if(this->mode == ERROR)
+	if(this->state.mode == ERROR)
 		return;	
 	MTU.TSTRA.BIT.CST0 = 1;
 	MTU.TSTRA.BIT.CST1 = 1;
@@ -75,7 +75,7 @@ void MotorSystem::CurrentCalibration(void)
 		
 		this->current_offset = ave;
 		
-		is_mode = CURRENT_OFFSET_CALCULATION_END;
+		state.is_mode = CURRENT_OFFSET_CALCULATION_END;
 		this->CurrentControlStop();
 	}
 }
@@ -151,7 +151,7 @@ float MotorSystem::VelocityCalculation(void)
 {
 	float _velocity;
 	
-	static IIR_Filter<float> fil(0.08);
+	static IIR_Filter<float> fil(0.70);
 	
 	volatile static unsigned short befor_tgra = 0;
 	volatile unsigned short 	MTU0_TGRB = MTU0.TGRB,
@@ -167,24 +167,28 @@ float MotorSystem::VelocityCalculation(void)
 	temp = abs(befor_tgra - MTU1_TGRA);//iŠp•ûŒüŒŸo
 	
 	if(temp == 1){
-		speed = this->rpc * 100000000 / ((unsigned short)(MTU0_TGRB - MTU0_TGRD) + (unsigned short)(20000-1));
+		speed = this->rpc * (100000000 / 4) / ((unsigned short)(MTU0_TGRB - MTU0_TGRD) + (unsigned short)(MTU0.TGRC-1));
 		_velocity = ((TCFD == 1)?1:-1) * speed;
 	}
 	else if(temp == 0){
 		_velocity = 0.0;
 	}
-	else{
+	//else if((MTU0_TGRB - MTU0_TGRD) > 158){
 		//while(MTU0_TGRB <= MTU0_TGRD){
 		//	MTU0_TGRB = MTU0.TGRB;
 		//	MTU0_TGRD = MTU0.TGRD;
 		//}
-		speed = this->rpc * 100000000 / (unsigned short)(MTU0_TGRB - MTU0_TGRD);
-		_velocity = ((TCFD == 1)?1.0:-1.0) * speed;
+	//	speed = this->rpc * (100000000 / 4) / (unsigned short)(MTU0_TGRB - MTU0_TGRD);
+	//	_velocity = ((TCFD == 1)?1.0:-1.0) * speed;
+	//}
+	else{
+		speed = this->rpc * (MTU1_TGRA - befor_tgra) * 1000.0;
+		//_velocity = ((TCFD == 1)?1.0:-1.0) * speed;
 	}
 	
 	befor_tgra = MTU1_TGRA;
 	
-	if(abs(this->velocity - _velocity) > 1000)
+	if(abs(this->velocity - _velocity) > 500)
 		_velocity = this->velocity;
 	
 	this->velocity = fil.Put(_velocity);

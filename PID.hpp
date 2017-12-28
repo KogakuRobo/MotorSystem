@@ -76,6 +76,7 @@ template<typename type>
 class PID{
 
 private:
+public:
 	float K;	//ƒQƒCƒ“
 	float Ti;	//Ï•ªŠÔ
 	float Td;	//”÷•ªŠÔ

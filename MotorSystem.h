@@ -21,10 +21,36 @@
 class MotorSystem{
 	
 private:
+	/*/
 	volatile MotorSystem_Mode mode;
 	volatile MotorSystem_ErrorMode e_mode;
 	volatile MotorSystem_InitializeSubMode is_mode;
-	
+	/*/
+	volatile union{
+		struct{
+			union{
+				unsigned char uc_mode;
+				MotorSystem_Mode mode;
+			};
+			union{
+				unsigned char uc_e_mode;
+				MotorSystem_ErrorMode e_mode;
+			};
+			union{
+				unsigned char uc_is_mode;
+				MotorSystem_InitializeSubMode is_mode;
+			};
+			union{
+				unsigned char uc_state;
+				struct {
+					unsigned char MD_Power:1;
+					unsigned char dummy:7;
+				};
+			};
+		};
+		unsigned char c_data[8];
+	}state;
+	//*/
 	_rx62t_CAN_bus can_bus;
 	
 private:
@@ -42,7 +68,11 @@ public:
 	float static_friction;			//静止摩擦力	[mNm]
 	float dynamic_friction;			//動摩擦力	[mNm]
 	float friction_velocity_threshold;	//摩擦力変化の速度閾値[rad/s]
-
+	
+	float velocity_limit;
+	float current_limit;
+	
+	
 public:
 	float rpc;	//一カウント当たりの角度[rad / count]
 	float Kt;	//トルク定数[mNm / A]
@@ -108,7 +138,7 @@ public:
 	
 	void Logoutput(void)
 	{
-		printf("%f,%f,%f\n",Vo_ref,current,velocity);
+		printf("%f,%f,%f,%f,%f,%f\n",Vo_ref,current,velocity,Velocity_PID.Proportion,Velocity_PID.Integration,Velocity_PID.Differentiation);
 	}
 	
 	float TorqueToCurrent(float t)

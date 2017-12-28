@@ -12,11 +12,12 @@ void ADC_Init(void);
 
 MotorSystem::MotorSystem(void):
 Current_PID	(2.6,		0.8,		0.0,		0.00002),
-Velocity_PID	(2.2,		0.02,		0.0,		0.0002 )
+Velocity_PID	(2.2,		0.02,		0.0,		0.0002 ),
+wdt()
 {
-	this->mode = INITIALIZE;	//MotorSystemのモード
-	this->e_mode = NON_ERROR;	//エラー識別子
-	this->is_mode = START;		//イニシャライズのサブモード
+	this->state.mode = INITIALIZE;	//MotorSystemのモード
+	this->state.e_mode = NON_ERROR;	//エラー識別子
+	this->state.is_mode = START;		//イニシャライズのサブモード
 		
 //	定数設定
 	this->rpc = 3.1415 / 2.0 / 500 ;	//エンコーダ初期設定
@@ -80,17 +81,17 @@ void MotorSystem::Begin(void)
 	
 	CurrentSensor_Init();
 	
-	mode = STOP;
+	state.mode = STOP;
 	
 	wdt.clear();
 }
 
 int MotorSystem::CurrentSensor_Init(void){
-	is_mode = CURRENT_OFFSET_CALCULATION;
+	state.is_mode = CURRENT_OFFSET_CALCULATION;
 	CurrentControlStart();
-	while(is_mode != CURRENT_OFFSET_CALCULATION_END);
+	while(state.is_mode != CURRENT_OFFSET_CALCULATION_END);
 	
-	is_mode = END;
+	state.is_mode = END;
 	return 0;
 }
 
@@ -221,7 +222,7 @@ void ADC_Init(void)
 	S12AD0.ADCSR.BIT.ADIE = 1;
 	S12AD0.ADCSR.BIT.ADCS = 0;
 	
-	S12AD0.ADSSTR = 0x20;
+	S12AD0.ADSSTR = 0xFF;
 	
 	IPR(S12AD0,S12ADI0) = 13;
 	IEN(S12AD0,S12ADI0) = 1;

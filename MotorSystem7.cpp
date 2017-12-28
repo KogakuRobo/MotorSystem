@@ -41,6 +41,7 @@ void Logout(void)
 	g_hw->SetVelocity(g_speed);
 	//g_hw->SetDuty(g_speed);
 	//g_hw->SetTorque(g_hw->CurrentToTorque(g_speed));
+	g_hw->Logoutput();
 	g_hw->WDT_Clear();
 	//PORT2.DR.BIT.B4 = 0;
 }
@@ -48,7 +49,7 @@ void Logout(void)
 void main(void)
 {
 	SEQUENSE_MODE mode = INITIALIZE_MODE;
-	static MotorSystem hw;
+	MotorSystem hw;
 	g_hw = &hw;
 	
 	//ManualControl mc(g_hw);
@@ -62,7 +63,7 @@ void main(void)
 			InitMotorSystem(&hw);
 			//hw.SetMode(DUTY);
 			mode = WAIT_MODE;
-			CMT_Init();
+			//CMT_Init();
 			//printf("Initialize End\n");
 			break;
 			
@@ -71,7 +72,7 @@ void main(void)
 			//while(MTU0.TSR.BIT.TGFC)MTU0.TSR.BIT.TGFC=0;
 			//IR(MTU0,TGIC0) = 0;
 			volatile float in=0;
-			printf("Duty ?\n");
+			//printf("Duty ?\n");
 			scanf("%f",&in);
 			g_speed = in;
 			
@@ -91,11 +92,15 @@ void InitMotorSystem(MotorSystem *hw){
 	hw->Vcc = 12;
 	hw->Kt = RZ735VA_8519_Kt;
 	//hw->Kt = MAXON_RE40_24V_Kt;
+	//*
 	
-	hw->static_friction = 0;
-	hw->dynamic_friction = 0;
-	hw->friction_velocity_threshold = 0;
+	hw->velocity_limit = 350;
+	hw->current_limit = 15;
 	
+	hw->static_friction = hw->CurrentToTorque(0.0);
+	hw->dynamic_friction = hw->CurrentToTorque(0.0);
+	hw->friction_velocity_threshold = 0.01;
+	//*/
 	hw->SetDuty(0);
 	//6while(!hw->Calibration());
 	//‘«‰ñ‚èŽÀŒ±‹@—pPIDƒQƒCƒ“
@@ -111,11 +116,11 @@ void InitMotorSystem(MotorSystem *hw){
 	//735
 	//*/
 	hw->Current_PID.SetK(4.0);
-	hw->Current_PID.SetTi(0.3);
+	hw->Current_PID.SetTi(0.05);
 	hw->Current_PID.SetTd(0.0);
-	hw->Velocity_PID.SetK(0.4);
+	hw->Velocity_PID.SetK(1.0);
 	hw->Velocity_PID.SetTi(0.2);
-	hw->Velocity_PID.SetTd(0.0);
+	hw->Velocity_PID.SetTd(0.0001);
 	//*/
 	
 	//540

@@ -46,7 +46,7 @@ void MotorSystem::i_TorqueControl(void)
 	
 	PORT2.DR.BIT.B2 =1;	
 	
-	if(this->mode == INITIALIZE){
+	if(this->state.mode == INITIALIZE){
 		this->CurrentCalibration();
 		PORT2.DR.BIT.B2 =1;
 		return;				//初期化処理中なので、電流をサンプリングして終了
@@ -62,7 +62,7 @@ void MotorSystem::i_TorqueControl(void)
 	
 	move_pid = Current_PID.Run(this->current,Current_ref);		//PID制御
 	
-	switch(this->mode){
+	switch(this->state.mode){
 	case TORQUE:
 		//SetVoltage(move_pid);					//トルク制御の場合、誘導起電力変化は無視する。(2017/11/12 トルク制御と速度制御では同じじゃないかな）
 		//break;
@@ -88,15 +88,15 @@ void MotorSystem::i_VelocityControl(void)
 	PORT2.DR.BIT.B3 =1;
 	vel = VelocityCalculation();
 	
-	if(this->mode == INITIALIZE){
+	if(this->state.mode == INITIALIZE){
 		//PORT2.DR.BIT.B3 =1;
 		return;				//初期化処理中なので、電流をサンプリングして終了
 	}
 	
 	move_pid = Velocity_PID.Run(vel,V_ref);
-	switch(this->mode){
+	switch(this->state.mode){
 	case VELOCITY:
-		if((V_ref == 0.0) || ((this->velocity * V_ref) < 0) )Velocity_PID.SumReset();//目標値が0、もしくは符号が変化する場合
+		if((V_ref == 0.0) )Velocity_PID.SumReset();//目標値が0、もしくは符号が変化する場合
 		
 		if(this->velocity > this->friction_velocity_threshold)
 			move_pid += this->dynamic_friction;
@@ -108,6 +108,7 @@ void MotorSystem::i_VelocityControl(void)
 			move_pid -= this->static_friction;
 			
 		T_ref = move_pid;
+		//SetVoltage(move_pid);
 		break;
 	default:
 		break;

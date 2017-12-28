@@ -2,7 +2,7 @@
 
 MotorSystem_Mode MotorSystem::GetMode(void)
 {
-	return mode;
+	return state.mode;
 }
 
 #define IS_EQUAL(x,y) (x == y)
@@ -38,13 +38,13 @@ void MotorSystem::SetMode(MotorSystem_Mode m)
 		//AllControlStart();
 	}
 	
-	this->mode = m;
+	this->state.mode = m;
 	
 }
 
 void MotorSystem::SetMode(MotorSystem_ErrorMode m)
 {
-	this->e_mode = m;
+	this->state.e_mode = m;
 	SetMode(ERROR);
 	switch(m){
 	case OVER_DUTY:
@@ -58,38 +58,38 @@ void MotorSystem::SetMode(MotorSystem_ErrorMode m)
 
 bool MotorSystem::IsPause(void)
 {
-	return IS_PAUSE(this->mode);
+	return IS_PAUSE(this->state.mode);
 }
 
 bool MotorSystem::IsAction(void)
 {
-	return IS_ACTION(this->mode);
+	return IS_ACTION(this->state.mode);
 }
 
 bool MotorSystem::IsError(void)
 {
-	return IS_ERROR(this->mode);
+	return IS_ERROR(this->state.mode);
 }
 
 bool MotorSystem::Calibration(void)
 {
-	switch(is_mode){
+	switch(state.is_mode){
 	case START:
 		CurrentControlStart();
-		is_mode = CURRENT_OFFSET_CALCULATION;
+		state.is_mode = CURRENT_OFFSET_CALCULATION;
 		break;
 		
 	case CURRENT_OFFSET_CALCULATION:
 		break;
 		
 	case CURRENT_OFFSET_CALCULATION_END:
-		is_mode = END;
+		state.is_mode = END;
 		break;
 		
 	default:
 		break;
 	}
-	return IS_EQUAL(is_mode,END);
+	return IS_EQUAL(state.is_mode,END);
 }
 
 void MotorSystem::SetVoltage(float v)
@@ -112,7 +112,9 @@ void MotorSystem::SetVelocity(float vel)
 	//	SetDuty(0);
 	//	return;
 	//}
-	if((this->mode == STOP) || (this->mode == INITIALIZE)){
+	//if(vel > this->velocity_limit)vel = this->velocity_limit;
+	
+	if((this->state.mode == STOP) || (this->state.mode == INITIALIZE)){
 		this->V_ref = vel;
 		SetMode(VELOCITY);
 	}
@@ -125,7 +127,7 @@ void MotorSystem::SetVelocity(float vel)
 void MotorSystem::SetTorque(float t)
 {
 	
-	if((this->mode == STOP) || (this->mode == INITIALIZE)){
+	if((this->state.mode == STOP) || (this->state.mode == INITIALIZE)){
 		this->T_ref = t;
 		SetMode(TORQUE);
 		AllControlStart();

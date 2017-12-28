@@ -113,6 +113,14 @@ HandleReturn MotorSystem::NormalCommandHandle(CAN_MSG msg)
 		msg.DLC = 4;
 		This->can_bus.Send(msg);
 		break;
+	case GET_STATE:
+		This->state.MD_Power = 1;
+		for(int i = 0;i < 8;i++){
+			msg.data[i] = This->state.c_data[i];
+		}
+		msg.DLC = 8;
+		This->can_bus.Send(msg);
+		break;
 	case SET_VGAIN_K:
 		This->Velocity_PID.SetK(trans.FLOAT.f);
 		break;
