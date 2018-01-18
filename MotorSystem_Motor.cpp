@@ -5,37 +5,8 @@
 
 void MotorSystem::SetDuty(float duty)
 {
-	const float Max = 95.0;
-	const float Min = -95.0;
-	bool ret = true;
-	
-	duty = Limit<float>(duty,Max,Min,ret);//リミット処理
-	
-	if(ret == false){
-		//SetMode(OVER_DUTY);
-		//return ;
-	}
-	
-	if(duty > 0){
-		this->GPT_OAE(1);
-		this->GPT_OBE(0);
-		this->GPT_ClockStart();
-	}
-	else if(duty < 0){
-		this->GPT_OAE(0);
-		this->GPT_OBE(1);
-		this->GPT_ClockStart();
-		duty *= -1;			//dutyの正負変更
-	}
-	else{
-		
-		this->GPT_OAE(0);
-		this->GPT_OBE(0);
-		this->GPT_ClockStop();
-	}
-	
-	GPT0.GTCCRA = GPT0.GTPR * duty / 100.0;
-	GPT0.GTCCRB = GPT0.GTPR * duty / 100.0;
+	if(IS_ACTION(this->state.mode))
+		gpt.SetDuty(duty);
 }
 
 void MotorSystem::i_TorqueControl(void)

@@ -3,28 +3,6 @@
 #include"math.h"
 #include"MovingFilter.hpp"
 
-void MotorSystem::GPT_ClockStart(void)
-{
-	if(this->state.mode == ERROR)
-		return;
-	GPT.GTSTR.BIT.CST0 = 1;
-}
-
-void MotorSystem::GPT_ClockStop(void)
-{
-	GPT.GTSTR.BIT.CST0 = 0;
-}
-
-void MotorSystem::GPT_OAE(unsigned char uc)
-{
-	GPT0.GTONCR.BIT.OAE = uc;
-}
-
-void MotorSystem::GPT_OBE(unsigned char uc)
-{
-	GPT0.GTONCR.BIT.OBE = uc;
-}
-
 void MotorSystem::MTU_ClockStart(void)
 {
 	if(this->state.mode == ERROR)
@@ -104,12 +82,12 @@ float MotorSystem::GetVelocity(void)
 
 void MotorSystem::PositionControlStart(void)
 {
-	MTU0.TIER.BIT.TGIEA = 1;
+	mtu0.EnableTGIA(true);
 }	
 
 void MotorSystem::VelocityControlStart(void)
 {
-	MTU0.TIER.BIT.TGIEC = 1;
+	mtu0.EnableTGIC(true);
 }
 
 void MotorSystem::CurrentControlStart(void)
@@ -119,12 +97,12 @@ void MotorSystem::CurrentControlStart(void)
 
 void MotorSystem::PositionControlStop(void)
 {
-	MTU0.TIER.BIT.TGIEA = 0;
+	mtu0.EnableTGIA(false);
 }
 
 void MotorSystem::VelocityControlStop(void)
 {
-	MTU0.TIER.BIT.TGIEC = 0;
+	mtu0.EnableTGIC(false);
 }
 
 void MotorSystem::CurrentControlStop(void)
@@ -167,7 +145,7 @@ float MotorSystem::VelocityCalculation(void)
 	temp = abs(befor_tgra - MTU1_TGRA);//iŠp•ûŒüŒŸo
 	
 	if(temp == 1){
-		speed = this->rpc * (100000000 / 4) / ((unsigned short)(MTU0_TGRB - MTU0_TGRD) + (unsigned short)(MTU0.TGRC-1));
+		speed = this->rpc * mtu0.GetClockRate() / ((unsigned short)(MTU0_TGRB - MTU0_TGRD) + (unsigned short)(MTU0.TGRC-1));
 		_velocity = ((TCFD == 1)?1:-1) * speed;
 	}
 	else if(temp == 0){
@@ -182,7 +160,7 @@ float MotorSystem::VelocityCalculation(void)
 	//	_velocity = ((TCFD == 1)?1.0:-1.0) * speed;
 	//}
 	else{
-		speed = this->rpc * (MTU1_TGRA - befor_tgra) * 1000.0;
+		speed = this->rpc * (MTU1_TGRA - befor_tgra) * mtu0.GetInterruptRate();
 		//_velocity = ((TCFD == 1)?1.0:-1.0) * speed;
 	}
 	

@@ -61,7 +61,7 @@ void main(void)
 		case INITIALIZE_MODE:
 			//printf("Initialize Start\n");
 			InitMotorSystem(&hw);
-			//hw.SetMode(DUTY);
+			//hw.SetMode(VELOCITY);
 			mode = WAIT_MODE;
 			//CMT_Init();
 			//printf("Initialize End\n");
@@ -73,6 +73,7 @@ void main(void)
 			//IR(MTU0,TGIC0) = 0;
 			volatile float in=0;
 			//printf("Duty ?\n");
+			//hw.Logoutput();
 			scanf("%f",&in);
 			g_speed = in;
 			
@@ -85,13 +86,19 @@ void main(void)
 	}
 }
 
+#define Maxon_Profile	0
+#define RZ735_Profile	1
+
+#define MotorProfile	MaxonProfile
 void InitMotorSystem(MotorSystem *hw){
+	
 	hw->Begin();
 	
 	hw->rpc = 3.141592 / 2.0 / 500;
 	hw->Vcc = 12;
-	hw->Kt = RZ735VA_8519_Kt;
-	//hw->Kt = MAXON_RE40_24V_Kt;
+	//hw->Kt = RZ735VA_8519_Kt;
+	hw->Kt = MAXON_RE40_24V_Kt;
+	hw->gpt.SetFrequency(100);
 	//*
 	
 	hw->velocity_limit = 350;
@@ -103,18 +110,22 @@ void InitMotorSystem(MotorSystem *hw){
 	//*/
 	hw->SetDuty(0);
 	//6while(!hw->Calibration());
+	
+#if	MotorProfile == Maxon_Profile
 	//‘«‰ñ‚èÀŒ±‹@—pPIDƒQƒCƒ“
-	/*
-	hw->Current_PID.SetPGain(4.2);
-	hw->Current_PID.SetIGain(2.0);
-	hw->Current_PID.SetDGain(0);
-	hw->Velocity_PID.SetPGain(2.0);
-	hw->Velocity_PID.SetIGain(2.0);
-	hw->Velocity_PID.SetDGain(0);
-	*/
+	//*
+	hw->Current_PID.SetK(4.5);
+	hw->Current_PID.SetTi(0.0);
+	hw->Current_PID.SetTd(0);
+	hw->Velocity_PID.SetK(3.0);
+	hw->Velocity_PID.SetTi(0.2);
+	hw->Velocity_PID.SetTd(0);
+	//*/
 	
 	//735
 	//*/
+#elif	MotorProfile == RZ735_Profile
+
 	hw->Current_PID.SetK(4.0);
 	hw->Current_PID.SetTi(0.05);
 	hw->Current_PID.SetTd(0.0);
@@ -122,7 +133,7 @@ void InitMotorSystem(MotorSystem *hw){
 	hw->Velocity_PID.SetTi(0.2);
 	hw->Velocity_PID.SetTd(0.0001);
 	//*/
-	
+#endif	
 	//540
 	/*/
 	hw->Current_PID.SetPGain(7.5);

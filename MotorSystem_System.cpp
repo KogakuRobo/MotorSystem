@@ -5,11 +5,6 @@ MotorSystem_Mode MotorSystem::GetMode(void)
 	return state.mode;
 }
 
-#define IS_EQUAL(x,y) (x == y)
-#define IS_ACTION(x) (IS_EQUAL(x,DUTY) || IS_EQUAL(x,TORQUE) || IS_EQUAL(x,VELOCITY) || IS_EQUAL(x,POSITION))
-#define IS_PAUSE(x) (IS_EQUAL(x,INITIALIZE) || IS_EQUAL(x,STOP))
-#define IS_ERROR(x) (IS_EQUAL(x,ERROR))
-
 void MotorSystem::SetMode(MotorSystem_Mode m)
 {
 	
@@ -18,7 +13,7 @@ void MotorSystem::SetMode(MotorSystem_Mode m)
 	
 	if(IS_ERROR(m)){
 		wdt.stop();
-		GPT_ClockStop();
+		gpt.ClockStop();
 		
 		MTU_ClockStop();
 		//AllControlStop();

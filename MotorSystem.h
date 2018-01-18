@@ -14,12 +14,16 @@
 #include"CAN.h"
 #include"_rx62t_can_driver.hpp"
 #include"_rx62t_wdt.hpp"
+#include"_rx62t_gpt.hpp"
+#include"_rx62t_adc.hpp"
+#include"_rx62t_mtu.hpp"
+#include"ACS712.hpp"
 #include"PID.hpp"
 
 #include<stdio.h>
 
 class MotorSystem{
-	
+
 private:
 	/*/
 	volatile MotorSystem_Mode mode;
@@ -83,18 +87,20 @@ public:
 //private メンバ
 //	ハードウェア制御インターフェースルーチンが使用するメンバ
 /***********************************************************************/
-private:
+public:
 	_rx62t_WDT wdt;
+	_rx62t_GPT gpt;
+	_rx62t_ADC adc;
+	_rx62t_MTU0 mtu0;
+	_rx62t_MTU1 mtu1;
+	_rx62t_MTU2 mtu2;
+	ACS712 current_sensor;
 public:
 	void WDT_Clear(void){wdt.clear();}
 
 //public:
 private:
-	void GPT_ClockStart(void);	//MotorSystem_Peripheral.h
-	void GPT_ClockStop(void);	//MotorSystem_Peripheral.h
-	
-	void GPT_OAE(unsigned char);	//MotorSystem_Peripheral.h
-	void GPT_OBE(unsigned char);	//MotorSystem_Peripheral.h
+
 	
 	float GetCurrent(void);	
 	void CurrentCalibration(void);
@@ -114,6 +120,13 @@ private:
 	
 	void AllControlStart(void);
 	void AllControlStop(void);
+
+	
+/***********************************************************************/
+//	モータ制御関数群
+//public メンバ
+//	目標値設定関数など
+/***********************************************************************/
 
 public:
 	MotorSystem(void);	//MotorSystem_Init.cpp
@@ -138,7 +151,7 @@ public:
 	
 	void Logoutput(void)
 	{
-		printf("%f,%f,%f,%f,%f,%f\n",Vo_ref,current,velocity,Velocity_PID.Proportion,Velocity_PID.Integration,Velocity_PID.Differentiation);
+		printf("%f,%f,%f,%f,%f\n",Vo_ref,current,C_ref,velocity,V_ref);
 	}
 	
 	float TorqueToCurrent(float t)

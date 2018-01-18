@@ -1,7 +1,9 @@
 #ifndef _MotorSystem_Define_H_
 #define _MotorSystem_Define_H_
 
-#define EXTAL	12.5	//[MHz]
+#define EXTAL_CLOCK	12.5	//[MHz]
+#define ICK_CLOCK	100	//[MHz]
+#define PCK_CLOCK	50	//[MHz]
 
 typedef enum{
 	INITIALIZE,
@@ -12,6 +14,11 @@ typedef enum{
 	ERROR,
 	STOP,
 }MotorSystem_Mode;
+
+#define IS_EQUAL(x,y) (x == y)
+#define IS_ACTION(x) (IS_EQUAL(x,DUTY) || IS_EQUAL(x,TORQUE) || IS_EQUAL(x,VELOCITY) || IS_EQUAL(x,POSITION))
+#define IS_PAUSE(x) (IS_EQUAL(x,INITIALIZE) || IS_EQUAL(x,STOP))
+#define IS_ERROR(x) (IS_EQUAL(x,ERROR))
 
 typedef enum{
 	NON_ERROR,
