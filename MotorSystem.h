@@ -132,7 +132,7 @@ public:
 	MotorSystem(void);	//MotorSystem_Init.cpp
 	void DefaultParameter(void);
 	
-	void Begin(void);
+	unsigned long Begin(void);
 	int CurrentSensor_Init(void);
 	
 	MotorSystem_Mode GetMode(void);

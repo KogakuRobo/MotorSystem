@@ -81,7 +81,7 @@ void MotorSystem::DefaultParameter(void)
 	friction_velocity_threshold = 0.01;
 }
 
-void MotorSystem::Begin(void)
+unsigned long MotorSystem::Begin(void)
 {
 
 //	‰Šú‰»ˆ—
