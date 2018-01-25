@@ -41,7 +41,7 @@ void Logout(void)
 	//g_hw->SetVelocity(g_speed);
 	//g_hw->SetDuty(g_speed);
 	//g_hw->SetTorque(g_hw->CurrentToTorque(g_speed));
-	g_hw->Logoutput();
+	//g_hw->Logoutput();
 	//g_hw->WDT_Clear();
 	//PORT2.DR.BIT.B4 = 0;
 }
@@ -61,7 +61,7 @@ void main(void)
 		case INITIALIZE_MODE:
 			//printf("Initialize Start\n");
 			InitMotorSystem(&hw);
-			hw.Begin();
+			//hw.Begin();
 			//hw.SetMode(VELOCITY);
 			mode = WAIT_MODE;
 			CMT_Init();
@@ -90,7 +90,8 @@ void main(void)
 #define Maxon_Profile	0
 #define RZ735_Profile	1
 
-#define MotorProfile	RZ735_Profile
+#define MotorProfile	Maxon_Profile
+//#define MotorProfile	RZ735_Profile
 void InitMotorSystem(MotorSystem *hw){
 	
 	hw->rpc = 3.141592 / 2.0 / 500;
@@ -112,13 +113,13 @@ void InitMotorSystem(MotorSystem *hw){
 	hw->mtu0.SetFrequency(1000);		//‘¬“x§ŒäŽü”g”1000Hz(1kHz)
 	hw->mtu2.SetFrequency(10000);		//“d—¬§ŒäŽü”g”10000Hz(10kHz)
 	
-	hw->Current_PID.SetK(4.5);
-	hw->Current_PID.SetTi(0.0);
+	hw->Current_PID.SetK(5.0);
+	hw->Current_PID.SetTi(0.005);
 	hw->Current_PID.SetTd(0);
 	hw->Current_PID.Setdt( 1.0 / 10000.0);
-	hw->Velocity_PID.SetK(3.0);
-	hw->Velocity_PID.SetTi(0.2);
-	hw->Velocity_PID.SetTd(0);
+	hw->Velocity_PID.SetK(2.0);
+	hw->Velocity_PID.SetTi(0.0);
+	hw->Velocity_PID.SetTd(0.001);
 	hw->Velocity_PID.Setdt(1.0 / 1000.0 );
 	//*/
 	
@@ -128,13 +129,17 @@ void InitMotorSystem(MotorSystem *hw){
 
 	hw->Kt = RZ735VA_8519_Kt;
 	hw->gpt.SetFrequency(40);
+	hw->mtu0.SetFrequency(400);		//‘¬“x§ŒäŽü”g”400Hz(0.4kHz)
+	hw->mtu2.SetFrequency(4000);		//“d—¬§ŒäŽü”g”4000Hz(4kHz)
 	
 	hw->Current_PID.SetK(4.0);
 	hw->Current_PID.SetTi(0.05);
 	hw->Current_PID.SetTd(0.0);
+	hw->Current_PID.Setdt( 1.0 / 4000.0);
 	hw->Velocity_PID.SetK(1.0);
 	hw->Velocity_PID.SetTi(0.2);
 	hw->Velocity_PID.SetTd(0.0001);
+	hw->Velocity_PID.Setdt(1.0 / 400.0 );
 	//*/
 #endif
 }

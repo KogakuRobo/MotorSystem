@@ -151,6 +151,9 @@ HandleReturn MotorSystem::NormalCommandHandle(CAN_MSG msg)
 		break;
 	case BEGIN:
 		This->Begin();
+		msg.RTR = 0;
+		This->can_bus.Send(msg);
+		break;
 	default:
 		break;
 	}

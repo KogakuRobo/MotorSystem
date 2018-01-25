@@ -92,7 +92,7 @@ void MotorSystem::VelocityControlStart(void)
 
 void MotorSystem::CurrentControlStart(void)
 {
-	MTU2.TIER.BIT.TGIEA = 1;
+	MTU2.TIER.BIT.TTGE = 1;
 }
 
 void MotorSystem::PositionControlStop(void)
@@ -107,7 +107,7 @@ void MotorSystem::VelocityControlStop(void)
 
 void MotorSystem::CurrentControlStop(void)
 {
-	MTU2.TIER.BIT.TGIEA = 0;
+	MTU2.TIER.BIT.TTGE = 0;
 }
 
 void MotorSystem::AllControlStart(void)
@@ -226,7 +226,6 @@ void MTU1_TCIV1(void)
 #pragma interrupt MTU2_TGIA2(vect=VECT(MTU2,TGIA2))
 void MTU2_TGIA2(void)
 {
-	//g_hw->i_TorqueControl();
 	while(!MTU2.TSR.BIT.TGFA);
 	MTU2.TSR.BIT.TGFA=0;
 }

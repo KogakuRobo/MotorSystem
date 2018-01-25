@@ -70,6 +70,7 @@ long _rx62t_MTU0::GetInterruptRate(void)
 
 void _rx62t_MTU0::Start(void)
 {
+	MTU0.TCNT = 0;
 	MTU.TSTRA.BIT.CST0 = 1;
 }
 
@@ -105,6 +106,7 @@ void _rx62t_MTU1::begin(void)
 
 void _rx62t_MTU1::Start(void)
 {
+	MTU1.TCNT = 0;
 	MTU.TSTRA.BIT.CST1 = 1;
 }
 
@@ -135,7 +137,7 @@ void _rx62t_MTU2::begin(void)
 	IEN(MTU2,TGIA2) = 1;
 	
 	MTU2.TIER.BIT.TGIEA = 1;
-	MTU2.TIER.BIT.TTGE = 1;
+	//MTU2.TIER.BIT.TTGE = 1;
 }
 
 void _rx62t_MTU2::SetFrequency(long Hz)
@@ -161,6 +163,7 @@ long _rx62t_MTU2::GetInterruptRate(void)
 
 void _rx62t_MTU2::Start(void)
 {
+	MTU2.TCNT = 0;
 	MTU.TSTRA.BIT.CST2 = 1;
 }
 

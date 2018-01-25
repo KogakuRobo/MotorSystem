@@ -85,21 +85,29 @@ void MotorSystem::Begin(void)
 {
 
 //	初期化処理
-	SetDuty(0);				//出力　0
+	//SetDuty(0);				//出力　0
+	//if(PORT1.PORT.BIT.B1 == 1){
+	//	printf("Power Down\n");
+	//	while(1){
+	//	}
+	//}
 	
 //MTUクロックスタート（ただし、割り込みは生成しない。）
-	MTU_ClockStart();
-	
+	//MTU_ClockStart();
+	printf("Begin Running\n");
 	CurrentSensor_Init();
-	
+	printf("Begin finish\n");
 	state.mode = STOP;
+	wdt.start();
 }
 
 int MotorSystem::CurrentSensor_Init(void){
 	state.is_mode = CURRENT_OFFSET_CALCULATION;
+	mtu2.Start();
 	CurrentControlStart();
 	while(state.is_mode != CURRENT_OFFSET_CALCULATION_END);
-	
+	mtu2.Stop();
+	CurrentControlStop();
 	state.is_mode = END;
 	return 0;
 }
