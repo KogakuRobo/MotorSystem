@@ -130,6 +130,7 @@ private:
 
 public:
 	MotorSystem(void);	//MotorSystem_Init.cpp
+	void DefaultParameter(void);
 	
 	void Begin(void);
 	int CurrentSensor_Init(void);

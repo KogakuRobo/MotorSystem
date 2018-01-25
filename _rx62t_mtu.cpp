@@ -40,7 +40,7 @@ void _rx62t_MTU0::SetFrequency(long Hz)
 		if(t < 65536/* 2^16 */){
 			clockRate = (ICK_CLOCK * 1000000.0) / TPSC[i];
 			MTU0.TCR.BIT.TPSC = i;
-			MTU0.TGRC = (unsigned short)t;
+			MTU0.TGRC = (unsigned short)t - 1;
 			MTU0.TGRA = MTU0.TGRC / 2;
 			timerFreq = Hz;
 			return;
@@ -68,6 +68,16 @@ long _rx62t_MTU0::GetInterruptRate(void)
 	return timerFreq;
 }
 
+void _rx62t_MTU0::Start(void)
+{
+	MTU.TSTRA.BIT.CST0 = 1;
+}
+
+void _rx62t_MTU0::Stop(void)
+{
+	MTU.TSTRA.BIT.CST0 = 0;
+}
+
 _rx62t_MTU1::_rx62t_MTU1(void)
 {
 	MSTP(MTU1) = 0;
@@ -93,6 +103,18 @@ void _rx62t_MTU1::begin(void)
 	MTU1.TIER.BIT.TCIEU = 1;
 }
 
+void _rx62t_MTU1::Start(void)
+{
+	MTU.TSTRA.BIT.CST1 = 1;
+}
+
+void _rx62t_MTU1::Stop(void)
+{
+	MTU.TSTRA.BIT.CST1 = 0;
+}
+
+const int _rx62t_MTU2::TPSC[] = {1,4,16,64,1,1,1,1024};
+
 _rx62t_MTU2::_rx62t_MTU2(void)
 {
 	MSTP(MTU2) = 0;
@@ -100,11 +122,12 @@ _rx62t_MTU2::_rx62t_MTU2(void)
 
 void _rx62t_MTU2::begin(void)
 {	
-	MTU2.TCR.BYTE = 0x20;
+	MTU2.TCR.BIT.CCLR = 1;
 	MTU2.TMDR1.BIT.MD = 0;
 	
-	MTU2.TGRA = 10000 - 1;	//735
+	//MTU2.TGRA = 10000 - 1;	//735
 	//MTU2.TGRA = 2000 - 1;		//Maxon		
+	SetFrequency(10000);
 	
 	MTU2.TIOR.BYTE = 0x00;
 	
@@ -113,4 +136,35 @@ void _rx62t_MTU2::begin(void)
 	
 	MTU2.TIER.BIT.TGIEA = 1;
 	MTU2.TIER.BIT.TTGE = 1;
+}
+
+void _rx62t_MTU2::SetFrequency(long Hz)
+{
+	const char TPSC_num = 8;
+	
+	for(int i = 0;i < TPSC_num;i++){
+		float t = (ICK_CLOCK * 1000000.0) / (Hz * TPSC[i]);
+		if(t < 65536/* 2^16 */){
+			clockRate = (ICK_CLOCK * 1000000.0) / TPSC[i];
+			MTU2.TCR.BIT.TPSC = i;
+			MTU2.TGRA = (unsigned short)t - 1;
+			timerFreq = Hz;
+			return;
+		}
+	}
+}
+
+long _rx62t_MTU2::GetInterruptRate(void)
+{
+	return timerFreq;
+}
+
+void _rx62t_MTU2::Start(void)
+{
+	MTU.TSTRA.BIT.CST2 = 1;
+}
+
+void _rx62t_MTU2::Stop(void)
+{
+	MTU.TSTRA.BIT.CST2 = 0;
 }

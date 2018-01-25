@@ -107,7 +107,7 @@ void MotorSystem::SetVelocity(float vel)
 	//	SetDuty(0);
 	//	return;
 	//}
-	//if(vel > this->velocity_limit)vel = this->velocity_limit;
+	if(vel > this->velocity_limit)vel = this->velocity_limit;
 	
 	if((this->state.mode == STOP) || (this->state.mode == INITIALIZE)){
 		this->V_ref = vel;

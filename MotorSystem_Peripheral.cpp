@@ -7,16 +7,16 @@ void MotorSystem::MTU_ClockStart(void)
 {
 	if(this->state.mode == ERROR)
 		return;	
-	MTU.TSTRA.BIT.CST0 = 1;
-	MTU.TSTRA.BIT.CST1 = 1;
-	MTU.TSTRA.BIT.CST2 = 1;
+	mtu0.Start();
+	mtu1.Start();
+	mtu2.Start();
 }
 
 void MotorSystem::MTU_ClockStop(void)
 {	
-	MTU.TSTRA.BIT.CST0 = 0;
-	MTU.TSTRA.BIT.CST1 = 0;
-	MTU.TSTRA.BIT.CST2 = 0;
+	mtu0.Stop();
+	mtu1.Stop();
+	mtu2.Stop();
 }
 
 

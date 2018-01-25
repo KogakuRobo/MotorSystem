@@ -20,11 +20,6 @@ current_sensor(&adc,30)
 	this->state.mode = INITIALIZE;	//MotorSystemのモード
 	this->state.e_mode = NON_ERROR;	//エラー識別子
 	this->state.is_mode = START;		//イニシャライズのサブモード
-		
-//	定数設定
-	this->rpc = 3.1415 / 2.0 / 500 ;	//エンコーダ初期設定
-	this->Kt = MAXON_RE40_24V_Kt;		//トルク定数設定
-	this->Vcc = 24;				//電源電圧設定
 	
 	T_ref = 0;				
 	V_ref = 0;
@@ -34,11 +29,7 @@ current_sensor(&adc,30)
 	current = 0;
 	velocity = 0;
 	
-	current_offset = 0;
-	
-	static_friction = this->CurrentToTorque(2.5);
-	dynamic_friction = this->CurrentToTorque(2);
-	friction_velocity_threshold = 5;
+	this->DefaultParameter();
 	
 //	ハードウェア初期化
 	OSC_Init();			//クロック設定
@@ -48,15 +39,8 @@ current_sensor(&adc,30)
 	mtu1.begin();
 	mtu2.begin();
 	adc.begin();
-}
-
-void MotorSystem::Begin(void)
-{
-
-//	初期化処理
-	SetDuty(0);				//出力　0
 	
-//CAN通信初期化
+	//CAN通信初期化
 	can_bus.SetMode(CANM_OPERATION);
 	can_bus.SetMask(0,0x000f,0x0000);	//コマンド受信用マスク
 	can_bus.SetMask(1,0x0000,0x0000);
@@ -67,7 +51,7 @@ void MotorSystem::Begin(void)
 	can_bus.SetMask(6,0x0000,0x0000);
 	can_bus.SetMask(7,0x0000,0x0000);
 	
-//CAN 受信設定
+	//CAN 受信設定
 	CAN_MSG msg;
 	msg.SID = (~PORT4.PORT.BYTE >> 4) & 0x0f;
 	msg.IDE = 0;
@@ -78,6 +62,30 @@ void MotorSystem::Begin(void)
 	can_bus.ReceiveSet(msg,0,0);
 	msg.RTR = 1;
 	can_bus.ReceiveSet(msg,1,0);
+}
+
+void MotorSystem::DefaultParameter(void)
+{
+	//	定数設定
+	this->rpc = 3.1415 / 2.0 / 500 ;	//エンコーダ初期設定
+	this->Kt = MAXON_RE40_24V_Kt;		//トルク定数設定
+	this->Vcc = 24;				//電源電圧設定
+	
+	velocity_limit = 350;
+	current_limit = 15;
+	
+	current_offset = 0;
+	
+	static_friction = this->CurrentToTorque(0);
+	dynamic_friction = this->CurrentToTorque(0);
+	friction_velocity_threshold = 0.01;
+}
+
+void MotorSystem::Begin(void)
+{
+
+//	初期化処理
+	SetDuty(0);				//出力　0
 	
 //MTUクロックスタート（ただし、割り込みは生成しない。）
 	MTU_ClockStart();
@@ -85,8 +93,6 @@ void MotorSystem::Begin(void)
 	CurrentSensor_Init();
 	
 	state.mode = STOP;
-	
-	wdt.clear();
 }
 
 int MotorSystem::CurrentSensor_Init(void){

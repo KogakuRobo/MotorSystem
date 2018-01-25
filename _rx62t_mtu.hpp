@@ -16,18 +16,33 @@ public:
 	
 	long GetClockRate(void);
 	long GetInterruptRate(void);
+	
+	void Start(void);
+	void Stop(void);
 };
 
 class _rx62t_MTU1{
 public:
 	_rx62t_MTU1(void);
 	void begin(void);
+	
+	void Start(void);
+	void Stop(void);
 };
 
 class _rx62t_MTU2{
+	long timerFreq;
+	static const int TPSC[];
+	long clockRate;
 public:
 	_rx62t_MTU2(void);
 	void begin(void);
+	void SetFrequency(long Hz);
+	
+	long GetInterruptRate(void);
+	
+	void Start(void);
+	void Stop(void);
 };
 
 #endif

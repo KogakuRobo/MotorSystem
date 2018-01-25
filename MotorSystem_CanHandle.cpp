@@ -37,6 +37,7 @@ typedef enum{
 	SET_CGAIN_TD	= 0x4e,
 	GET_C_D		= 0x7e,
 	
+	BEGIN		= 0x44,
 }MotorSystem_CMD;//ID‚ÌãˆÊ7bit•ª
 
 #pragma pack
@@ -148,6 +149,8 @@ HandleReturn MotorSystem::NormalCommandHandle(CAN_MSG msg)
 	case SET_KT:
 		This->Kt = trans.FLOAT.f;
 		break;
+	case BEGIN:
+		This->Begin();
 	default:
 		break;
 	}
