@@ -1,100 +1,32 @@
 #ifndef _PID_HPP_
 #define _PID_HPP_
 
-/*/
-template <typename type>
-class PID{
-	
-private:
-	float Kp;	//ƒQƒCƒ“
-	float Ki;	//
-	float Kd;	//
-	
-	float dt;	//”÷Ï•ªŠÔ
-	
-	float sum;	//Ï˜a’l
-	float befor;	//‘O‰ñ•Î·
-	
-	float Proportion;	//”ä—á•ª‚Ì’l(ƒQƒCƒ“’²®‚Ég—p)
-	float Integration;	//Ï•ª•ª‚Ì’l
-	float Differentiation;	//
-	
-public:
-	PID(float p,float i,float d,float t)
-	{
-		Kp = p;
-		Ki = i;
-		Kd = d;
-		dt = t;
-		sum = 0;
-		befor = 0;
-	}
-	
-	void SetPGain(float p)
-	{
-		Kp = p;
-	}
-	
-	void SetIGain(float i)
-	{
-		Ki = i;
-	}
-	
-	void SetDGain(float d)
-	{
-		Kd = d;
-	}
-	
-	void SumReset(void)
-	{
-		sum = 0;
-		befor = 0;
-	}
-	
-	float Run(type data,type ref)
-	{
-		float error;
-		float ret = 0;
-		
-		error = ref - data;
-		
-		sum += (error + befor) / 2 * dt;
-		
-		Proportion = Kp * error;
-		Integration = Ki * sum;
-		Differentiation = Kd * (error - befor) / dt;
-		
-		befor = error;
-		ret = Proportion + Integration + Differentiation;
-		return ret;
-	}
-};
-//*/
-
-//*/
 template<typename type>
 class PID{
 
 private:
 public:
-	float K;	//ƒQƒCƒ“
-	float Ti;	//Ï•ªŠÔ
-	float Td;	//”÷•ªŠÔ
+	float K;	//ã‚²ã‚¤ãƒ³
+	float Ti;	//ç©åˆ†æ™‚é–“
+	float Td;	//å¾®åˆ†æ™‚é–“
 	
-	float dt;	//”÷Ï•ªŠÔiƒ^ƒCƒ€ƒXƒ‰ƒCƒXj
+	float dt;	//å¾®ç©åˆ†æ™‚é–“ï¼ˆã‚¿ã‚¤ãƒ ã‚¹ãƒ©ã‚¤ã‚¹ï¼‰
 	
-	float sum;	//Ï˜a’l
-	float befor;	//‘O‰ñ•Î·
+	float sum;	//ç©å’Œå€¤
+	float befor;	//å‰å›åå·®
 	
-	float Proportion;	//”ä—á•ª‚Ì’l(ƒQƒCƒ“’²®‚Ég—p)
-	float Integration;	//Ï•ª•ª‚Ì’l
-	float Differentiation;	//
+//ãƒ‡ãƒãƒƒã‚°ç”¨å¤‰æ•°ã€€æ“ä½œé‡ã®æˆåˆ†åˆ†è§£
+	float Proportion;	//æ¯”ä¾‹åˆ†ã®å€¤(ã‚²ã‚¤ãƒ³èª¿æ•´æ™‚ã«ä½¿ç”¨)
+	float Integration;	//ç©åˆ†åˆ†ã®å€¤
+	float Differentiation;	//å¾®åˆ†åˆ†ã®å€¤
 	
+//ç©åˆ†ãƒªãƒŸãƒƒãƒˆç”¨å¤‰æ•°ã€€å‹•ä½œç¢ºèªã—ã¦ãªã„ã€‚
 	bool sum_limit_flag;
 	float sum_limit;
 public:
-	PID(float k,float i,float d,float t)
+	PID(float k=0,float i=0,float d=0,float t=1)
 	{
+	//å¤‰æ•°åˆæœŸåŒ–
 		K = k;
 		Ti = i;
 		Td = d;
@@ -119,12 +51,14 @@ public:
 		befor = 0;
 	}
 	
+	//åˆè¨ˆå€¤ãƒªãƒŸãƒƒãƒˆå€¤ã‚»ãƒƒã‚¿ã€‚
 	void SetSumLimit(float _sum_)
 	{
 		sum_limit_flag = true;
 		sum_limit = _sum_;
 	}
 	
+	//ç©åˆ†æ“ä½œé‡æ›ç®—ã€åˆè¨ˆå€¤ãƒªãƒŸãƒƒãƒˆå€¤ã‚»ãƒƒã‚¿
 	void SetIntegrationLimit(float _inte_)
 	{
 		SetSumLimit(_inte_ * this.Ti / K);
@@ -137,9 +71,9 @@ public:
 		
 		error = ref - data;
 		
-		float s_ep = (error + befor) / 2 * dt;	//¡‰ñ‚Ì‰ÁZ•ª
+		float s_ep = (error + befor) / 2 * dt;	//ä»Šå›ã®åŠ ç®—åˆ†
 		
-		//ƒtƒ‰ƒO‚ª^‚Å‚©‚ÂA‡ŒvXVŒã‚Ìâ‘Î’l‚ªƒŠƒ~ƒbƒg‚æ‚è‘å‚«‚¢ê‡AXV‚Í‚µ‚È‚¢B@‚Ì~
+		//ãƒ•ãƒ©ã‚°ãŒçœŸã§ã‹ã¤ã€åˆè¨ˆæ›´æ–°å¾Œã®çµ¶å¯¾å€¤ãŒãƒªãƒŸãƒƒãƒˆã‚ˆã‚Šå¤§ãã„å ´åˆã€æ›´æ–°ã¯ã—ãªã„ã€‚ã€€ã®~
 		if( (abs(sum + s_ep) < sum_limit) || (!sum_limit_flag))
 			sum += s_ep;
 		
@@ -155,5 +89,5 @@ public:
 		return ret;
 	}
 };
-//*/
+
 #endif
