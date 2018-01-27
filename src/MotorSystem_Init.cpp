@@ -99,6 +99,8 @@ unsigned long MotorSystem::Begin(void)
 	printf("Begin finish\n");
 	state.mode = STOP;
 	wdt.start();
+	
+	return 0;
 }
 
 int MotorSystem::CurrentSensor_Init(void){

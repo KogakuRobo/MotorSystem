@@ -139,8 +139,6 @@ float MotorSystem::VelocityCalculation(void)
 	volatile unsigned char TCFD = MTU1.TSR.BIT.TCFD;
 	volatile short temp;		//
 	volatile float speed = 0.0;
-	static float speed_buff[NUMBER_OF_MOVING_AVERAGE] = {0};			//移動平均算出用
-	float sum_average = 0;
 	
 	temp = abs(befor_tgra - MTU1_TGRA);//進角方向検出
 	
