@@ -4,12 +4,6 @@
 #ifndef _MotorSystem_H_
 #define _MotorSystem_H_
 
-/*******************************************************************************/
-//
-//ìdó¨êßå‰äÑÇËçûÇ›é¸ä˙	0.01ms
-//ë¨ìxêßå‰äÑÇËçûÇ›	0.1ms
-/*******************************************************************************/
-
 #include"MotorSystem_Define.h"
 #include"CAN.h"
 #include"_rx62t_can_driver.hpp"
@@ -21,6 +15,12 @@
 #include"PID.hpp"
 
 #include<stdio.h>
+
+#ifdef DEBUG
+#define debug_printf(x) printf(x)
+#elif defined(RELESE)
+#define debug_printf(x)
+#endif
 
 class MotorSystem{
 

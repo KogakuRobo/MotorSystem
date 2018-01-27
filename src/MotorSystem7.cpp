@@ -51,9 +51,10 @@ void main(void)
 	SEQUENSE_MODE mode = INITIALIZE_MODE;
 	MotorSystem hw;
 	g_hw = &hw;
+	volatile float in=0;
 	
 	//ManualControl mc(g_hw);
-	printf("Hallo World\n");
+	debug_printf("Hallo World\n");
 	while(1){
 		//mc.Run();
 		//PORT2.DR.BIT.B4 = 1;
@@ -72,7 +73,6 @@ void main(void)
 			//PORT2.DR.BYTE = 
 			//while(MTU0.TSR.BIT.TGFC)MTU0.TSR.BIT.TGFC=0;
 			//IR(MTU0,TGIC0) = 0;
-			volatile float in=0;
 			//printf("Duty ?\n");
 			//hw.Logoutput();
 			scanf("%f",&in);
