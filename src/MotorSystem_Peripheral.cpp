@@ -25,6 +25,7 @@ void MotorSystem::CurrentCalibration(void)
 {
 	static float i_buff[CURRENT_CALIBRATION_NUMBER];
 	static int num = 0;
+	static float sum = 0;
 	
 	static float i_data;		//電流値
 	
@@ -35,18 +36,17 @@ void MotorSystem::CurrentCalibration(void)
 	}
 	
 	i_data = i_data = current_sensor.GetCurrent() ;			//ACS714の30A仕様
-	i_buff[num++] = i_data;
+	i_buff[num++] = i_data;						//バッファ
+	sum += i_data;							//平均値算出のための合計
 	
 	if(num == CURRENT_CALIBRATION_NUMBER){
 		float ave = 0;
 		float dev = 0;
 		
-		for(int i =0;i < CURRENT_CALIBRATION_NUMBER;i++)ave += i_buff[i];		
-		ave = ave / CURRENT_CALIBRATION_NUMBER;
+		ave = sum / CURRENT_CALIBRATION_NUMBER;
 		
 		for(int j =0;j < CURRENT_CALIBRATION_NUMBER;j++)dev += pow(i_buff[j] - ave,2);
-		dev = sqrt(dev / (CURRENT_CALIBRATION_NUMBER - 1));
-		
+		current_dev = sqrt(dev / (CURRENT_CALIBRATION_NUMBER - 1));
 		
 		this->current_offset = ave;
 		
@@ -61,8 +61,15 @@ float MotorSystem::GetCurrent(void)
 	static IIR_Filter<float> fil(0.08);
 	static float i_data;		//電流値
 	
-	i_data = current_sensor.GetCurrent() - this->current_offset;
-	if((i_data > 30) || (i_data < -30))
+	float temp = current_sensor.GetCurrent();
+	
+	if(this->current_offset + this->current_dev * 1.0 > abs(temp)){
+		i_data = 0.0;
+	}else{
+		i_data = current_sensor.GetCurrent() - this->current_offset;
+	}
+	
+	if(abs(i_data) > current_sensor.GetMax())
 		return 0;
 	return fil.Put(i_data);
 }
