@@ -5,7 +5,6 @@ template<typename type>
 class PID{
 
 private:
-public:
 	float K;	//ゲイン
 	float Ti;	//積分時間
 	float Td;	//微分時間
@@ -38,10 +37,13 @@ public:
 	}
 	
 	void SetK(float k){this->K = k;}
+	float GetK(void){return this->K;}
 	
 	void SetTi(float ti){this->Ti = ti;}
+	float GetTi(void){return this->Ti;}
 	
 	void SetTd(float td){this->Td = td;}
+	float GetTd(void){return this->Td;}
 	
 	void Setdt(float _dt){this->dt = _dt;}
 	
