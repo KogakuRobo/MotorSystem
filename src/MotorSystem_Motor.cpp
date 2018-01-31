@@ -27,7 +27,7 @@ void MotorSystem::i_TorqueControl(void)
 	this->current = Current;
 	
 	Current_ref = TorqueToCurrent(this->T_ref);				//目標電流算出
-	Current_ref = Limit<float>(Current_ref,17,-17);			//目標電流にリミット
+	Current_ref = Limit<float>(Current_ref,this->current_limit,-1*this->current_limit);			//目標電流にリミット
 	
 	this->C_ref = Current_ref;
 	

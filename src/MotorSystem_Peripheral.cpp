@@ -26,7 +26,6 @@ void MotorSystem::CurrentCalibration(void)
 	static float i_buff[CURRENT_CALIBRATION_NUMBER];
 	static int num = 0;
 	
-	static float v_data;		//電圧値
 	static float i_data;		//電流値
 	
 	static char flag = 0;
@@ -35,9 +34,7 @@ void MotorSystem::CurrentCalibration(void)
 		return ;
 	}
 	
-	v_data = S12AD0.ADDR0A * 5.0 / (4096-1);
-	
-	i_data = (v_data - 2.50) * 15.0;			//ACS714の30A仕様
+	i_data = i_data = current_sensor.GetCurrent() ;			//ACS714の30A仕様
 	i_buff[num++] = i_data;
 	
 	if(num == CURRENT_CALIBRATION_NUMBER){
@@ -62,13 +59,10 @@ float MotorSystem::GetCurrent(void)
 {
 	//static MovingFilter<float> fil(20);
 	static IIR_Filter<float> fil(0.08);
-	static float v_data;		//電圧値
 	static float i_data;		//電流値
 	
-	v_data = S12AD0.ADDR0A * 5.0 / (4096-1);
-	
-	i_data = (v_data - 2.50) * 15.0 - this->current_offset;			//ACS714の30A仕様 - オフセット
-	if((i_data > 20) || (i_data < -20))
+	i_data = current_sensor.GetCurrent() - this->current_offset;
+	if((i_data > 30) || (i_data < -30))
 		return 0;
 	return fil.Put(i_data);
 }
