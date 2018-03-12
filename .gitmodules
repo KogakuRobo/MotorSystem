@@ -1,0 +1,3 @@
+[submodule "share/wiki"]
+	path = share/wiki
+	url = https://github.com/KogakuRobo/MotorSystem.wiki.git

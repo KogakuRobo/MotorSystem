@@ -10,3 +10,8 @@ float ACS712::GetCurrent(void)
 	float i_data = (v_data - 2.5) * (maxA / 2.0);
 	return i_data;
 }
+
+float ACS712::GetMax(void)
+{
+	return maxA;
+}

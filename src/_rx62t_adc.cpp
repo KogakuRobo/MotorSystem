@@ -23,7 +23,7 @@ void _rx62t_ADC::begin(void)
 	
 	S12AD0.ADANS.BIT.CH = 0;
 }
-
+//0~1‚Ì‘Š‘Î•\‹L
 float _rx62t_ADC::GetVal(void)
 {
 	return S12AD0.ADDR0A /(4096.0 - 1.0);

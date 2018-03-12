@@ -67,6 +67,7 @@ private:
 	float velocity;	//velocity現在値	[rad/s]
 	
 	float current_offset;	//電流センサのオフセット誤差
+	float current_dev;	//電流センサの不偏標準偏差
 
 public:
 	float static_friction;			//静止摩擦力	[mNm]

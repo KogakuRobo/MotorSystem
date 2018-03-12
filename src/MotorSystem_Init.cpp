@@ -17,6 +17,8 @@ mtu1(),
 mtu2(),
 current_sensor(&adc,30)
 {
+	debug_printf("%s[%d]:InConstract",__FILE__,__LINE__);
+	
 	this->state.mode = INITIALIZE;	//MotorSystemのモード
 	this->state.e_mode = NON_ERROR;	//エラー識別子
 	this->state.is_mode = START;		//イニシャライズのサブモード
@@ -69,10 +71,10 @@ void MotorSystem::DefaultParameter(void)
 	//	定数設定
 	this->rpc = 3.1415 / 2.0 / 500 ;	//エンコーダ初期設定
 	this->Kt = MAXON_RE40_24V_Kt;		//トルク定数設定
-	this->Vcc = 24;				//電源電圧設定
+	this->Vcc = 12;				//電源電圧設定
 	
 	velocity_limit = 350;
-	current_limit = 15;
+	current_limit = 20;
 	
 	current_offset = 0;
 	
@@ -98,7 +100,6 @@ unsigned long MotorSystem::Begin(void)
 	CurrentSensor_Init();
 	printf("Begin finish\n");
 	state.mode = STOP;
-	wdt.start();
 	
 	return 0;
 }

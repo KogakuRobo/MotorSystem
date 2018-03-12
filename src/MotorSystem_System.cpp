@@ -31,6 +31,7 @@ void MotorSystem::SetMode(MotorSystem_Mode m)
 	else if(IS_ACTION(m)){
 		AllControlStart();
 		MTU_ClockStart();
+		wdt.start();
 	}
 	
 	this->state.mode = m;
