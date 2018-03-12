@@ -52,6 +52,10 @@ void MotorSystem::CurrentCalibration(void)
 		
 		state.is_mode = CURRENT_OFFSET_CALCULATION_END;
 		this->CurrentControlStop();
+		
+		sum = 0;
+		num = 0;
+		flag = 0;
 	}
 }
 
