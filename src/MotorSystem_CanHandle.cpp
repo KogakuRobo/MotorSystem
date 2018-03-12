@@ -24,18 +24,18 @@ typedef enum{
 	SET_KT		= 0x47,
 	
 	SET_VGAIN_K	= 0x48,
-	GET_V_P		= 0x78,
+	GET_V_K		= 0x78,
 	SET_VGAIN_TI	= 0x49,
-	GET_V_I		= 0x79,
+	GET_V_TI	= 0x79,
 	SET_VGAIN_TD	= 0x4a,
-	GET_V_D		= 0x7a,
+	GET_V_TD	= 0x7a,
 	
 	SET_CGAIN_K	= 0x4c,
-	GET_C_P		= 0x7c,
+	GET_C_K		= 0x7c,
 	SET_CGAIN_TI	= 0x4d,
-	GET_C_I		= 0x7d,
+	GET_C_TI	= 0x7d,
 	SET_CGAIN_TD	= 0x4e,
-	GET_C_D		= 0x7e,
+	GET_C_TD	= 0x7e,
 	
 	BEGIN		= 0x44,
 }MotorSystem_CMD;//IDの上位7bit分
@@ -49,6 +49,21 @@ typedef union{
 	}FLOAT;
 }DATA_TRANSER;
 #pragma packoption
+
+
+// GET_*命令のリターンメッセージ関数。
+// 同じ処理が並んだので関数化
+void return_parameter(CAN_bus &bus,CAN_MSG &msg,float data)
+{
+	DATA_TRANSER trans;
+	trans.FLOAT.f = data;
+	msg.data[0] = trans.c_data[0];
+	msg.data[1] = trans.c_data[1];
+	msg.data[2] = trans.c_data[2];
+	msg.data[3] = trans.c_data[3];
+	msg.DLC = 4;
+	bus.Send(msg);
+}
 
 HandleReturn MotorSystem::SendHandle(CAN_MSG msg)
 {
@@ -79,40 +94,16 @@ HandleReturn MotorSystem::NormalCommandHandle(CAN_MSG msg)
 		This->SetDuty(trans.FLOAT.f);
 		break;
 	case GET_VELOCITY:
-		trans.FLOAT.f = This->velocity;
-		msg.data[0] = trans.c_data[0];
-		msg.data[1] = trans.c_data[1];
-		msg.data[2] = trans.c_data[2];
-		msg.data[3] = trans.c_data[3];
-		msg.DLC = 4;
-		This->can_bus.Send(msg);
+		return_parameter(This->can_bus,msg,This->velocity);
 		break;
 	case GET_TORQUE:
-		trans.FLOAT.f = This->current * This->Kt;
-		msg.data[0] = trans.c_data[0];
-		msg.data[1] = trans.c_data[1];
-		msg.data[2] = trans.c_data[2];
-		msg.data[3] = trans.c_data[3];
-		msg.DLC = 4;
-		This->can_bus.Send(msg);
+		return_parameter(This->can_bus,msg,This->current * This->Kt);
 		break;
 	case GET_DUTY:
-		trans.FLOAT.f = This->Vo_ref / This->Vcc * 100;
-		msg.data[0] = trans.c_data[0];
-		msg.data[1] = trans.c_data[1];
-		msg.data[2] = trans.c_data[2];
-		msg.data[3] = trans.c_data[3];
-		msg.DLC = 4;
-		This->can_bus.Send(msg);
+		return_parameter(This->can_bus,msg,This->Vo_ref / This->Vcc * 100);
 		break;
 	case GET_CURRENT:
-		trans.FLOAT.f = This->current;
-		msg.data[0] = trans.c_data[0];
-		msg.data[1] = trans.c_data[1];
-		msg.data[2] = trans.c_data[2];
-		msg.data[3] = trans.c_data[3];
-		msg.DLC = 4;
-		This->can_bus.Send(msg);
+		return_parameter(This->can_bus,msg,This->current);
 		break;
 	case GET_STATE:
 		This->state.MD_Power = 1;
@@ -125,20 +116,38 @@ HandleReturn MotorSystem::NormalCommandHandle(CAN_MSG msg)
 	case SET_VGAIN_K:
 		This->Velocity_PID.SetK(trans.FLOAT.f);
 		break;
+	case GET_V_K:
+		return_parameter(This->can_bus,msg,This->Velocity_PID.GetK());
+		break;
 	case SET_VGAIN_TI:
 		This->Velocity_PID.SetTi(trans.FLOAT.f);
+		break;
+	case GET_V_TI:
+		return_parameter(This->can_bus,msg,This->Velocity_PID.GetTi());
 		break;
 	case SET_VGAIN_TD:
 		This->Velocity_PID.SetTd(trans.FLOAT.f);
 		break;
+	case GET_V_TD:
+		return_parameter(This->can_bus,msg,This->Velocity_PID.GetTd());
+		break;
 	case SET_CGAIN_K:
 		This->Current_PID.SetK(trans.FLOAT.f);
+		break;
+	case GET_C_K:
+		return_parameter(This->can_bus,msg,This->Current_PID.GetK());
 		break;
 	case SET_CGAIN_TI:
 		This->Current_PID.SetTi(trans.FLOAT.f);
 		break;
+	case GET_C_TI:
+		return_parameter(This->can_bus,msg,This->Current_PID.GetTi());
+		break;
 	case SET_CGAIN_TD:
 		This->Current_PID.SetTd(trans.FLOAT.f);
+		break;
+	case GET_C_TD:
+		return_parameter(This->can_bus,msg,This->Current_PID.GetTd());
 		break;
 	case SET_VCC:
 		This->Vcc = trans.FLOAT.f;

@@ -12,6 +12,7 @@ public:
 	ACS712(_rx62t_ADC *_adc,unsigned int max_a);
 	
 	float GetCurrent(void);
+	float GetMax(void);
 };
 
 #endif

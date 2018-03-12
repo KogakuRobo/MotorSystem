@@ -48,13 +48,13 @@ void Logout(void)
 
 void main(void)
 {
+	debug_printf("In main() Running.\n");
 	SEQUENSE_MODE mode = INITIALIZE_MODE;
 	MotorSystem hw;
 	g_hw = &hw;
 	volatile float in=0;
 	
 	//ManualControl mc(g_hw);
-	debug_printf("Hallo World\n");
 	while(1){
 		//mc.Run();
 		//PORT2.DR.BIT.B4 = 1;
