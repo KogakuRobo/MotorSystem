@@ -6,7 +6,7 @@
 #define PCK_CLOCK	50	//[MHz]
 
 typedef enum{
-	INITIALIZE,
+	INITIALIZE=0,
 	DUTY,
 	TORQUE,
 	VELOCITY,
@@ -36,6 +36,7 @@ typedef enum{
 #define MAXON_RE40_24V_Kt	30.2		//mNm/A
 #define RZ735VA_9517_Kt		8.11		//mNm/A
 #define RZ735VA_8519_Kt		5.80		//mNm/A
+#define RS380			4.73
 
 #define RPM(radps)	(radps * 60 / (2 * 3.141592))
 

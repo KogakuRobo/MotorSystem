@@ -140,6 +140,9 @@ public:
 	void SetMode(MotorSystem_Mode);
 	void SetMode(MotorSystem_ErrorMode);
 	
+	void MotorFree(void);
+	void MotorUnFree(void);
+	
 	bool Calibration(void);
 	
 	bool IsPause(void);

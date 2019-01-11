@@ -163,6 +163,11 @@ HandleReturn MotorSystem::NormalCommandHandle(CAN_MSG msg)
 		msg.RTR = 0;
 		This->can_bus.Send(msg);
 		break;
+	case SET_MODE:
+		if(msg.data[0] == STOP){
+			This->SetMode((MotorSystem_Mode)msg.data[0]);
+		}
+		break;
 	default:
 		break;
 	}

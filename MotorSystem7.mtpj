@@ -1,9 +1,9 @@
-<CubeSuiteProject>
-  <ProductVersion>8.00.00.00</ProductVersion>
+﻿<CubeSuiteProject>
+  <ProductVersion>9.00.00.00</ProductVersion>
   <Class Guid="68f4a651-b9cd-473b-a595-b00447132ffa">
     <Instance Guid="00000000-0000-0000-0000-000000000000">
       <FormatVersion>2.0</FormatVersion>
-      <FileVersion>8.0</FileVersion>
+      <FileVersion>9.0</FileVersion>
       <ProjectGuid>b9f8ebf4-919a-44af-913d-52907f496741</ProjectGuid>
       <ProjectItemGuid>2f46677f-9bda-473f-a639-352b1eaca2a7</ProjectItemGuid>
       <FileCategoryGuid>9dbce07f-39fd-4db1-9772-e2915a251d50</FileCategoryGuid>
@@ -51,13 +51,6 @@
       <Type>File</Type>
       <RelativePath>src\lowlvl_E1.src</RelativePath>
       <TreeImageGuid>f654126d-e7ad-426d-be34-8455271d959b</TreeImageGuid>
-      <ParentItem>9dbce07f-39fd-4db1-9772-e2915a251d50</ParentItem>
-    </Instance>
-    <Instance Guid="94b156e2-47db-422f-8b14-76a17c2b9533">
-      <Name>ManualControl.cpp</Name>
-      <Type>File</Type>
-      <RelativePath>src\ManualControl.cpp</RelativePath>
-      <TreeImageGuid>f4d3ca11-259f-42f0-b8bd-beee0ecca48d</TreeImageGuid>
       <ParentItem>9dbce07f-39fd-4db1-9772-e2915a251d50</ParentItem>
     </Instance>
     <Instance Guid="822e3b1f-802b-42e9-a78c-18419399d8e2">
@@ -376,6 +369,13 @@
       <TreeImageGuid>03cad1e8-2eb3-4cde-a8a3-982423631122</TreeImageGuid>
       <ParentItem>9441d1cf-fb90-4ef3-822a-3a8aa0ff7adb</ParentItem>
     </Instance>
+    <Instance Guid="94b156e2-47db-422f-8b14-76a17c2b9533">
+      <Name>ManualControl.cpp</Name>
+      <Type>File</Type>
+      <RelativePath>src\ManualControl.cpp</RelativePath>
+      <TreeImageGuid>f4d3ca11-259f-42f0-b8bd-beee0ecca48d</TreeImageGuid>
+      <ParentItem>9441d1cf-fb90-4ef3-822a-3a8aa0ff7adb</ParentItem>
+    </Instance>
   </Class>
   <Class Guid="fb98844b-2c27-4275-9804-f6e63e204da0">
     <Instance Guid="fb98844b-2c27-4275-9804-f6e63e204da0">
@@ -467,13 +467,13 @@
       <SourceItemType0>AsmSource</SourceItemType0>
       <SourceItemGuid1>94b156e2-47db-422f-8b14-76a17c2b9533</SourceItemGuid1>
       <SourceItemType1>CppSource</SourceItemType1>
-      <SourceItemGuid2>d6d48b75-2458-48bd-9601-30f2c15538da</SourceItemGuid2>
+      <SourceItemGuid2>822e3b1f-802b-42e9-a78c-18419399d8e2</SourceItemGuid2>
       <SourceItemType2>CppSource</SourceItemType2>
-      <SourceItemGuid3>a9a394c3-9bd8-4360-97f4-ac49bfe07c01</SourceItemGuid3>
+      <SourceItemGuid3>d6d48b75-2458-48bd-9601-30f2c15538da</SourceItemGuid3>
       <SourceItemType3>CppSource</SourceItemType3>
-      <SourceItemGuid4>d55353b8-17a3-4e0c-aff1-b21cda8997bd</SourceItemGuid4>
+      <SourceItemGuid4>a9a394c3-9bd8-4360-97f4-ac49bfe07c01</SourceItemGuid4>
       <SourceItemType4>CppSource</SourceItemType4>
-      <SourceItemGuid5>822e3b1f-802b-42e9-a78c-18419399d8e2</SourceItemGuid5>
+      <SourceItemGuid5>d55353b8-17a3-4e0c-aff1-b21cda8997bd</SourceItemGuid5>
       <SourceItemType5>CppSource</SourceItemType5>
       <SourceItemGuid6>21a83e46-2e23-4b49-afcd-065c8e158172</SourceItemGuid6>
       <SourceItemType6>CppSource</SourceItemType6>
@@ -591,7 +591,7 @@
       <GeneralOptionPatch-DefaultValue>None</GeneralOptionPatch-DefaultValue>
       <GeneralOptionSaveAcc-DefaultValue>False</GeneralOptionSaveAcc-DefaultValue>
       <IsLockedByUser>False</IsLockedByUser>
-      <TimeTagModified--0>-8586910759122297544</TimeTagModified--0>
+      <TimeTagModified--0>-8586672487346804149</TimeTagModified--0>
       <BuildMode-0>DefaultBuild</BuildMode-0>
       <Memo-0 />
       <OutputMessageFormat-0>%TargetFiles%</OutputMessageFormat-0>
@@ -599,12 +599,12 @@
       <SetAllBuildModeValue-0>False</SetAllBuildModeValue-0>
       <PreBuildCommands-0 />
       <PostBuildCommands-0 />
-      <TimeTagModified--1>-8586845264390449429</TimeTagModified--1>
+      <TimeTagModified--1>-8586672487346804149</TimeTagModified--1>
       <OutputMessageFormat-1>%TargetFiles%</OutputMessageFormat-1>
       <FormatBuildOptionList-1>%TargetFiles% : %Program% %Options%</FormatBuildOptionList-1>
       <PreBuildCommands-1 />
       <PostBuildCommands-1 />
-      <TimeTagModified--2>-8586845264339857989</TimeTagModified--2>
+      <TimeTagModified--2>-8586672487346804149</TimeTagModified--2>
       <OutputMessageFormat-2>%TargetFiles%</OutputMessageFormat-2>
       <FormatBuildOptionList-2>%TargetFiles% : %Program% %Options%</FormatBuildOptionList-2>
       <PreBuildCommands-2 />
@@ -659,7 +659,7 @@
       <GeneralOptionBaseAddressRegister-0>None</GeneralOptionBaseAddressRegister-0>
       <GeneralOptionPatch-0>None</GeneralOptionPatch-0>
       <GeneralOptionSaveAcc-0>False</GeneralOptionSaveAcc-0>
-      <LastCompilerVersion-0>V2.07.00</LastCompilerVersion-0>
+      <LastCompilerVersion-0>V2.08.00</LastCompilerVersion-0>
       <GeneralOptionIsa-1>RXv1</GeneralOptionIsa-1>
       <GeneralOptionOutput-1>LoadModuleFile</GeneralOptionOutput-1>
       <GeneralOptionPic-1>False</GeneralOptionPic-1>
@@ -763,6 +763,7 @@
       <COptionOptimize-DefaultValue>Level2</COptionOptimize-DefaultValue>
       <COptionOutput-DefaultValue>Object</COptionOutput-DefaultValue>
       <COptionOutputAssembly-DefaultValue>False</COptionOutputAssembly-DefaultValue>
+      <COptionOutputDepOrOutputObj-DefaultValue>-output=obj</COptionOutputDepOrOutputObj-DefaultValue>
       <COptionStackProtector-DefaultValue>None</COptionStackProtector-DefaultValue>
       <COptionGoptimize-DefaultValue>False</COptionGoptimize-DefaultValue>
       <COptionLangCpp-DefaultValue>Cpp</COptionLangCpp-DefaultValue>
@@ -771,6 +772,7 @@
       <COptionOutputPreprocessed-DefaultValue>None</COptionOutputPreprocessed-DefaultValue>
       <COptionShowSource-DefaultValue>False</COptionShowSource-DefaultValue>
       <COptionXcref-DefaultValue>False</COptionXcref-DefaultValue>
+      <COptionControlFlowIntegrity-DefaultValue>None</COptionControlFlowIntegrity-DefaultValue>
       <COptionDebug-DefaultValue>True</COptionDebug-DefaultValue>
       <COptionInclude-DefaultValue />
       <COptionMisra2004RuleFile-DefaultValue />
@@ -827,39 +829,42 @@
       <COptionMisra2012RuleNumberIgnore-DefaultValue />
       <COptionNoMessageErrorNumber2-DefaultValue />
       <COptionNostuffD-DefaultValue>False</COptionNostuffD-DefaultValue>
-      <COptionChangeMessageInformation-DefaultValue>No</COptionChangeMessageInformation-DefaultValue>
       <COptionConstDiv-DefaultValue>Auto</COptionConstDiv-DefaultValue>
       <COptionMisra2012RuleNumberRequiredAdd-DefaultValue />
+      <COptionNoWarning-DefaultValue />
       <COptionNostuffC-DefaultValue>False</COptionNostuffC-DefaultValue>
-      <COptionChangeMessageInformationNumber-DefaultValue />
+      <COptionChangeMessageInformation-DefaultValue>No</COptionChangeMessageInformation-DefaultValue>
       <COptionLibrary-DefaultValue>Intrinsic</COptionLibrary-DefaultValue>
       <COptionMisra2012RuleNumberRequiredRemove-DefaultValue />
       <COptionNostuffW-DefaultValue>False</COptionNostuffW-DefaultValue>
-      <COptionChangeMessageInformationNumber2-DefaultValue />
+      <COptionChangeMessageInformationNumber-DefaultValue />
       <COptionIgnoreFilesMisra-DefaultValue />
       <COptionInstalign-DefaultValue>Noinstalign</COptionInstalign-DefaultValue>
       <COptionScope-DefaultValue>Auto</COptionScope-DefaultValue>
       <COptionAvoidCrossBoundaryPrefetch-DefaultValue>False</COptionAvoidCrossBoundaryPrefetch-DefaultValue>
-      <COptionChangeMessageWarning-DefaultValue>No</COptionChangeMessageWarning-DefaultValue>
+      <COptionChangeMessageInformationNumber2-DefaultValue />
       <COptionCheckLanguageExtension-DefaultValue>False</COptionCheckLanguageExtension-DefaultValue>
       <COptionSchedule-DefaultValue>Auto</COptionSchedule-DefaultValue>
-      <COptionChangeMessageWarningNumber-DefaultValue />
+      <COptionChangeMessageWarning-DefaultValue>No</COptionChangeMessageWarning-DefaultValue>
       <COptionMap-DefaultValue>NoMap</COptionMap-DefaultValue>
       <COptionNouseDiv-DefaultValue>True</COptionNouseDiv-DefaultValue>
-      <COptionChangeMessageWarningNumber2-DefaultValue />
+      <COptionChangeMessageWarningNumber-DefaultValue />
+      <COptionInsertNopWithLabel-DefaultValue>False</COptionInsertNopWithLabel-DefaultValue>
       <COptionIntermodule-DefaultValue>None</COptionIntermodule-DefaultValue>
-      <COptionOutcode-DefaultValue>Sjis</COptionOutcode-DefaultValue>
       <COptionApproxdiv-DefaultValue>False</COptionApproxdiv-DefaultValue>
+      <COptionChangeMessageWarningNumber2-DefaultValue />
+      <COptionInsertNopWithLabelParameters-DefaultValue />
       <COptionChangeMessageError-DefaultValue>No</COptionChangeMessageError-DefaultValue>
-      <COptionChangeMessageErrorNumber-DefaultValue />
       <COptionEnableRegister-DefaultValue>False</COptionEnableRegister-DefaultValue>
-      <COptionChangeMessageErrorNumber2-DefaultValue />
+      <COptionOutcode-DefaultValue>Sjis</COptionOutcode-DefaultValue>
+      <COptionChangeMessageErrorNumber-DefaultValue />
       <COptionSimpleFloatConv-DefaultValue>False</COptionSimpleFloatConv-DefaultValue>
-      <COptionFileInlinePath-DefaultValue />
+      <COptionChangeMessageErrorNumber2-DefaultValue />
       <COptionFpu-DefaultValue>Fpu</COptionFpu-DefaultValue>
       <COptionAlias-DefaultValue>False</COptionAlias-DefaultValue>
-      <COptionComment-DefaultValue>False</COptionComment-DefaultValue>
+      <COptionFileInlinePath-DefaultValue />
       <COptionAlias2-DefaultValue>Auto</COptionAlias2-DefaultValue>
+      <COptionComment-DefaultValue>False</COptionComment-DefaultValue>
       <COptionCheck-DefaultValue>No</COptionCheck-DefaultValue>
       <COptionFloatOrder-DefaultValue>False</COptionFloatOrder-DefaultValue>
       <COptionIncode-DefaultValue>Sjis</COptionIncode-DefaultValue>
@@ -872,6 +877,7 @@
       <COptionOptimize-0>Level2</COptionOptimize-0>
       <COptionOutput-0>Object</COptionOutput-0>
       <COptionOutputAssembly-0>False</COptionOutputAssembly-0>
+      <COptionOutputDepOrOutputObj-0>-output=obj</COptionOutputDepOrOutputObj-0>
       <COptionStackProtector-0>None</COptionStackProtector-0>
       <COptionGoptimize-0>False</COptionGoptimize-0>
       <COptionLangCpp-0>Cpp</COptionLangCpp-0>
@@ -880,6 +886,7 @@
       <COptionOutputPreprocessed-0>None</COptionOutputPreprocessed-0>
       <COptionShowSource-0>False</COptionShowSource-0>
       <COptionXcref-0>True</COptionXcref-0>
+      <COptionControlFlowIntegrity-0>None</COptionControlFlowIntegrity-0>
       <COptionDebug-0>True</COptionDebug-0>
       <COptionInclude-0>include
 .
@@ -939,36 +946,39 @@ _PCK_=50
       <COptionConstCopy-0>Auto</COptionConstCopy-0>
       <COptionMisra2012RuleNumberIgnore-0 />
       <COptionNostuffD-0>False</COptionNostuffD-0>
-      <COptionChangeMessageInformation-0>No</COptionChangeMessageInformation-0>
       <COptionConstDiv-0>Auto</COptionConstDiv-0>
       <COptionMisra2012RuleNumberRequiredAdd-0 />
+      <COptionNoWarning-0 />
       <COptionNostuffC-0>False</COptionNostuffC-0>
-      <COptionChangeMessageInformationNumber-0 />
+      <COptionChangeMessageInformation-0>No</COptionChangeMessageInformation-0>
       <COptionLibrary-0>Intrinsic</COptionLibrary-0>
       <COptionMisra2012RuleNumberRequiredRemove-0 />
       <COptionNostuffW-0>False</COptionNostuffW-0>
+      <COptionChangeMessageInformationNumber-0 />
       <COptionIgnoreFilesMisra-0 />
       <COptionInstalign-0>Noinstalign</COptionInstalign-0>
       <COptionScope-0>Auto</COptionScope-0>
       <COptionAvoidCrossBoundaryPrefetch-0>False</COptionAvoidCrossBoundaryPrefetch-0>
-      <COptionChangeMessageWarning-0>No</COptionChangeMessageWarning-0>
       <COptionCheckLanguageExtension-0>False</COptionCheckLanguageExtension-0>
       <COptionSchedule-0>Auto</COptionSchedule-0>
-      <COptionChangeMessageWarningNumber-0 />
+      <COptionChangeMessageWarning-0>No</COptionChangeMessageWarning-0>
       <COptionMap-0>NoMap</COptionMap-0>
       <COptionNouseDiv-0>True</COptionNouseDiv-0>
+      <COptionChangeMessageWarningNumber-0 />
+      <COptionInsertNopWithLabel-0>False</COptionInsertNopWithLabel-0>
       <COptionIntermodule-0>None</COptionIntermodule-0>
-      <COptionOutcode-0>Sjis</COptionOutcode-0>
       <COptionApproxdiv-0>False</COptionApproxdiv-0>
+      <COptionInsertNopWithLabelParameters-0 />
       <COptionChangeMessageError-0>No</COptionChangeMessageError-0>
-      <COptionChangeMessageErrorNumber-0 />
       <COptionEnableRegister-0>False</COptionEnableRegister-0>
+      <COptionOutcode-0>Sjis</COptionOutcode-0>
+      <COptionChangeMessageErrorNumber-0 />
       <COptionSimpleFloatConv-0>False</COptionSimpleFloatConv-0>
-      <COptionFileInlinePath-0 />
       <COptionFpu-0>Fpu</COptionFpu-0>
       <COptionAlias-0>False</COptionAlias-0>
-      <COptionComment-0>False</COptionComment-0>
+      <COptionFileInlinePath-0 />
       <COptionAlias2-0>Auto</COptionAlias2-0>
+      <COptionComment-0>False</COptionComment-0>
       <COptionCheck-0>No</COptionCheck-0>
       <COptionFloatOrder-0>False</COptionFloatOrder-0>
       <COptionIncode-0>Sjis</COptionIncode-0>
@@ -980,6 +990,7 @@ _PCK_=50
       <COptionOptimize-1>Level2</COptionOptimize-1>
       <COptionOutput-1>Object</COptionOutput-1>
       <COptionOutputAssembly-1>False</COptionOutputAssembly-1>
+      <COptionOutputDepOrOutputObj-1>-output=obj</COptionOutputDepOrOutputObj-1>
       <COptionStackProtector-1>None</COptionStackProtector-1>
       <COptionGoptimize-1>False</COptionGoptimize-1>
       <COptionLangCpp-1>Cpp</COptionLangCpp-1>
@@ -988,6 +999,7 @@ _PCK_=50
       <COptionOutputPreprocessed-1>Preprocess</COptionOutputPreprocessed-1>
       <COptionShowSource-1>True</COptionShowSource-1>
       <COptionXcref-1>True</COptionXcref-1>
+      <COptionControlFlowIntegrity-1>None</COptionControlFlowIntegrity-1>
       <COptionDebug-1>True</COptionDebug-1>
       <COptionInclude-1>include
 .
@@ -1048,36 +1060,39 @@ DEBUG
       <COptionConstCopy-1>Auto</COptionConstCopy-1>
       <COptionMisra2012RuleNumberIgnore-1 />
       <COptionNostuffD-1>False</COptionNostuffD-1>
-      <COptionChangeMessageInformation-1>No</COptionChangeMessageInformation-1>
       <COptionConstDiv-1>Auto</COptionConstDiv-1>
       <COptionMisra2012RuleNumberRequiredAdd-1 />
+      <COptionNoWarning-1 />
       <COptionNostuffC-1>False</COptionNostuffC-1>
-      <COptionChangeMessageInformationNumber-1 />
+      <COptionChangeMessageInformation-1>No</COptionChangeMessageInformation-1>
       <COptionLibrary-1>Intrinsic</COptionLibrary-1>
       <COptionMisra2012RuleNumberRequiredRemove-1 />
       <COptionNostuffW-1>False</COptionNostuffW-1>
+      <COptionChangeMessageInformationNumber-1 />
       <COptionIgnoreFilesMisra-1 />
       <COptionInstalign-1>Noinstalign</COptionInstalign-1>
       <COptionScope-1>Auto</COptionScope-1>
       <COptionAvoidCrossBoundaryPrefetch-1>False</COptionAvoidCrossBoundaryPrefetch-1>
-      <COptionChangeMessageWarning-1>No</COptionChangeMessageWarning-1>
       <COptionCheckLanguageExtension-1>False</COptionCheckLanguageExtension-1>
       <COptionSchedule-1>Auto</COptionSchedule-1>
-      <COptionChangeMessageWarningNumber-1 />
+      <COptionChangeMessageWarning-1>No</COptionChangeMessageWarning-1>
       <COptionMap-1>NoMap</COptionMap-1>
       <COptionNouseDiv-1>True</COptionNouseDiv-1>
+      <COptionChangeMessageWarningNumber-1 />
+      <COptionInsertNopWithLabel-1>False</COptionInsertNopWithLabel-1>
       <COptionIntermodule-1>None</COptionIntermodule-1>
-      <COptionOutcode-1>Sjis</COptionOutcode-1>
       <COptionApproxdiv-1>False</COptionApproxdiv-1>
+      <COptionInsertNopWithLabelParameters-1 />
       <COptionChangeMessageError-1>No</COptionChangeMessageError-1>
-      <COptionChangeMessageErrorNumber-1 />
       <COptionEnableRegister-1>False</COptionEnableRegister-1>
+      <COptionOutcode-1>Sjis</COptionOutcode-1>
+      <COptionChangeMessageErrorNumber-1 />
       <COptionSimpleFloatConv-1>False</COptionSimpleFloatConv-1>
-      <COptionFileInlinePath-1 />
       <COptionFpu-1>Fpu</COptionFpu-1>
       <COptionAlias-1>False</COptionAlias-1>
-      <COptionComment-1>False</COptionComment-1>
+      <COptionFileInlinePath-1 />
       <COptionAlias2-1>Auto</COptionAlias2-1>
+      <COptionComment-1>False</COptionComment-1>
       <COptionCheck-1>No</COptionCheck-1>
       <COptionFloatOrder-1>False</COptionFloatOrder-1>
       <COptionIncode-1>Sjis</COptionIncode-1>
@@ -1089,6 +1104,7 @@ DEBUG
       <COptionOptimize-2>Level2</COptionOptimize-2>
       <COptionOutput-2>Object</COptionOutput-2>
       <COptionOutputAssembly-2>False</COptionOutputAssembly-2>
+      <COptionOutputDepOrOutputObj-2>-output=obj</COptionOutputDepOrOutputObj-2>
       <COptionStackProtector-2>None</COptionStackProtector-2>
       <COptionGoptimize-2>False</COptionGoptimize-2>
       <COptionLangCpp-2>Cpp</COptionLangCpp-2>
@@ -1097,6 +1113,7 @@ DEBUG
       <COptionOutputPreprocessed-2>None</COptionOutputPreprocessed-2>
       <COptionShowSource-2>False</COptionShowSource-2>
       <COptionXcref-2>True</COptionXcref-2>
+      <COptionControlFlowIntegrity-2>None</COptionControlFlowIntegrity-2>
       <COptionDebug-2>True</COptionDebug-2>
       <COptionInclude-2>include
 .
@@ -1157,36 +1174,39 @@ RELESE
       <COptionConstCopy-2>Auto</COptionConstCopy-2>
       <COptionMisra2012RuleNumberIgnore-2 />
       <COptionNostuffD-2>False</COptionNostuffD-2>
-      <COptionChangeMessageInformation-2>No</COptionChangeMessageInformation-2>
       <COptionConstDiv-2>Auto</COptionConstDiv-2>
       <COptionMisra2012RuleNumberRequiredAdd-2 />
+      <COptionNoWarning-2 />
       <COptionNostuffC-2>False</COptionNostuffC-2>
-      <COptionChangeMessageInformationNumber-2 />
+      <COptionChangeMessageInformation-2>No</COptionChangeMessageInformation-2>
       <COptionLibrary-2>Intrinsic</COptionLibrary-2>
       <COptionMisra2012RuleNumberRequiredRemove-2 />
       <COptionNostuffW-2>False</COptionNostuffW-2>
+      <COptionChangeMessageInformationNumber-2 />
       <COptionIgnoreFilesMisra-2 />
       <COptionInstalign-2>Noinstalign</COptionInstalign-2>
       <COptionScope-2>Auto</COptionScope-2>
       <COptionAvoidCrossBoundaryPrefetch-2>False</COptionAvoidCrossBoundaryPrefetch-2>
-      <COptionChangeMessageWarning-2>No</COptionChangeMessageWarning-2>
       <COptionCheckLanguageExtension-2>False</COptionCheckLanguageExtension-2>
       <COptionSchedule-2>Auto</COptionSchedule-2>
-      <COptionChangeMessageWarningNumber-2 />
+      <COptionChangeMessageWarning-2>No</COptionChangeMessageWarning-2>
       <COptionMap-2>NoMap</COptionMap-2>
       <COptionNouseDiv-2>True</COptionNouseDiv-2>
+      <COptionChangeMessageWarningNumber-2 />
+      <COptionInsertNopWithLabel-2>False</COptionInsertNopWithLabel-2>
       <COptionIntermodule-2>None</COptionIntermodule-2>
-      <COptionOutcode-2>Sjis</COptionOutcode-2>
       <COptionApproxdiv-2>False</COptionApproxdiv-2>
+      <COptionInsertNopWithLabelParameters-2 />
       <COptionChangeMessageError-2>No</COptionChangeMessageError-2>
-      <COptionChangeMessageErrorNumber-2 />
       <COptionEnableRegister-2>False</COptionEnableRegister-2>
+      <COptionOutcode-2>Sjis</COptionOutcode-2>
+      <COptionChangeMessageErrorNumber-2 />
       <COptionSimpleFloatConv-2>False</COptionSimpleFloatConv-2>
-      <COptionFileInlinePath-2 />
       <COptionFpu-2>Fpu</COptionFpu-2>
       <COptionAlias-2>False</COptionAlias-2>
-      <COptionComment-2>False</COptionComment-2>
+      <COptionFileInlinePath-2 />
       <COptionAlias2-2>Auto</COptionAlias2-2>
+      <COptionComment-2>False</COptionComment-2>
       <COptionCheck-2>No</COptionCheck-2>
       <COptionFloatOrder-2>False</COptionFloatOrder-2>
       <COptionIncode-2>Sjis</COptionIncode-2>
@@ -1196,6 +1216,7 @@ RELESE
       <AsmOptionGoptimize-DefaultValue>False</AsmOptionGoptimize-DefaultValue>
       <AsmOptionInclude-DefaultValue />
       <AsmOptionListFile-DefaultValue>False</AsmOptionListFile-DefaultValue>
+      <AsmOptionMMOrOutput-DefaultValue>-output</AsmOptionMMOrOutput-DefaultValue>
       <AsmOptionOutput-DefaultValue>%BuildModeName%</AsmOptionOutput-DefaultValue>
       <AsmOptionChkfpu-DefaultValue>False</AsmOptionChkfpu-DefaultValue>
       <AsmOptionDebug-DefaultValue>True</AsmOptionDebug-DefaultValue>
@@ -1225,6 +1246,7 @@ RELESE
       <AsmOptionGoptimize-0>False</AsmOptionGoptimize-0>
       <AsmOptionInclude-0 />
       <AsmOptionListFile-0>False</AsmOptionListFile-0>
+      <AsmOptionMMOrOutput-0>-output</AsmOptionMMOrOutput-0>
       <AsmOptionOutput-0>%BuildModeName%</AsmOptionOutput-0>
       <AsmOptionChkfpu-0>False</AsmOptionChkfpu-0>
       <AsmOptionDebug-0>True</AsmOptionDebug-0>
@@ -1253,6 +1275,7 @@ RELESE
       <AsmOptionGoptimize-1>False</AsmOptionGoptimize-1>
       <AsmOptionInclude-1 />
       <AsmOptionListFile-1>True</AsmOptionListFile-1>
+      <AsmOptionMMOrOutput-1>-output</AsmOptionMMOrOutput-1>
       <AsmOptionOutput-1>%BuildModeName%</AsmOptionOutput-1>
       <AsmOptionChkfpu-1>False</AsmOptionChkfpu-1>
       <AsmOptionDebug-1>True</AsmOptionDebug-1>
@@ -1281,6 +1304,7 @@ RELESE
       <AsmOptionGoptimize-2>False</AsmOptionGoptimize-2>
       <AsmOptionInclude-2 />
       <AsmOptionListFile-2>False</AsmOptionListFile-2>
+      <AsmOptionMMOrOutput-2>-output</AsmOptionMMOrOutput-2>
       <AsmOptionOutput-2>%BuildModeName%</AsmOptionOutput-2>
       <AsmOptionChkfpu-2>False</AsmOptionChkfpu-2>
       <AsmOptionDebug-2>True</AsmOptionDebug-2>
@@ -1363,6 +1387,7 @@ D_2=R_2
       <LinkOptionNoMessageErrorNumber-DefaultValue />
       <LinkOptionNoPrelink-DefaultValue>Auto</LinkOptionNoPrelink-DefaultValue>
       <LinkOptionSameCodeForbid-DefaultValue />
+      <LinkOptionShowCFI-DefaultValue>False</LinkOptionShowCFI-DefaultValue>
       <LinkOptionSpace-DefaultValue>None</LinkOptionSpace-DefaultValue>
       <LinkOptionChangeMessageErrorNumber-DefaultValue />
       <LinkOptionPadding-DefaultValue>False</LinkOptionPadding-DefaultValue>
@@ -1381,10 +1406,13 @@ D_2=R_2
       <LinkOptionCrcOutputAddress-DefaultValue>0</LinkOptionCrcOutputAddress-DefaultValue>
       <LinkOptionJumpEntriesForPicSectionName-DefaultValue />
       <LinkOptionPreLinkCommands-DefaultValue />
+      <LinkOptionCFI-DefaultValue>False</LinkOptionCFI-DefaultValue>
       <LinkOptionCrcCalculationRange-DefaultValue />
       <LinkOptionPostLinkCommands-DefaultValue />
+      <LinkOptionCFIAddFunc-DefaultValue />
       <LinkOptionOtherAdditionalOptionsForLoadModule-DefaultValue />
       <LinkOptionS9-DefaultValue>False</LinkOptionS9-DefaultValue>
+      <LinkOptionCFIIgnoreModule-DefaultValue />
       <LinkOptionOtherAdditionalOptionsForConvertFile-DefaultValue />
       <LinkOptionCommandLine-DefaultValue>-noprelink
 -output=%BuildModeName%\%ProjectName%.abs
@@ -1396,6 +1424,7 @@ D_2=R_2
 -nologo
 -exit
 </LinkOptionCommandLine-DefaultValue>
+      <LinkOptionSplitVect-DefaultValue>False</LinkOptionSplitVect-DefaultValue>
       <IsLockedByUser>False</IsLockedByUser>
       <TimeTagModified--0>-8586845259931727876</TimeTagModified--0>
       <LinkOptionCpu-0>False</LinkOptionCpu-0>
@@ -1455,6 +1484,7 @@ D_2=R_2
       <LinkOptionNoMessageErrorNumber-0 />
       <LinkOptionNoPrelink-0>Auto</LinkOptionNoPrelink-0>
       <LinkOptionSameCodeForbid-0 />
+      <LinkOptionShowCFI-0>False</LinkOptionShowCFI-0>
       <LinkOptionSpace-0>None</LinkOptionSpace-0>
       <LinkOptionChangeMessageErrorNumber-0 />
       <LinkOptionPadding-0>False</LinkOptionPadding-0>
@@ -1473,10 +1503,13 @@ D_2=R_2
       <LinkOptionCrcOutputAddress-0>0</LinkOptionCrcOutputAddress-0>
       <LinkOptionJumpEntriesForPicSectionName-0 />
       <LinkOptionPreLinkCommands-0 />
+      <LinkOptionCFI-0>False</LinkOptionCFI-0>
       <LinkOptionCrcCalculationRange-0 />
       <LinkOptionPostLinkCommands-0 />
+      <LinkOptionCFIAddFunc-0 />
       <LinkOptionOtherAdditionalOptionsForLoadModule-0 />
       <LinkOptionS9-0>False</LinkOptionS9-0>
+      <LinkOptionCFIIgnoreModule-0 />
       <LinkOptionOtherAdditionalOptionsForConvertFile-0 />
       <LinkOptionCommandLine-0>-noprelink
 -output=%BuildModeName%\%ProjectName%.abs
@@ -1488,6 +1521,7 @@ D_2=R_2
 -nologo
 -exit
 </LinkOptionCommandLine-0>
+      <LinkOptionSplitVect-0>False</LinkOptionSplitVect-0>
       <TimeTagModified--1>-8586845259931727876</TimeTagModified--1>
       <LinkOptionCpu-1>False</LinkOptionCpu-1>
       <LinkOptionForm-1>Absolute</LinkOptionForm-1>
@@ -1546,6 +1580,7 @@ D_2=R_2
       <LinkOptionNoMessageErrorNumber-1 />
       <LinkOptionNoPrelink-1>Auto</LinkOptionNoPrelink-1>
       <LinkOptionSameCodeForbid-1 />
+      <LinkOptionShowCFI-1>False</LinkOptionShowCFI-1>
       <LinkOptionSpace-1>None</LinkOptionSpace-1>
       <LinkOptionChangeMessageErrorNumber-1 />
       <LinkOptionPadding-1>False</LinkOptionPadding-1>
@@ -1564,10 +1599,13 @@ D_2=R_2
       <LinkOptionCrcOutputAddress-1>0</LinkOptionCrcOutputAddress-1>
       <LinkOptionJumpEntriesForPicSectionName-1 />
       <LinkOptionPreLinkCommands-1 />
+      <LinkOptionCFI-1>False</LinkOptionCFI-1>
       <LinkOptionCrcCalculationRange-1 />
       <LinkOptionPostLinkCommands-1 />
+      <LinkOptionCFIAddFunc-1 />
       <LinkOptionOtherAdditionalOptionsForLoadModule-1 />
       <LinkOptionS9-1>False</LinkOptionS9-1>
+      <LinkOptionCFIIgnoreModule-1 />
       <LinkOptionOtherAdditionalOptionsForConvertFile-1 />
       <LinkOptionCommandLine-1>-noprelink
 -output=%BuildModeName%\%ProjectName%.abs
@@ -1579,6 +1617,7 @@ D_2=R_2
 -nologo
 -exit
 </LinkOptionCommandLine-1>
+      <LinkOptionSplitVect-1>False</LinkOptionSplitVect-1>
       <TimeTagModified--2>-8586845259931727876</TimeTagModified--2>
       <LinkOptionCpu-2>False</LinkOptionCpu-2>
       <LinkOptionForm-2>Absolute</LinkOptionForm-2>
@@ -1637,6 +1676,7 @@ D_2=R_2
       <LinkOptionNoMessageErrorNumber-2 />
       <LinkOptionNoPrelink-2>Auto</LinkOptionNoPrelink-2>
       <LinkOptionSameCodeForbid-2 />
+      <LinkOptionShowCFI-2>False</LinkOptionShowCFI-2>
       <LinkOptionSpace-2>None</LinkOptionSpace-2>
       <LinkOptionChangeMessageErrorNumber-2 />
       <LinkOptionPadding-2>False</LinkOptionPadding-2>
@@ -1655,10 +1695,13 @@ D_2=R_2
       <LinkOptionCrcOutputAddress-2>0</LinkOptionCrcOutputAddress-2>
       <LinkOptionJumpEntriesForPicSectionName-2 />
       <LinkOptionPreLinkCommands-2 />
+      <LinkOptionCFI-2>False</LinkOptionCFI-2>
       <LinkOptionCrcCalculationRange-2 />
       <LinkOptionPostLinkCommands-2 />
+      <LinkOptionCFIAddFunc-2 />
       <LinkOptionOtherAdditionalOptionsForLoadModule-2 />
       <LinkOptionS9-2>False</LinkOptionS9-2>
+      <LinkOptionCFIIgnoreModule-2 />
       <LinkOptionOtherAdditionalOptionsForConvertFile-2 />
       <LinkOptionCommandLine-2>-noprelink
 -output=%BuildModeName%\%ProjectName%.abs
@@ -1670,6 +1713,7 @@ D_2=R_2
 -nologo
 -exit
 </LinkOptionCommandLine-2>
+      <LinkOptionSplitVect-2>False</LinkOptionSplitVect-2>
     </Instance>
     <Instance Guid="df74c69e-635e-42d9-845e-14128ba4d48a">
       <HexOptionForm-DefaultValue>Stype</HexOptionForm-DefaultValue>
@@ -1682,19 +1726,20 @@ D_2=R_2
       <LinkOptionConvertFileName-DefaultValue>%ProjectName%.mot</LinkOptionConvertFileName-DefaultValue>
       <LinkOptionRecordS-DefaultValue>None</LinkOptionRecordS-DefaultValue>
       <HexOptionChangeMessageInformation-DefaultValue>None</HexOptionChangeMessageInformation-DefaultValue>
-      <LinkOptionMultiConvertFileName-DefaultValue />
+      <HexOptionLoadAddress-DefaultValue />
       <LinkOptionSpace-DefaultValue>None</LinkOptionSpace-DefaultValue>
       <HexOptionChangeMessageInformationNumber-DefaultValue />
+      <LinkOptionMultiConvertFileName-DefaultValue />
       <LinkOptionSpaceValue-DefaultValue>FF</LinkOptionSpaceValue-DefaultValue>
       <HexOptionChangeMessageWarning-DefaultValue>None</HexOptionChangeMessageWarning-DefaultValue>
-      <LinkOptionByteCount-DefaultValue>False</LinkOptionByteCount-DefaultValue>
+      <HexOptionFixRecordLengthAndAlign-DefaultValue>False</HexOptionFixRecordLengthAndAlign-DefaultValue>
       <HexOptionChangeMessageWarningNumber-DefaultValue />
-      <LinkOptionByteCountValue-DefaultValue>FF</LinkOptionByteCountValue-DefaultValue>
+      <HexOptionFixRecordLengthAndAlignValue-DefaultValue>1</HexOptionFixRecordLengthAndAlignValue-DefaultValue>
       <HexOptionChangeMessageError-DefaultValue>None</HexOptionChangeMessageError-DefaultValue>
-      <LinkOptionCrc-DefaultValue>None</LinkOptionCrc-DefaultValue>
+      <LinkOptionByteCount-DefaultValue>False</LinkOptionByteCount-DefaultValue>
       <HexOptionChangeMessageErrorNumber-DefaultValue />
-      <LinkOptionCrc2-DefaultValue>False</LinkOptionCrc2-DefaultValue>
-      <LinkOptionCrcOutputAddress-DefaultValue>0</LinkOptionCrcOutputAddress-DefaultValue>
+      <LinkOptionByteCountValue-DefaultValue>FF</LinkOptionByteCountValue-DefaultValue>
+      <LinkOptionCrc-DefaultValue>None</LinkOptionCrc-DefaultValue>
       <LinkOptionOtherAdditionalOptionsForConvertFile-DefaultValue />
       <HexOptionCommandLine-DefaultValue>-end
 -input=%BuildModeName%\%ProjectName%.abs
@@ -1702,6 +1747,8 @@ D_2=R_2
 -output=%BuildModeName%\%ProjectName%.mot
 -exit
 </HexOptionCommandLine-DefaultValue>
+      <LinkOptionCrc2-DefaultValue>False</LinkOptionCrc2-DefaultValue>
+      <LinkOptionCrcOutputAddress-DefaultValue>0</LinkOptionCrcOutputAddress-DefaultValue>
       <LinkOptionCrcCalculationRange-DefaultValue />
       <HexOptionCrcType-DefaultValue>Ccitt</HexOptionCrcType-DefaultValue>
       <HexOptionCrcInitialValue-DefaultValue />
@@ -1721,19 +1768,20 @@ D_2=R_2
       <LinkOptionConvertFileName-0>%ProjectName%.mot</LinkOptionConvertFileName-0>
       <LinkOptionRecordS-0>None</LinkOptionRecordS-0>
       <HexOptionChangeMessageInformation-0>None</HexOptionChangeMessageInformation-0>
-      <LinkOptionMultiConvertFileName-0 />
+      <HexOptionLoadAddress-0 />
       <LinkOptionSpace-0>None</LinkOptionSpace-0>
       <HexOptionChangeMessageInformationNumber-0 />
+      <LinkOptionMultiConvertFileName-0 />
       <LinkOptionSpaceValue-0>FF</LinkOptionSpaceValue-0>
       <HexOptionChangeMessageWarning-0>None</HexOptionChangeMessageWarning-0>
-      <LinkOptionByteCount-0>False</LinkOptionByteCount-0>
+      <HexOptionFixRecordLengthAndAlign-0>False</HexOptionFixRecordLengthAndAlign-0>
       <HexOptionChangeMessageWarningNumber-0 />
-      <LinkOptionByteCountValue-0>FF</LinkOptionByteCountValue-0>
+      <HexOptionFixRecordLengthAndAlignValue-0>1</HexOptionFixRecordLengthAndAlignValue-0>
       <HexOptionChangeMessageError-0>None</HexOptionChangeMessageError-0>
-      <LinkOptionCrc-0>None</LinkOptionCrc-0>
+      <LinkOptionByteCount-0>False</LinkOptionByteCount-0>
       <HexOptionChangeMessageErrorNumber-0 />
-      <LinkOptionCrc2-0>False</LinkOptionCrc2-0>
-      <LinkOptionCrcOutputAddress-0>0</LinkOptionCrcOutputAddress-0>
+      <LinkOptionByteCountValue-0>FF</LinkOptionByteCountValue-0>
+      <LinkOptionCrc-0>None</LinkOptionCrc-0>
       <LinkOptionOtherAdditionalOptionsForConvertFile-0 />
       <HexOptionCommandLine-0>-end
 -input=%BuildModeName%\%ProjectName%.abs
@@ -1741,6 +1789,8 @@ D_2=R_2
 -output=%BuildModeName%\%ProjectName%.mot
 -exit
 </HexOptionCommandLine-0>
+      <LinkOptionCrc2-0>False</LinkOptionCrc2-0>
+      <LinkOptionCrcOutputAddress-0>0</LinkOptionCrcOutputAddress-0>
       <LinkOptionCrcCalculationRange-0 />
       <HexOptionCrcType-0>Ccitt</HexOptionCrcType-0>
       <HexOptionCrcInitialValue-0 />
@@ -1759,19 +1809,20 @@ D_2=R_2
       <LinkOptionConvertFileName-1>%ProjectName%.mot</LinkOptionConvertFileName-1>
       <LinkOptionRecordS-1>None</LinkOptionRecordS-1>
       <HexOptionChangeMessageInformation-1>None</HexOptionChangeMessageInformation-1>
-      <LinkOptionMultiConvertFileName-1 />
+      <HexOptionLoadAddress-1 />
       <LinkOptionSpace-1>None</LinkOptionSpace-1>
       <HexOptionChangeMessageInformationNumber-1 />
+      <LinkOptionMultiConvertFileName-1 />
       <LinkOptionSpaceValue-1>FF</LinkOptionSpaceValue-1>
       <HexOptionChangeMessageWarning-1>None</HexOptionChangeMessageWarning-1>
-      <LinkOptionByteCount-1>False</LinkOptionByteCount-1>
+      <HexOptionFixRecordLengthAndAlign-1>False</HexOptionFixRecordLengthAndAlign-1>
       <HexOptionChangeMessageWarningNumber-1 />
-      <LinkOptionByteCountValue-1>FF</LinkOptionByteCountValue-1>
+      <HexOptionFixRecordLengthAndAlignValue-1>1</HexOptionFixRecordLengthAndAlignValue-1>
       <HexOptionChangeMessageError-1>None</HexOptionChangeMessageError-1>
-      <LinkOptionCrc-1>None</LinkOptionCrc-1>
+      <LinkOptionByteCount-1>False</LinkOptionByteCount-1>
       <HexOptionChangeMessageErrorNumber-1 />
-      <LinkOptionCrc2-1>False</LinkOptionCrc2-1>
-      <LinkOptionCrcOutputAddress-1>0</LinkOptionCrcOutputAddress-1>
+      <LinkOptionByteCountValue-1>FF</LinkOptionByteCountValue-1>
+      <LinkOptionCrc-1>None</LinkOptionCrc-1>
       <LinkOptionOtherAdditionalOptionsForConvertFile-1 />
       <HexOptionCommandLine-1>-end
 -input=%BuildModeName%\%ProjectName%.abs
@@ -1779,6 +1830,8 @@ D_2=R_2
 -output=%BuildModeName%\%ProjectName%.mot
 -exit
 </HexOptionCommandLine-1>
+      <LinkOptionCrc2-1>False</LinkOptionCrc2-1>
+      <LinkOptionCrcOutputAddress-1>0</LinkOptionCrcOutputAddress-1>
       <LinkOptionCrcCalculationRange-1 />
       <HexOptionCrcType-1>Ccitt</HexOptionCrcType-1>
       <HexOptionCrcInitialValue-1 />
@@ -1797,19 +1850,20 @@ D_2=R_2
       <LinkOptionConvertFileName-2>%ProjectName%.mot</LinkOptionConvertFileName-2>
       <LinkOptionRecordS-2>None</LinkOptionRecordS-2>
       <HexOptionChangeMessageInformation-2>None</HexOptionChangeMessageInformation-2>
-      <LinkOptionMultiConvertFileName-2 />
+      <HexOptionLoadAddress-2 />
       <LinkOptionSpace-2>None</LinkOptionSpace-2>
       <HexOptionChangeMessageInformationNumber-2 />
+      <LinkOptionMultiConvertFileName-2 />
       <LinkOptionSpaceValue-2>FF</LinkOptionSpaceValue-2>
       <HexOptionChangeMessageWarning-2>None</HexOptionChangeMessageWarning-2>
-      <LinkOptionByteCount-2>False</LinkOptionByteCount-2>
+      <HexOptionFixRecordLengthAndAlign-2>False</HexOptionFixRecordLengthAndAlign-2>
       <HexOptionChangeMessageWarningNumber-2 />
-      <LinkOptionByteCountValue-2>FF</LinkOptionByteCountValue-2>
+      <HexOptionFixRecordLengthAndAlignValue-2>1</HexOptionFixRecordLengthAndAlignValue-2>
       <HexOptionChangeMessageError-2>None</HexOptionChangeMessageError-2>
-      <LinkOptionCrc-2>None</LinkOptionCrc-2>
+      <LinkOptionByteCount-2>False</LinkOptionByteCount-2>
       <HexOptionChangeMessageErrorNumber-2 />
-      <LinkOptionCrc2-2>False</LinkOptionCrc2-2>
-      <LinkOptionCrcOutputAddress-2>0</LinkOptionCrcOutputAddress-2>
+      <LinkOptionByteCountValue-2>FF</LinkOptionByteCountValue-2>
+      <LinkOptionCrc-2>None</LinkOptionCrc-2>
       <LinkOptionOtherAdditionalOptionsForConvertFile-2 />
       <HexOptionCommandLine-2>-end
 -input=%BuildModeName%\%ProjectName%.abs
@@ -1817,6 +1871,8 @@ D_2=R_2
 -output=%BuildModeName%\%ProjectName%.mot
 -exit
 </HexOptionCommandLine-2>
+      <LinkOptionCrc2-2>False</LinkOptionCrc2-2>
+      <LinkOptionCrcOutputAddress-2>0</LinkOptionCrcOutputAddress-2>
       <LinkOptionCrcCalculationRange-2 />
       <HexOptionCrcType-2>Ccitt</HexOptionCrcType-2>
       <HexOptionCrcInitialValue-2 />
@@ -2027,7 +2083,7 @@ D_2=R_2
       <LbgOptionFpu-DefaultValue>Fpu</LbgOptionFpu-DefaultValue>
       <LbgOptionFloatOrder-DefaultValue>False</LbgOptionFloatOrder-DefaultValue>
       <IsLockedByUser>False</IsLockedByUser>
-      <TimeTagModified--0>-8586845265143690251</TimeTagModified--0>
+      <TimeTagModified--0>-8586672487346804149</TimeTagModified--0>
       <LbgOptionLanguage-0>C</LbgOptionLanguage-0>
       <LbgOptionLibraryMode-0>MakeOptionChanged</LbgOptionLibraryMode-0>
       <LbgOptionLogo-0>False</LbgOptionLogo-0>
@@ -2097,7 +2153,7 @@ D_2=R_2
       <LbgOptionSimpleFloatConv-0>False</LbgOptionSimpleFloatConv-0>
       <LbgOptionFpu-0>Fpu</LbgOptionFpu-0>
       <LbgOptionFloatOrder-0>False</LbgOptionFloatOrder-0>
-      <TimeTagModified--1>-8586845264390329459</TimeTagModified--1>
+      <TimeTagModified--1>-8586672487346804149</TimeTagModified--1>
       <LbgOptionLanguage-1>C</LbgOptionLanguage-1>
       <LbgOptionLibraryMode-1>MakeOptionChanged</LbgOptionLibraryMode-1>
       <LbgOptionLogo-1>False</LbgOptionLogo-1>
@@ -2167,7 +2223,7 @@ D_2=R_2
       <LbgOptionSimpleFloatConv-1>False</LbgOptionSimpleFloatConv-1>
       <LbgOptionFpu-1>Fpu</LbgOptionFpu-1>
       <LbgOptionFloatOrder-1>False</LbgOptionFloatOrder-1>
-      <TimeTagModified--2>-8586845264339837971</TimeTagModified--2>
+      <TimeTagModified--2>-8586672487346804149</TimeTagModified--2>
       <LbgOptionLanguage-2>C</LbgOptionLanguage-2>
       <LbgOptionLibraryMode-2>MakeOptionChanged</LbgOptionLibraryMode-2>
       <LbgOptionLogo-2>False</LbgOptionLogo-2>
@@ -3461,7 +3517,9 @@ D_2=R_2
       <DebuggerProperty-DownloadProperty-DebugInformation-DownloadFiles-DownloadItem0-ObjectDownload>True</DebuggerProperty-DownloadProperty-DebugInformation-DownloadFiles-DownloadItem0-ObjectDownload>
       <DebuggerProperty-DownloadProperty-DebugInformation-DownloadFiles-DownloadItem0-SymbolDownload>True</DebuggerProperty-DownloadProperty-DebugInformation-DownloadFiles-DownloadItem0-SymbolDownload>
       <DebuggerProperty-DownloadProperty-DebugInformation-DownloadFiles-DownloadItem0-UsePicPidOffset>False</DebuggerProperty-DownloadProperty-DebugInformation-DownloadFiles-DownloadItem0-UsePicPidOffset>
+      <DebuggerProperty-DownloadProperty-DebugInformation-DownloadFiles-DownloadItem0-UsePicPirodPidOffset>False</DebuggerProperty-DownloadProperty-DebugInformation-DownloadFiles-DownloadItem0-UsePicPirodPidOffset>
       <DebuggerProperty-DownloadProperty-DebugInformation-DownloadFiles-DownloadItem0-PicOffset>0</DebuggerProperty-DownloadProperty-DebugInformation-DownloadFiles-DownloadItem0-PicOffset>
+      <DebuggerProperty-DownloadProperty-DebugInformation-DownloadFiles-DownloadItem0-PirodOffset>0</DebuggerProperty-DownloadProperty-DebugInformation-DownloadFiles-DownloadItem0-PirodOffset>
       <DebuggerProperty-DownloadProperty-DebugInformation-DownloadFiles-DownloadItem0-PidOffset>0</DebuggerProperty-DownloadProperty-DebugInformation-DownloadFiles-DownloadItem0-PidOffset>
       <DebuggerProperty-DownloadProperty-DebugInformation-DownloadFiles-DownloadItem0-GenerateInformationForInputCompletion>True</DebuggerProperty-DownloadProperty-DebugInformation-DownloadFiles-DownloadItem0-GenerateInformationForInputCompletion>
       <DebuggerProperty-DownloadProperty-DebugInformation-CpuReset>True</DebuggerProperty-DownloadProperty-DebugInformation-CpuReset>
@@ -3701,6 +3759,14 @@ D_2=R_2
       <DebuggerProperty-OptionalProperty-Coverage-CoverageAreaAddresses-Item2-StartAddress>2147483647</DebuggerProperty-OptionalProperty-Coverage-CoverageAreaAddresses-Item2-StartAddress>
       <DebuggerProperty-OptionalProperty-Coverage-CoverageAreaAddresses-Item3-StartAddress>2147483647</DebuggerProperty-OptionalProperty-Coverage-CoverageAreaAddresses-Item3-StartAddress>
       <DebuggerProperty-OptionalProperty-Coverage-ReuseCoverageData>No</DebuggerProperty-OptionalProperty-Coverage-ReuseCoverageData>
+      <DebuggerProperty-OptionalProperty-ExpansionInterface-ExternalTriggerInputItemList-ExternalTriggerInputItem0-IsUse>False</DebuggerProperty-OptionalProperty-ExpansionInterface-ExternalTriggerInputItemList-ExternalTriggerInputItem0-IsUse>
+      <DebuggerProperty-OptionalProperty-ExpansionInterface-ExternalTriggerInputItemList-ExternalTriggerInputItem0-InputSignal>RisingEdge</DebuggerProperty-OptionalProperty-ExpansionInterface-ExternalTriggerInputItemList-ExternalTriggerInputItem0-InputSignal>
+      <DebuggerProperty-OptionalProperty-ExpansionInterface-ExternalTriggerInputItemList-ExternalTriggerInputItem1-IsUse>False</DebuggerProperty-OptionalProperty-ExpansionInterface-ExternalTriggerInputItemList-ExternalTriggerInputItem1-IsUse>
+      <DebuggerProperty-OptionalProperty-ExpansionInterface-ExternalTriggerInputItemList-ExternalTriggerInputItem1-InputSignal>RisingEdge</DebuggerProperty-OptionalProperty-ExpansionInterface-ExternalTriggerInputItemList-ExternalTriggerInputItem1-InputSignal>
+      <DebuggerProperty-OptionalProperty-ExpansionInterface-ExternalTriggerOutputItemList-ExternalTriggerOutputItem0-IsUse>False</DebuggerProperty-OptionalProperty-ExpansionInterface-ExternalTriggerOutputItemList-ExternalTriggerOutputItem0-IsUse>
+      <DebuggerProperty-OptionalProperty-ExpansionInterface-ExternalTriggerOutputItemList-ExternalTriggerOutputItem0-PulseWidth>1</DebuggerProperty-OptionalProperty-ExpansionInterface-ExternalTriggerOutputItemList-ExternalTriggerOutputItem0-PulseWidth>
+      <DebuggerProperty-OptionalProperty-ExpansionInterface-ExternalTriggerOutputItemList-ExternalTriggerOutputItem1-IsUse>False</DebuggerProperty-OptionalProperty-ExpansionInterface-ExternalTriggerOutputItemList-ExternalTriggerOutputItem1-IsUse>
+      <DebuggerProperty-OptionalProperty-ExpansionInterface-ExternalTriggerOutputItemList-ExternalTriggerOutputItem1-PulseWidth>1</DebuggerProperty-OptionalProperty-ExpansionInterface-ExternalTriggerOutputItemList-ExternalTriggerOutputItem1-PulseWidth>
       <DebuggerProperty-HookProperty-HookTransaction-Downloading-Length>0</DebuggerProperty-HookProperty-HookTransaction-Downloading-Length>
       <DebuggerProperty-HookProperty-HookTransaction-Downloaded-Length>0</DebuggerProperty-HookProperty-HookTransaction-Downloaded-Length>
       <DebuggerProperty-HookProperty-HookTransaction-Reset-Length>0</DebuggerProperty-HookProperty-HookTransaction-Reset-Length>

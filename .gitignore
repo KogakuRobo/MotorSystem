@@ -1,0 +1,4 @@
+*.pp
+*.obj
+*.lst
+*.abs

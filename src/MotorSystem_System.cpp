@@ -16,6 +16,7 @@ void MotorSystem::SetMode(MotorSystem_Mode m)
 		gpt.ClockStop();
 		
 		MTU_ClockStop();
+		MotorFree();
 		//AllControlStop();
 		Current_PID.SumReset();
 		Velocity_PID.SumReset();
@@ -24,11 +25,13 @@ void MotorSystem::SetMode(MotorSystem_Mode m)
 	else if(IS_PAUSE(m)){
 		wdt.stop();
 		//AllControlStop();
+		MotorFree();
 		Current_PID.SumReset();
 		Velocity_PID.SumReset();
 		SetDuty(0);
 	}
 	else if(IS_ACTION(m)){
+		MotorUnFree();
 		AllControlStart();
 		MTU_ClockStart();
 		wdt.start();

@@ -3,6 +3,16 @@
 #include"math.h"
 #include"MovingFilter.hpp"
 
+void MotorSystem::MotorFree(void)
+{
+	PORT7.DR.BIT.B2 = 0;
+}
+
+void MotorSystem::MotorUnFree(void)
+{
+	PORT7.DR.BIT.B2 = 1;
+}
+
 void MotorSystem::MTU_ClockStart(void)
 {
 	if(this->state.mode == ERROR)

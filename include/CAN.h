@@ -1,7 +1,7 @@
 #ifndef _CAN_H_
 #define _CAN_H_	
 
-#define CAN_BITRATE		1000	//[kbps]
+#define CAN_BITRATE		500	//[kbps]
 
 class CAN_bus;
 

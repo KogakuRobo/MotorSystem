@@ -29,6 +29,10 @@ _rx62t_CAN_bus::_rx62t_CAN_bus(void)
 	CAN0.BCR.BIT.TSEG1 = 0x04;
 	CAN0.BCR.BIT.TSEG2 = 0x03;
 	CAN0.BCR.BIT.BRP = 4;
+	#elif (CAN_BITRATE == 500)
+	CAN0.BCR.BIT.TSEG1 = 0x04;
+	CAN0.BCR.BIT.TSEG2 = 0x03;
+	CAN0.BCR.BIT.BRP = 9;
 	#else
 		#error Don't Set CAN_BITRATE
 	#endif
