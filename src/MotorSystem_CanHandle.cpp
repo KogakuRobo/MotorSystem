@@ -13,6 +13,8 @@ typedef enum{
 	GET_TORQUE	= 0x71,
 	SET_DUTY	= 0x02,
 	GET_DUTY	= 0x72,
+	SET_POSITION	= 0x05,
+	GET_POSITION	= 0x75,
 	GET_CURRENT	= 0x73,
 	
 	SET_MODE	= 0x04,

@@ -16,7 +16,7 @@ void MotorSystem::SetMode(MotorSystem_Mode m)
 		gpt.ClockStop();
 		
 		MTU_ClockStop();
-		MotorFree();
+		//MotorFree();
 		//AllControlStop();
 		Current_PID.SumReset();
 		Velocity_PID.SumReset();
@@ -25,13 +25,13 @@ void MotorSystem::SetMode(MotorSystem_Mode m)
 	else if(IS_PAUSE(m)){
 		wdt.stop();
 		//AllControlStop();
-		MotorFree();
+		//MotorFree();
 		Current_PID.SumReset();
 		Velocity_PID.SumReset();
 		SetDuty(0);
 	}
 	else if(IS_ACTION(m)){
-		MotorUnFree();
+		//MotorUnFree();
 		AllControlStart();
 		MTU_ClockStart();
 		wdt.start();
@@ -133,6 +133,20 @@ void MotorSystem::SetTorque(float t)
 	}
 	else{
 		this->T_ref = t;
+		return;
+	}
+}
+
+//NHK 2019”N“x‘å‰ï—p
+void MotorSystem::SetPosition(signed short pos)
+{
+	if((this->state.mode == STOP) || (this->state.mode == INITIALIZE)){
+		this->pos = pos;
+		SetMode(DUTY);
+		AllControlStart();
+	}
+	else{
+		this->pos = pos;
 		return;
 	}
 }

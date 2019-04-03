@@ -38,10 +38,12 @@ volatile float g_speed = 0;
 void Logout(void)
 {
 	//PORT2.DR.BIT.B4 = 1;
-	g_hw->SetVelocity(g_speed);
+	//g_hw->SetVelocity(g_speed);
 	//g_hw->SetDuty(g_speed);
 	//g_hw->SetTorque(g_hw->CurrentToTorque(g_speed));
-	g_hw->Logoutput();
+	g_hw->SetPosition(-2000);
+	printf("%d\n",(signed short)MTU1.TGRA);
+	//g_hw->Logoutput();
 	g_hw->WDT_Clear();
 	//PORT2.DR.BIT.B4 = 0;
 }
@@ -62,10 +64,10 @@ void main(void)
 		case INITIALIZE_MODE:
 			//printf("Initialize Start\n");
 			InitMotorSystem(&hw);
-			//hw.Begin();
-			//hw.SetMode(VELOCITY);
+			hw.Begin();
+			//hw.SetMode(DUTY);
 			mode = WAIT_MODE;
-			//CMT_Init();
+			CMT_Init();
 			//printf("Initialize End\n");
 			break;
 			
@@ -90,10 +92,12 @@ void main(void)
 #define Maxon_Profile	0
 #define RZ735_Profile	1
 #define RS380_Profile	2
+#define NHK_2019_Reg    3
 
 //#define MotorProfile	Maxon_Profile
-//#define MotorProfile	RZ735_Profile
-#define MotorProfile	RS380_Profile
+#define MotorProfile	RZ735_Profile
+//#define MotorProfile	RS380_Profile
+//#define MotorProfile	NHK_2019_Reg
 void InitMotorSystem(MotorSystem *hw){
 	
 	hw->rpc = 3.141592 / 2.0 / 500;
@@ -159,6 +163,22 @@ void InitMotorSystem(MotorSystem *hw){
 	hw->Velocity_PID.SetTd(0.007);
 	hw->Velocity_PID.Setdt(1.0 / 400.0 );
 	
+#elif	MotorProfile == NHK_2019_Reg
+	hw->Kt = 133.3;
+	hw->gpt.SetFrequency(40);
+	hw->mtu0.SetFrequency(400);		//‘¬“x§ŒäŽü”g”400Hz(0.4kHz)
+	hw->mtu2.SetFrequency(4000);		//“d—¬§ŒäŽü”g”4000Hz(4kHz)
+	hw->Current_PID.SetK(4.0);
+	hw->Current_PID.SetTi(0.05);
+	hw->Current_PID.SetTd(0.0);
+	hw->Current_PID.Setdt( 1.0 / 4000.0);
+	hw->Velocity_PID.SetK(25);
+	hw->Velocity_PID.SetTi(0.2);
+	hw->Velocity_PID.SetTd(0.007);
+	hw->Velocity_PID.Setdt(1.0 / 400.0 );
+	
+	hw->dynamic_friction = hw->CurrentToTorque(0.5);
+	hw->friction_velocity_threshold = 0.001;
 	//*/
 #endif
 }

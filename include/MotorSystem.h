@@ -154,6 +154,9 @@ public:
 	void SetTorque(float);
 	void SetVelocity(float);
 	
+	signed short pos;
+	void SetPosition(signed short);
+	
 	void Logoutput(void)
 	{
 		printf("%f,%f,%f,%f,%f\n",Vo_ref,current,C_ref,velocity,V_ref);

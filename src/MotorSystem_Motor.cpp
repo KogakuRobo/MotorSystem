@@ -35,12 +35,12 @@ void MotorSystem::i_TorqueControl(void)
 	
 	switch(this->state.mode){
 	case TORQUE:
-		//SetVoltage(move_pid);					//トルク制御の場合、誘導起電力変化は無視する。(2017/11/12 トルク制御と速度制御では同じじゃないかな）
-		//break;
+		SetVoltage(move_pid+ velocity * this->Kt / 1000);	//トルク制御の場合、誘導起電力変化は無視する。(2017/11/12 トルク制御と速度制御では同じじゃないかな）
+		break;
 	case VELOCITY:
 		SetVoltage(move_pid
-			+ velocity * this->Kt / 1000);
-			//+ (V_ref) * this->Kt / 1000);	//速度制御の場合FFを行う。1000はmNm/AをV s/radに変換するため
+			//+ velocity * this->Kt / 1000);
+			+ (V_ref) * this->Kt / 1000);	//速度制御の場合FFを行う。1000はmNm/AをV s/radに変換するため
 		break;
 	case DUTY:
 		break;
@@ -90,4 +90,13 @@ void MotorSystem::i_VelocityControl(void)
 
 void MotorSystem::i_PositionControl(void)
 {
+	int duty = -95;
+	if( (signed short)MTU1.TGRA > this->pos){
+		printf("A");
+		g_hw->SetDuty(duty);
+	}
+	else {
+		printf("B");
+		g_hw->SetDuty(0);
+	}
 }
