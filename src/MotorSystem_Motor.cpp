@@ -90,7 +90,7 @@ void MotorSystem::i_VelocityControl(void)
 
 void MotorSystem::i_PositionControl(void)
 {
-	int duty = -95;
+	int duty = _pos_duty;
 	if( (signed short)MTU1.TGRA > this->pos){
 		printf("A");
 		g_hw->SetDuty(duty);

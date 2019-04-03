@@ -138,14 +138,16 @@ void MotorSystem::SetTorque(float t)
 }
 
 //NHK 2019”N“x‘å‰ï—p
-void MotorSystem::SetPosition(signed short pos)
+void MotorSystem::SetPosition(signed short pos,signed short duty)
 {
 	if((this->state.mode == STOP) || (this->state.mode == INITIALIZE)){
+		this->_pos_duty = duty;
 		this->pos = pos;
 		SetMode(DUTY);
 		AllControlStart();
 	}
 	else{
+		this->_pos_duty = duty;
 		this->pos = pos;
 		return;
 	}

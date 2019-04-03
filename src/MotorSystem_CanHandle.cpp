@@ -49,6 +49,11 @@ typedef union{
 		float f;
 		char nc[4];
 	}FLOAT;
+	struct{
+		signed short s1;
+		signed short s2;
+		char nc[4];
+	}_set_pos;
 }DATA_TRANSER;
 #pragma packoption
 
@@ -94,6 +99,9 @@ HandleReturn MotorSystem::NormalCommandHandle(CAN_MSG msg)
 		break;
 	case SET_DUTY:
 		This->SetDuty(trans.FLOAT.f);
+		break;
+	case SET_POSITION:
+		This->SetPosition(trans._set_pos.s1,trans._set_pos.s2);
 		break;
 	case GET_VELOCITY:
 		return_parameter(This->can_bus,msg,This->velocity);

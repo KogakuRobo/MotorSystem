@@ -155,7 +155,8 @@ public:
 	void SetVelocity(float);
 	
 	signed short pos;
-	void SetPosition(signed short);
+	signed short _pos_duty;
+	void SetPosition(signed short,signed short);
 	
 	void Logoutput(void)
 	{

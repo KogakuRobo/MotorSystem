@@ -41,8 +41,8 @@ void Logout(void)
 	//g_hw->SetVelocity(g_speed);
 	//g_hw->SetDuty(g_speed);
 	//g_hw->SetTorque(g_hw->CurrentToTorque(g_speed));
-	g_hw->SetPosition(-2000);
-	printf("%d\n",(signed short)MTU1.TGRA);
+	//g_hw->SetPosition(-3000,-90);
+	//printf("%d\n",(signed short)MTU1.TGRA);
 	//g_hw->Logoutput();
 	g_hw->WDT_Clear();
 	//PORT2.DR.BIT.B4 = 0;
@@ -64,10 +64,10 @@ void main(void)
 		case INITIALIZE_MODE:
 			//printf("Initialize Start\n");
 			InitMotorSystem(&hw);
-			hw.Begin();
+			//hw.Begin();
 			//hw.SetMode(DUTY);
 			mode = WAIT_MODE;
-			CMT_Init();
+			//CMT_Init();
 			//printf("Initialize End\n");
 			break;
 			
